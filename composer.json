@@ -28,7 +28,7 @@
         "bit3/contao-meta-palettes":"~1.4"
     },
     "autoload": {
-        "psr-o": { "Netzmacht\\Bootstrap\\Form\\": "src/" }
+        "psr-0": { "Netzmacht\\Bootstrap\\Form\\": "src/" }
     },
     "extra":{
         "contao": {
