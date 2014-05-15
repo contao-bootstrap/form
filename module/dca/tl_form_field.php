@@ -123,9 +123,9 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['bootstrap_addSubmitIcon'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_icon'],
 	'exclude'                 => true,
 	'inputType'               => 'icon',
-	'options'                 => \Netzmacht\Bootstrap\Core\Helper\Icons::getIcons(),
+	'options'                 => Bootstrap::getIconSet()->getIcons(),
 	'reference'               => &$GLOBALS['TL_LANG']['tl_content'],
-	'eval'                    => array('tl_class' => 'w50', 'includeBlankOption' => true, 'iconTemplate' => \Netzmacht\Bootstrap\Core\Helper\Icons::getIconTemplate()),
+	'eval'                    => array('tl_class' => 'w50', 'includeBlankOption' => true, 'iconTemplate' => Bootstrap::getIconSet()->getTemplate()),
 	'sql'                     => "varchar(32) NOT NULL default ''"
 );
 
