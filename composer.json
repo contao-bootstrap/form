@@ -1,0 +1,42 @@
+{
+    "name":"netzmacht/contao-bootstrap-form",
+    "description":"Navigation templates supporting bootstrap dropdown navigation",
+    "keywords":["bootstrap", "form", "contao"],
+    "type":"contao-module",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"David Molineus",
+            "email":"mail@netzmacht.de",
+            "homepage":"http://www.netzmacht.de",
+            "role":"Project leader"
+        }
+    ],
+    "support":{
+        "email":"mail@netzmacht.de",
+        "issues":"https://github.com/contao-bootstrap/form/issues",
+        "wiki":"http://contao-bootstrap.netzmacht.de",
+        "source":"https://github.com/contao-bootstrap/form"
+    },
+    "require":{
+        "php":">=5.3.4",
+        "contao-community-alliance/composer-installer": "~1.6",
+        "contao/core":">=3.1,<3.3",
+        "netzmacht/contao-bootstrap-core": "*",
+        "netzmacht/html": "*",
+        "bit3/contao-meta-palettes":">=1.4.2"
+    },
+    "autoload": {
+        "psr-4": { "Netzmacht\\Bootstrap\\Navigation\\": "src/" }
+    },
+    "extra":{
+        "contao": {
+            "sources":{
+                "module": "system/modules/bootstrap-form"
+            }
+        },
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
