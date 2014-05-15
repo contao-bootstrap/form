@@ -4,7 +4,6 @@ namespace Netzmacht\Bootstrap\Form;
 
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
-use Netzmacht\Bootstrap\Core\Helper\Icons;
 use Netzmacht\FormHelper\Event\Events;
 use Netzmacht\FormHelper\Event\GenerateEvent;
 use Netzmacht\FormHelper\Event\SelectLayoutEvent;
@@ -109,7 +108,7 @@ class Subscriber implements EventSubscriberInterface
 
 			// add icon
 			if($widget->bootstrap_addIcon) {
-				$icon = Icons::generateIcon($widget->bootstrap_icon);
+				$icon = Bootstrap::generateIcon($widget->bootstrap_icon);
 
 				if($widget->bootstrap_iconPosition == 'right') {
 					$inputGroup->setRight($icon);
