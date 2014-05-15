@@ -25,7 +25,7 @@
         "netzmacht/contao-bootstrap-core": "*",
         "netzmacht/html": "*",
         "netzmacht/contao-form-helper": "*",
-        "bit3/contao-meta-palettes":"~1.4.2"
+        "bit3/contao-meta-palettes":"~1.4"
     },
     "autoload": {
         "psr-4": { "Netzmacht\\Bootstrap\\Form\\": "src/" }
