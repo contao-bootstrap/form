@@ -1,16 +1,15 @@
 <?php
 
+use Netzmacht\Bootstrap\Core\Bootstrap;
+
 /**
  * palettes
  */
 $GLOBALS['TL_DCA']['tl_form_field']['palettes']['button'] = $GLOBALS['TL_DCA']['tl_form_field']['palettes']['submit'];
 
 
-
-foreach($GLOBALS['BOOTSTRAP']['form']['widgets'] as $widget => $config)
-{
-	if(isset($config['allowInputGroup']) && $config['allowInputGroup'])
-	{
+foreach(Bootstrap::getConfigVar('form.widgets', array()) as $widget => $config) {
+	if(isset($config['allowInputGroup']) && $config['allowInputGroup']) {
 		\MetaPalettes::appendAfter('tl_form_field', $widget, 'fconfig', array
 		(
 			'icon' => array(':hide', 'bootstrap_addIcon'),
@@ -56,9 +55,9 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['bootstrap_icon'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_icon'],
 	'exclude'                 => true,
 	'inputType'               => 'icon',
-	'options'                 => \Netzmacht\Bootstrap\Core\Helper\Icons::getIcons(),
-	'eval'                    => array('tl_class' => 'w50', 'iconTemplate' => \Netzmacht\Bootstrap\Core\Helper\Icons::getIconTemplate()),
-	'sql'                     => "varchar(32) NOT NULL default ''"
+	'options'                 => Bootstrap::getIconSet()->getIcons(),
+	'eval'                    => array('tl_class' => 'w50', 'iconTemplate' => Bootstrap::getIconSet()->getTemplate()),
+	'sql'                     => "varchar(32) NOT NULL default ''",
 );
 
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['bootstrap_iconPosition'] = array
