@@ -1,12 +1,10 @@
-<?php $this->extend('form_row'); ?>
-
 <div class="form-group<?php if($this->hasErrors()): ?> has-error<?php endif; ?>">
 	<?php $this->block('label'); ?>
-		<?php echo $label; ?>
+	<?php echo $label; ?>
 	<?php $this->endblock(); ?>
 
 	<?php $this->block('field'); ?>
-		<?php echo $container; ?>
-		<?php echo $errors; ?>
+	<?php echo $container; ?>
+	<?php echo $errors; ?>
 	<?php $this->endblock(); ?>
 </div>
