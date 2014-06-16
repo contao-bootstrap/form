@@ -22,7 +22,8 @@
         "php":">=5.3.4",
         "contao-community-alliance/composer-installer": "~1.6",
         "contao/core":">=3.3,<3.4",
-        "netzmacht/contao-bootstrap-core": "*",
+        "netzmacht/contao-bootstrap-core": "~1.0",
+        "netzmacht/contao-iconwizard": "~1.0",
         "netzmacht/html": "*",
         "netzmacht/contao-form-helper": "*",
         "bit3/contao-meta-palettes":"~1.4"
