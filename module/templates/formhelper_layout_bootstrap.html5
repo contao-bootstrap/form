@@ -5,6 +5,5 @@
 
 	<?php $this->block('field'); ?>
 	<?php echo $container; ?>
-	<?php echo $errors; ?>
 	<?php $this->endblock(); ?>
 </div>
