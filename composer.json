@@ -1,5 +1,5 @@
 {
-    "name":"netzmacht/contao-bootstrap-form",
+    "name":"contao-bootstrap/form",
     "description":"Navigation templates supporting bootstrap dropdown navigation",
     "keywords":["bootstrap", "form", "contao"],
     "type":"contao-module",
@@ -21,8 +21,8 @@
     "require":{
         "php":">=5.3.4",
         "contao-community-alliance/composer-installer": "~1.6",
-        "contao/core":">=3.3,<3.4",
-        "netzmacht/contao-bootstrap-core": "~1.0",
+        "contao/core":">=3.2,<3.4",
+        "contao-bootstrap/core": "~1.0",
         "netzmacht/contao-iconwizard": "~1.0",
         "netzmacht/html": "*",
         "netzmacht/contao-form-helper": "*",
