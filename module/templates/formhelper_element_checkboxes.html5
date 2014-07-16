@@ -1,4 +1,4 @@
-<?php echo $this->tag; ?> <?php echo $this->element->generateAttributes(); ?>>
+<<?php echo $this->tag; ?> <?php echo $this->element->generateAttributes(); ?>>
 	<legend><?php echo $this->label; ?></legend>
 <?php
 
