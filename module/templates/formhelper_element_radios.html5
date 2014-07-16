@@ -1,0 +1,54 @@
+<<?php echo $this->tag; ?> <?php echo $this->element->generateAttributes(); ?>>
+	<legend><?php echo $this->label; ?></legend>
+<?php
+
+use Netzmacht\Html\Element;
+use Netzmacht\FormHelper\Element\Checkboxes;
+
+/** @var Checkboxes $element */
+$group = null;
+$index = 0;
+
+foreach($this->options as $option):
+	if(isset($option['group']) && $option['group']):
+		if($group) {
+			echo $group;
+		}
+
+		$group = Element::create('fieldset');
+		$legend = $group->create('legend')
+			->addChild($option['label']);
+		$group
+			->addChild($legend);
+
+	else:
+		$child = Element::create('input', array('type' => 'radio'))
+			->setAttribute('name', $this->element->getAttribute('name') . '[]')
+			->setAttribute('id', $this->element->getId() . '_' . $index)
+			->setAttribute('value', $option['value']);
+
+		$label = Element::create('label');
+		$label->addChild($child);
+		$label->addChild($option['label']);
+		$label->setAttribute('for', $child->getId());
+
+		$buffer = sprintf('<div class="radio">%s</div>', $label);
+
+		if($group) {
+			$group->addChild($buffer);
+		}
+		else {
+			echo $buffer;
+		}
+
+	endif;
+
+	$index++;
+endforeach;
+
+if($group) {
+	echo $group;
+}
+
+?>
+</<?php echo $this->tag; ?>>
