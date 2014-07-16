@@ -7,8 +7,8 @@ use Netzmacht\Bootstrap\Core\Bootstrap;
 use Netzmacht\FormHelper\Event\Events;
 use Netzmacht\FormHelper\Event\GenerateEvent;
 use Netzmacht\FormHelper\Event\SelectLayoutEvent;
-use Netzmacht\FormHelper\Html\Element;
-use Netzmacht\FormHelper\Component\Container;
+use Netzmacht\Html\Element;
+use Netzmacht\FormHelper\Partial\Container;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
@@ -65,13 +65,12 @@ class Subscriber implements EventSubscriberInterface
 		$widget    = $event->getWidget();
 		$label     = $event->getLabel();
 		$errors    = $event->getErrors();
-		$isDynamic = $element instanceof Element;
 
 		// add label class
 		$label->addClass('control-label');
 
 		// apply form control class to the element
-		if($isDynamic && !$this->getConfig($widget->type, 'noFormControl')) {
+		if($element instanceof Element && !$this->getConfig($widget->type, 'noFormControl')) {
 			$element->addClass('form-control');
 		}
 
@@ -89,9 +88,12 @@ class Subscriber implements EventSubscriberInterface
 		}
 
 		// enable styled select
-		if($isDynamic && $GLOBALS['BOOTSTRAP']['form']['styleSelect']['enabled'] && $this->getConfig($widget->type, 'styleSelect')) {
-			$element->addClass($GLOBALS['BOOTSTRAP']['form']['styleSelect']['class']);
-			$element->setAttribute('data-style', $GLOBALS['BOOTSTRAP']['form']['styleSelect']['style']);
+		if($element instanceof Element
+			&& Bootstrap::getConfigVar('form.styleSelect.enabled')
+			&& $this->getConfig($widget->type, 'styleSelect')
+		) {
+			$element->addClass(Bootstrap::getConfigVar('form.styleSelect.class'));
+			$element->setAttribute('data-style', Bootstrap::getConfigVar('form.styleSelect.style'));
 		}
 
 		// generate input group
@@ -131,7 +133,10 @@ class Subscriber implements EventSubscriberInterface
 			// add submit button into input group
 			if($container->hasChild('submit')) {
 				$submit = $container->removeChild('submit');
-				$submit->addClass('btn');
+
+				if($submit instanceof Element) {
+					$submit->addClass('btn');
+				}
 
 				$inputGroup->setRight($submit, $inputGroup::BUTTON);
 			}
@@ -147,7 +152,7 @@ class Subscriber implements EventSubscriberInterface
 		$container->addChild('errors', $errors);
 		$errors->addClass('help-block');
 
-		if($isDynamic && $event->getWidget()->type == 'upload') {
+		if($element instanceof Element && $event->getWidget()->type == 'upload') {
 			$this->generateUpload($container);
 		}
 	}
@@ -158,6 +163,7 @@ class Subscriber implements EventSubscriberInterface
 	 */
 	protected function generateUpload(Container $container)
 	{
+		/** @var Element $element */
 		$element = $container->getElement();
 		$element->setAttribute('style', 'display:none;');
 		$element->setAttribute('onchange', sprintf('document.getElementById(\'%s_value\').value=this.value;return false;', $element->getId()));
