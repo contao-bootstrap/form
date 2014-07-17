@@ -18,6 +18,9 @@
         "wiki":"http://contao-bootstrap.netzmacht.de",
         "source":"https://github.com/contao-bootstrap/form"
     },
+    "conflict": {
+        "netzmacht/contao-bootstrap": "*"
+    },
     "require":{
         "php":">=5.3.4",
         "contao-community-alliance/composer-installer": "~1.6",
