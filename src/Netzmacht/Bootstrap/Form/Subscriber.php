@@ -4,7 +4,6 @@ namespace Netzmacht\Bootstrap\Form;
 
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
-use Netzmacht\Bootstrap\Helper\Icons;
 use Netzmacht\FormHelper\Element\StaticHtml;
 use Netzmacht\FormHelper\Event\BuildElementEvent;
 use Netzmacht\FormHelper\Event\Events;
@@ -73,7 +72,7 @@ class Subscriber implements EventSubscriberInterface
 			}
 
 			if($widget->bootstrap_addIcon) {
-				$icon = Icons::generateIcon($widget->bootstrap_icon);
+				$icon = Bootstrap::generateIcon($widget->bootstrap_icon);
 
 				if($widget->bootstrap_iconPosition == 'left') {
 					$element->addChild($icon . ' ', Node::POSITION_FIRST);
@@ -233,7 +232,7 @@ class Subscriber implements EventSubscriberInterface
 	private function addIcon($widget, InputGroup $inputGroup)
 	{
 		if($widget->bootstrap_addIcon) {
-			$icon = Icons::generateIcon($widget->bootstrap_icon);
+			$icon = Bootstrap::generateIcon($widget->bootstrap_icon);
 
 			if($widget->bootstrap_iconPosition == 'right') {
 				$inputGroup->setRight($icon);
@@ -286,7 +285,7 @@ class Subscriber implements EventSubscriberInterface
 			}
 
 			if($widget->bootstrap_addSubmitIcon) {
-				$icon     = Icons::generateIcon($widget->bootstrap_addSubmitIcon);
+				$icon     = Bootstrap::generateIcon($widget->bootstrap_addSubmitIcon);
 				$position = null;
 
 				if($widget->bootstrap_addSubmitIconPosition == 'left') {
