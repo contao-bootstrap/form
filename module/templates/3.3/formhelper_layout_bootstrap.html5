@@ -4,6 +4,6 @@
 	<?php $this->endblock(); ?>
 
 	<?php $this->block('field'); ?>
-	<?php echo $container; ?>
+	<?php echo $container; ?>&nbsp;
 	<?php $this->endblock(); ?>
 </div>
