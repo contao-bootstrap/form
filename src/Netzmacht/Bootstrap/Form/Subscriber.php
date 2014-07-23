@@ -109,6 +109,7 @@ class Subscriber implements EventSubscriberInterface
 		$widget    = $event->getWidget();
 		$label     = $event->getLabel();
 		$errors    = $event->getErrors();
+		$form      = $event->getForm();
 
 		// add label class
 		$label->addClass('control-label');
@@ -118,7 +119,7 @@ class Subscriber implements EventSubscriberInterface
 			$label->hide();
 		}
 
-		$this->setColumnLayout($widget, $container, $label);
+		$this->setColumnLayout($widget, $container, $label, $form);
 		$this->adjustElement($event, $element, $widget, $container);
 		$this->addInputGroup($widget, $container, $element);
 
@@ -213,12 +214,13 @@ class Subscriber implements EventSubscriberInterface
 
 	/**
 	 * @param $widget
-	 * @param $container
-	 * @param $label
+	 * @param \Netzmacht\FormHelper\Partial\Container $container
+	 * @param \Netzmacht\FormHelper\Partial\Label $label
+	 * @param $form
 	 */
-	private function setColumnLayout($widget, Container $container, Label $label)
+	private function setColumnLayout($widget, Container $container, Label $label, $form)
 	{
-		if(!$widget->tableless) {
+		if(($form->numRows && !$widget->tableless) || (!$form->numRows && !Bootstrap::getConfigVar('form.defaultTableless'))) {
 			$container->setRenderContainer(true);
 			$container->addClass(Bootstrap::getConfigVar('form.tableFormat.control'));
 
