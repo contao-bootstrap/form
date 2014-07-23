@@ -45,7 +45,7 @@ return array(
 
 			'select' => array
 			(
-				'styleSelect'      => true,
+				'styledSelect'     => true,
 			),
 
 			'text' => array
@@ -103,6 +103,21 @@ return array(
 			'enabled'       => true,
 			'class'         => 'selectpicker',
 			'defaultStyle'  => 'btn-default',
+			'javascript'    => array(
+				'system/modules/bootstrap-form/assets/bootstrap-select/bootstrap-select.min.js',
+				'system/modules/bootstrap-form/assets/bootstrap-select.js'
+			),
+			'stylesheet'    => 'system/modules/bootstrap-form/assets/bootstrap-select/bootstrap-select.min.css',
+		),
+
+		// style the upload button
+		'styledUpload' => array
+		(
+			'enabled'	    => true,
+			'class'			=> 'btn btn-primary',
+			'position'	    => 'right',
+			'onchange'	    => 'document.getElementById(\'%s_value\').value=this.value.replace(/C:\\\\fakepath\\\\/i, "");return false;',
+			'label'			=> &$GLOBALS['TL_LANG']['MSC']['bootstrapUploadButton']
 		),
 
 		// provides data attributes for custom select

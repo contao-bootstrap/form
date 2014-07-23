@@ -4,6 +4,7 @@ namespace Netzmacht\Bootstrap\Form;
 
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
+use Netzmacht\Bootstrap\Core\Util\AssetsManager;
 use Netzmacht\FormHelper\Element\StaticHtml;
 use Netzmacht\FormHelper\Event\BuildElementEvent;
 use Netzmacht\FormHelper\Event\Events;
@@ -194,11 +195,17 @@ class Subscriber implements EventSubscriberInterface
 
 			// enable styled select
 			if(Bootstrap::getConfigVar('form.styledSelect.enabled') && $this->getConfig($widget->type, 'styledSelect')) {
+				$javascripts = Bootstrap::getConfigVar('form.styledSelect.javascript');
+				$stylesheets = Bootstrap::getConfigVar('form.styledSelect.stylesheet');
+
+				AssetsManager::addJavascripts($javascripts, 'bootstrap-styled-select');
+				AssetsManager::addStylesheets($stylesheets, 'bootstrap-styled-select');
+
 				$element->addClass(Bootstrap::getConfigVar('form.styledSelect.class'));
 				$element->setAttribute('data-style', Bootstrap::getConfigVar('form.styledSelect.style'));
 			}
 
-			if($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styledSelect.enabled')) {
+			if($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styledUpload.enabled')) {
 				$this->generateUpload($container);
 			}
 		}
