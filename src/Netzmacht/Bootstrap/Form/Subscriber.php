@@ -131,7 +131,7 @@ class Subscriber implements EventSubscriberInterface
 	 */
 	protected function generateUpload(Container $container)
 	{
-		$config  = $GLOBALS['BOOTSTRAP']['form']['styledUpload'];
+		$config  = Bootstrap::getConfigVar('form.styledUpload');
 		$element = $container->getElement();
 
 		/** @var Element $element */
@@ -193,12 +193,12 @@ class Subscriber implements EventSubscriberInterface
 			}
 
 			// enable styled select
-			if(Bootstrap::getConfigVar('form.styleSelect.enabled') && $this->getConfig($widget->type, 'styleSelect')) {
-				$element->addClass($GLOBALS['BOOTSTRAP']['form']['styleSelect']['class']);
-				$element->setAttribute('data-style', Bootstrap::getConfigVar('form.styleSelect.style'));
+			if(Bootstrap::getConfigVar('form.styledSelect.enabled') && $this->getConfig($widget->type, 'styledSelect')) {
+				$element->addClass(Bootstrap::getConfigVar('form.styledSelect.class'));
+				$element->setAttribute('data-style', Bootstrap::getConfigVar('form.styledSelect.style'));
 			}
 
-			if($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styleSelect.enabled')) {
+			if($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styledSelect.enabled')) {
 				$this->generateUpload($container);
 			}
 		}
