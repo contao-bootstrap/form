@@ -45,7 +45,7 @@ return array(
 
 			'select' => array
 			(
-				'styledSelect'     => true,
+				'styled-select'     => true,
 			),
 
 			'text' => array
@@ -87,7 +87,7 @@ return array(
 		),
 
 		// which columns shall be used for the form in table mode
-		'tableFormat' => array
+		'horizontal' => array
 		(
 			'label'         => 'col-lg-3',
 			'control'       => 'col-lg-9',
@@ -95,14 +95,14 @@ return array(
 		),
 
 		// how to display forms like comments form by default
-		'defaultTableless'  => true,
+		'default-horizontal'  => true,
 
 		// add style select to select list, set to false to disable
-		'styledSelect' => array
+		'styled-select' => array
 		(
 			'enabled'       => true,
 			'class'         => 'selectpicker',
-			'defaultStyle'  => 'btn-default',
+			'style'         => 'btn-default',
 			'javascript'    => array(
 				'system/modules/bootstrap-form/assets/bootstrap-select/bootstrap-select.min.js',
 				'system/modules/bootstrap-form/assets/bootstrap-select.js'
@@ -111,7 +111,7 @@ return array(
 		),
 
 		// style the upload button
-		'styledUpload' => array
+		'styled-upload' => array
 		(
 			'enabled'	    => true,
 			'class'			=> 'btn btn-primary',
@@ -121,6 +121,6 @@ return array(
 		),
 
 		// provides data attributes for custom select
-		'dataAttributes' => array('target', 'toggle', 'dismiss', 'remote'),
+		'data-attributes' => array('target', 'toggle', 'dismiss', 'remote'),
 	)
 );

@@ -133,7 +133,7 @@ class Subscriber implements EventSubscriberInterface
 	 */
 	protected function generateUpload(Container $container)
 	{
-		$config  = Bootstrap::getConfigVar('form.styledUpload');
+		$config  = Bootstrap::getConfigVar('form.styled-upload');
 		$element = $container->getElement();
 
 		/** @var Element $element */
@@ -195,18 +195,18 @@ class Subscriber implements EventSubscriberInterface
 			}
 
 			// enable styled select
-			if(Bootstrap::getConfigVar('form.styledSelect.enabled') && $this->getConfig($widget->type, 'styledSelect')) {
-				$javascripts = Bootstrap::getConfigVar('form.styledSelect.javascript');
-				$stylesheets = Bootstrap::getConfigVar('form.styledSelect.stylesheet');
+			if(Bootstrap::getConfigVar('form.styled-select.enabled') && $this->getConfig($widget->type, 'styled-select')) {
+				$javascripts = Bootstrap::getConfigVar('form.styled-select.javascript');
+				$stylesheets = Bootstrap::getConfigVar('form.styled-select.stylesheet');
 
 				AssetsManager::addJavascripts($javascripts, 'bootstrap-styled-select');
 				AssetsManager::addStylesheets($stylesheets, 'bootstrap-styled-select');
 
-				$element->addClass(Bootstrap::getConfigVar('form.styledSelect.class'));
-				$element->setAttribute('data-style', Bootstrap::getConfigVar('form.styledSelect.style'));
+				$element->addClass(Bootstrap::getConfigVar('form.styled-select.class'));
+				$element->setAttribute('data-style', Bootstrap::getConfigVar('form.styled-select.style'));
 			}
 
-			if($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styledUpload.enabled')) {
+			if($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styled-upload.enabled')) {
 				$this->generateUpload($container);
 			}
 		}
@@ -220,15 +220,15 @@ class Subscriber implements EventSubscriberInterface
 	 */
 	private function setColumnLayout($widget, Container $container, Label $label, $form)
 	{
-		if(($form->numRows && !$widget->tableless) || (!$form->numRows && !Bootstrap::getConfigVar('form.defaultTableless'))) {
+		if(($form->numRows && !$widget->tableless) || (!$form->numRows && !Bootstrap::getConfigVar('form.default-horizontal'))) {
 			$container->setRenderContainer(true);
-			$container->addClass(Bootstrap::getConfigVar('form.tableFormat.control'));
+			$container->addClass(Bootstrap::getConfigVar('form.horizontal.control'));
 
 			if(!$widget->label || $this->getConfig($widget->type, 'noLabel')) {
-				$container->addClass(Bootstrap::getConfigVar('form.tableFormat.offset'));
+				$container->addClass(Bootstrap::getConfigVar('form.horizontal.offset'));
 			}
 			else {
-				$label->addClass(Bootstrap::getConfigVar('form.tableFormat.label'));
+				$label->addClass(Bootstrap::getConfigVar('form.horizontal.label'));
 			}
 		}
 	}
