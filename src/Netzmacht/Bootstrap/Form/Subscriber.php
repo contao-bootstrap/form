@@ -115,7 +115,7 @@ class Subscriber implements EventSubscriberInterface
 		$label->addClass('control-label');
 		$errors->addClass('help-block');
 
-		if(!$widget->label || $this->getConfig($widget->type, 'noLabel')) {
+		if(!$widget->label || !$this->getConfig($widget->type, 'label', true)) {
 			$label->hide();
 		}
 
@@ -173,11 +173,12 @@ class Subscriber implements EventSubscriberInterface
 	/**
 	 * @param $type
 	 * @param $name
+	 * @param bool $default
 	 * @return mixed
 	 */
-	protected function getConfig($type, $name)
+	protected function getConfig($type, $name, $default=false)
 	{
-		return Bootstrap::getConfigVar('form.widgets.' . $type . '.' . $name, false);
+		return Bootstrap::getConfigVar('form.widgets.' . $type . '.' . $name, $default);
 	}
 
 	/**
@@ -190,7 +191,7 @@ class Subscriber implements EventSubscriberInterface
 	{
 		if($element instanceof Element) {
 			// apply form control class to the element
-			if(!$this->getConfig($widget->type, 'noFormControl')) {
+			if($this->getConfig($widget->type, 'form-control', true)) {
 				$element->addClass('form-control');
 			}
 
@@ -224,7 +225,7 @@ class Subscriber implements EventSubscriberInterface
 			$container->setRenderContainer(true);
 			$container->addClass(Bootstrap::getConfigVar('form.horizontal.control'));
 
-			if(!$widget->label || $this->getConfig($widget->type, 'noLabel')) {
+			if(!$widget->label || !$this->getConfig($widget->type, 'label', true)) {
 				$container->addClass(Bootstrap::getConfigVar('form.horizontal.offset'));
 			}
 			else {
@@ -332,7 +333,7 @@ class Subscriber implements EventSubscriberInterface
 	 */
 	private function addInputGroup($widget, Container $container, CastsToString $element)
 	{
-		if($this->getConfig($widget->type, 'allowInputGroup') &&
+		if($this->getConfig($widget->type, 'input-group') &&
 			($widget->bootstrap_addIcon ||
 				$widget->bootstrap_addUnit ||
 				$container->hasChild('submit') ||

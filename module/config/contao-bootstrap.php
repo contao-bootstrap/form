@@ -2,125 +2,123 @@
 
 return array(
 	'form' => array(
-		'widgets' => array
+		'widgets'            => array
 		(
-			'button' => array
+			'button'      => array
 			(
-				'noFormControl'    => true,
-				'modalFooter'      => true,
+				'form-control' => false,
+				'modal-footer' => true,
 			),
 
-			'captcha' => array
+			'captcha'     => array
 			(
-				'allowInputGroup'  => true,
+				'input-group' => true,
 			),
 
-			'checkbox' => array
+			'checkbox'    => array
 			(
-				'noFormControl'    => true,
-				'noLabel'          => true,
-				'generateTemplate' => 'form_checkbox_generate',
+				'form-control' => false,
+				'label'        => false,
 			),
 
 			'explanation' => array(
-				'noFormControl'    => true,
+				'form-control' => false,
 			),
 
-			'headline' => array(
-				'noFormControl'    => true,
+			'headline'    => array(
+				'form-control' => false,
 			),
 
-			'radio' => array
+			'radio'       => array
 			(
-				'noFormControl'    => true,
-				'noLabel'          => true,
-				'generateTemplate' => 'form_radio_generate',
+				'form-control' => false,
+				'label'        => false
 			),
 
-			'submit' => array
+			'submit'      => array
 			(
-				'noFormControl'    => true,
-				'modalFooter'      => true,
+				'form-control' => false,
+				'modal-footer' => true,
 			),
 
-			'select' => array
+			'select'      => array
 			(
-				'styled-select'     => true,
+				'styled-select' => true,
 			),
 
-			'text' => array
+			'text'        => array
 			(
-				'allowInputGroup'  => true,
+				'input-group' => true,
 			),
 
-			'email' => array
+			'email'       => array
 			(
-				'allowInputGroup'  => true,
+				'input-group' => true,
 			),
 
-			'digit' => array
+			'digit'       => array
 			(
-				'allowInputGroup'  => true,
+				'input-group' => true,
 			),
 
-			'tel' => array
+			'tel'         => array
 			(
-				'allowInputGroup'  => true,
+				'input-group' => true,
 			),
 
-			'url' => array
+			'url'         => array
 			(
-				'allowInputGroup'  => true,
+				'input-group' => true,
 			),
 
 
-			'textarea' => array
+			'textarea'    => array
 			(
-				'allowInputGroup'  => true,
+				'input-group' => true,
 			),
 
-			'password' => array
+			'password'    => array
 			(
-				'allowInputGroup'  => true,
+				'input-group' => true,
 			),
 
 		),
 
 		// which columns shall be used for the form in table mode
-		'horizontal' => array
+		'horizontal'         => array
 		(
-			'label'         => 'col-lg-3',
-			'control'       => 'col-lg-9',
-			'offset'        => 'col-lg-offset-3',
+			'label'   => 'col-lg-3',
+			'control' => 'col-lg-9',
+			'offset'  => 'col-lg-offset-3',
 		),
 
 		// how to display forms like comments form by default
-		'default-horizontal'  => true,
+		'default-horizontal' => true,
 
 		// add style select to select list, set to false to disable
-		'styled-select' => array
+		'styled-select'      => array
 		(
-			'enabled'       => true,
-			'class'         => 'selectpicker',
-			'style'         => 'btn-default',
-			'javascript'    => array(
+			'enabled'    => true,
+			'class'      => 'selectpicker',
+			'style'      => 'btn-default',
+			'javascript' => array(
 				'system/modules/bootstrap-form/assets/bootstrap-select/bootstrap-select.min.js',
 				'system/modules/bootstrap-form/assets/bootstrap-select.js'
 			),
-			'stylesheet'    => 'system/modules/bootstrap-form/assets/bootstrap-select/bootstrap-select.min.css',
+			'stylesheet' => 'system/modules/bootstrap-form/assets/bootstrap-select/bootstrap-select.min.css',
 		),
 
 		// style the upload button
-		'styled-upload' => array
+		'styled-upload'      => array
 		(
-			'enabled'	    => true,
-			'class'			=> 'btn btn-primary',
-			'position'	    => 'right',
-			'onchange'	    => 'document.getElementById(\'%s_value\').value=this.value.replace(/C:\\\\fakepath\\\\/i, "");return false;',
-			'label'			=> &$GLOBALS['TL_LANG']['MSC']['bootstrapUploadButton']
+			'enabled'  => true,
+			'class'    => 'btn btn-primary',
+			'position' => 'right',
+			'onchange' => 'document.getElementById(\'%s_value\').value=this.value.replace(/C:\\\\fakepath\\\\/i, "");return false;',
+			'label'    => &$GLOBALS['TL_LANG']['MSC']['bootstrapUploadButton']
 		),
 
 		// provides data attributes for custom select
-		'data-attributes' => array('target', 'toggle', 'dismiss', 'remote'),
+		'data-attributes'    => array('target', 'toggle', 'dismiss', 'remote'),
 	)
 );

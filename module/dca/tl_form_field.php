@@ -9,7 +9,7 @@ $GLOBALS['TL_DCA']['tl_form_field']['palettes']['button'] = $GLOBALS['TL_DCA']['
 
 
 foreach(Bootstrap::getConfigVar('form.widgets', array()) as $widget => $config) {
-	if(isset($config['allowInputGroup']) && $config['allowInputGroup']) {
+	if(isset($config['input-group']) && $config['input-group']) {
 		\MetaPalettes::appendAfter('tl_form_field', $widget, 'fconfig', array
 		(
 			'icon' => array(':hide', 'bootstrap_addIcon'),
