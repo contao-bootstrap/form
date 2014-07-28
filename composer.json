@@ -28,7 +28,7 @@
         "contao-bootstrap/core": "~1.0",
         "netzmacht/contao-iconwizard": "~1.0",
         "netzmacht/html": "~1.0",
-        "netzmacht/contao-form-helper": "~0.2.0",
+        "netzmacht/contao-form-helper": "~0.3.0",
         "bit3/contao-meta-palettes":"~1.4"
     },
     "autoload": {

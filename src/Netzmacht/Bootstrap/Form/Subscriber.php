@@ -44,47 +44,9 @@ class Subscriber implements EventSubscriberInterface
 	public static function getSubscribedEvents()
 	{
 		return array(
-			Events::BUILD_ELEMENT => 'buildElement',
 			Events::SELECT_LAYOUT => 'selectLayout',
-			Events::GENERATE => 'generate',
+			Events::GENERATE      => 'generate',
 		);
-	}
-
-
-	/**
-	 * @param BuildElementEvent $event
-	 */
-	public function buildElement(BuildElementEvent $event)
-	{
-		$widget = $event->getWidget();
-
-		if($widget->type == 'button') {
-			$element = Element::create('button', array('type' => 'submit'));
-
-			if($widget->imageSubmit) {
-				$img = \Image::getHtml(\FilesModel::findByPk($widget->singleSRC)->path, $widget->slabel);
-				$element->addChild($img);
-			}
-			else {
-				$element->addChild($widget->slabel);
-				$element
-					->addClass('btn')
-					->addClass($widget->class ?: 'btn-default');
-			}
-
-			if($widget->bootstrap_addIcon) {
-				$icon = Bootstrap::generateIcon($widget->bootstrap_icon);
-
-				if($widget->bootstrap_iconPosition == 'left') {
-					$element->addChild($icon . ' ', Node::POSITION_FIRST);
-				}
-				else {
-					$element->addChild(' ' . $icon);
-				}
-			}
-
-			$event->setElement($element);
-		}
 	}
 
 
