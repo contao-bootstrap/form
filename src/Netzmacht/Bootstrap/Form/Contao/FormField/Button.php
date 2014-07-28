@@ -15,9 +15,10 @@ namespace Netzmacht\Bootstrap\Form\Contao\FormField;
 
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
+use Netzmacht\FormHelper\GeneratesAnElement;
 use Netzmacht\Html\Element;
 
-class Button extends \FormSubmit
+class Button extends \FormSubmit implements GeneratesAnElement
 {
 	/**
 	 * Generate the widget and return it as string
