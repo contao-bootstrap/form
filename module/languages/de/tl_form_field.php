@@ -1,5 +1,9 @@
 <?php
 
+$GLOBALS['TL_LANG']['FFL']['button'][0] = 'Schaltfläche';
+$GLOBALS['TL_LANG']['FFL']['button'][1] = 'Schaltfläche mit Text, Icon oder Bild';
+
+
 $GLOBALS['TL_LANG']['tl_form_field']['unit_legend'] = 'Einheit';
 $GLOBALS['TL_LANG']['tl_form_field']['icon_legend'] = 'Icon';
 

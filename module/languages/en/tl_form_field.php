@@ -1,5 +1,9 @@
 <?php
 
+$GLOBALS['TL_LANG']['FFL']['button'][0] = 'Button';
+$GLOBALS['TL_LANG']['FFL']['button'][1] = 'Button with text, icon or an image.';
+
+
 $GLOBALS['TL_LANG']['tl_form_field']['unit_legend'] = 'Unit';
 $GLOBALS['TL_LANG']['tl_form_field']['icon_legend'] = 'Icon';
 
