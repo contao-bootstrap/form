@@ -61,6 +61,10 @@ class Subscriber implements EventSubscriberInterface
             $label->hide();
         }
 
+        if($widget->bootstrap_inlineStyle) {
+            $element->addClass('inline');
+        }
+
         $this->setColumnLayout($widget, $container, $label, $form);
         $this->adjustElement($event, $element, $widget, $container);
         $this->addInputGroup($widget, $container, $element);

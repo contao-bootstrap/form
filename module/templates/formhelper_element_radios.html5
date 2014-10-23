@@ -36,7 +36,12 @@ foreach($this->options as $option):
 		$label->addChild($option['label']);
 		$label->setAttribute('for', $child->getId());
 
-		$buffer = sprintf('<div class="radio">%s</div>', $label);
+        if($this->element->hasClass('inline')) {
+            $buffer = (string) $label->addClass('radio-inline');
+        }
+		else {
+            $buffer = sprintf('<div class="radio">%s</div>', $label);
+        }
 
 		if($group) {
 			$group->addChild($buffer);
