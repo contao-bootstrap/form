@@ -28,13 +28,14 @@ class Button extends \FormSubmit implements GeneratesAnElement
         $buttonClass = (($this->strClass != '') ? ' ' . $this->strClass : 'btn-default');
         $button      = Element::create('button', $this->arrAttributes)
             ->setId('ctrl_' . $this->strId)
-            ->addAttributes(array(
-                'type'  => 'submit',
-                'class' => array('submit', 'btn', $buttonClass),
-                'title' => specialchars($this->slabel),
-                'alt'   => specialchars($this->slabel),
-            )
-        );
+            ->addAttributes(
+                array(
+                    'type'  => 'submit',
+                    'class' => array('submit', 'btn', $buttonClass),
+                    'title' => specialchars($this->slabel),
+                    'alt'   => specialchars($this->slabel),
+                )
+            );
 
         if ($this->imageSubmit) {
             $model = \FilesModel::findByPk($this->singleSRC);
@@ -64,5 +65,4 @@ class Button extends \FormSubmit implements GeneratesAnElement
 
         return $button;
     }
-
 }

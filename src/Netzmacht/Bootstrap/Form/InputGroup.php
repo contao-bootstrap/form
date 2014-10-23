@@ -36,7 +36,7 @@ class InputGroup extends Component implements HasElement
     /**
      * @param array $attributes
      */
-    public function __construct(array $attributes=array())
+    public function __construct(array $attributes = array())
     {
         parent::__construct($attributes);
         $this->addClass('input-group');
@@ -46,7 +46,7 @@ class InputGroup extends Component implements HasElement
      * @param $addon
      * @param string $type
      */
-    public function setLeft($addon, $type=InputGroup::ADDON)
+    public function setLeft($addon, $type = InputGroup::ADDON)
     {
         $this->left = array(
             'addon' => $addon,
@@ -70,7 +70,7 @@ class InputGroup extends Component implements HasElement
      * @param $addon
      * @param string $type
      */
-    public function setRight($addon, $type=InputGroup::ADDON)
+    public function setRight($addon, $type = InputGroup::ADDON)
     {
         $this->right = array(
             'addon' => $addon,
@@ -146,5 +146,4 @@ class InputGroup extends Component implements HasElement
     {
         return $this->generate();
     }
-
 }

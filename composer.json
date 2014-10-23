@@ -31,6 +31,9 @@
         "netzmacht/contao-form-helper": "~1.0",
         "bit3/contao-meta-palettes":"~1.4"
     },
+    "require-dev": {
+        "netzmacht/contao-build-tools": "1.0.x-dev"
+    },
     "autoload": {
         "psr-0": { "Netzmacht\\Bootstrap\\Form\\": "src/" }
     },
@@ -43,5 +46,7 @@
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

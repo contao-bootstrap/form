@@ -18,24 +18,7 @@ class Subscriber implements EventSubscriberInterface
 {
 
     /**
-     * Returns an array of event names this subscriber wants to listen to.
-     *
-     * The array keys are event names and the value can be:
-     *
-     *  * The method name to call (priority defaults to 0)
-     *  * An array composed of the method name to call and the priority
-     *  * An array of arrays composed of the method names to call and respective
-     *    priorities, or 0 if unset
-     *
-     * For instance:
-     *
-     *  * array('eventName' => 'methodName')
-     *  * array('eventName' => array('methodName', $priority))
-     *  * array('eventName' => array(array('methodName1', $priority), array('methodName2'))
-     *
-     * @return array The event names to listen to
-     *
-     * @api
+     * @{inheritdoc}
      */
     public static function getSubscribedEvents()
     {
@@ -139,7 +122,7 @@ class Subscriber implements EventSubscriberInterface
      * @param bool $default
      * @return mixed
      */
-    protected function getConfig($type, $name, $default=false)
+    protected function getConfig($type, $name, $default = false)
     {
         return Bootstrap::getConfigVar('form.widgets.' . $type . '.' . $name, $default);
     }
@@ -159,7 +142,8 @@ class Subscriber implements EventSubscriberInterface
             }
 
             // enable styled select
-            if (Bootstrap::getConfigVar('form.styled-select.enabled') && $this->getConfig($widget->type, 'styled-select')) {
+            if (Bootstrap::getConfigVar('form.styled-select.enabled')
+                && $this->getConfig($widget->type, 'styled-select')) {
                 $javascripts = Bootstrap::getConfigVar('form.styled-select.javascript');
                 $stylesheets = Bootstrap::getConfigVar('form.styled-select.stylesheet');
 
@@ -184,7 +168,7 @@ class Subscriber implements EventSubscriberInterface
      */
     private function setColumnLayout($widget, Container $container, Label $label, $form)
     {
-        if(($form->numRows && !$widget->tableless)
+        if (($form->numRows && !$widget->tableless)
             || (!$form->numRows && !Bootstrap::getConfigVar('form.default-horizontal'))
         ) {
             $container->setRenderContainer(true);
@@ -294,7 +278,7 @@ class Subscriber implements EventSubscriberInterface
      */
     private function addInputGroup($widget, Container $container, CastsToString $element)
     {
-        if($this->getConfig($widget->type, 'input-group') &&
+        if ($this->getConfig($widget->type, 'input-group') &&
             ($widget->bootstrap_addIcon ||
                 $widget->bootstrap_addUnit ||
                 $container->hasChild('submit') ||
@@ -311,5 +295,4 @@ class Subscriber implements EventSubscriberInterface
             $this->adjustCaptcha($widget, $container, $inputGroup);
         }
     }
-
 }
