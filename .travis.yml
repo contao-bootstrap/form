@@ -8,5 +8,4 @@ php:
 install:
     - composer install --prefer-dist --dev
 
-script:
-    - ant -keep-going
+script: ant -keep-going

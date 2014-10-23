@@ -37,7 +37,7 @@ class Subscriber implements EventSubscriberInterface
             $view = $event->getView();
 
             $view->setLayout('bootstrap');
-            $view->getAttributes()->addClass('from-group');
+            $view->getAttributes()->addClass('form-group');
         }
     }
 
