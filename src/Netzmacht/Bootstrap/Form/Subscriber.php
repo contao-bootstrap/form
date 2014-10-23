@@ -61,7 +61,7 @@ class Subscriber implements EventSubscriberInterface
             $label->hide();
         }
 
-        if($widget->bootstrap_inlineStyle) {
+        if ($widget->bootstrap_inlineStyle) {
             $element->addClass('inline');
         }
 
