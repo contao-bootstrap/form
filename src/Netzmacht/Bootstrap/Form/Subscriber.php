@@ -5,16 +5,14 @@ namespace Netzmacht\Bootstrap\Form;
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
 use Netzmacht\Bootstrap\Core\Util\AssetsManager;
-use Netzmacht\FormHelper\Element\StaticHtml;
-use Netzmacht\FormHelper\Event\BuildElementEvent;
-use Netzmacht\FormHelper\Event\Events;
-use Netzmacht\FormHelper\Event\GenerateEvent;
-use Netzmacht\FormHelper\Event\SelectLayoutEvent;
-use Netzmacht\FormHelper\Partial\Label;
+use Netzmacht\Contao\FormHelper\Event\Events;
+use Netzmacht\Contao\FormHelper\Event\ViewEvent;
+use Netzmacht\Contao\FormHelper\Partial\Label;
 use Netzmacht\Html\CastsToString;
 use Netzmacht\Html\Element;
-use Netzmacht\FormHelper\Partial\Container;
+use Netzmacht\Contao\FormHelper\Partial\Container;
 use Netzmacht\Html\Element\Node;
+use Netzmacht\Html\Element\StaticHtml;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
@@ -44,34 +42,37 @@ class Subscriber implements EventSubscriberInterface
 	public static function getSubscribedEvents()
 	{
 		return array(
-			Events::SELECT_LAYOUT => 'selectLayout',
+			Events::CREATE_VIEW   => 'selectLayout',
 			Events::GENERATE      => 'generate',
 		);
 	}
 
 
 	/**
-	 * @param SelectLayoutEvent $event
+	 * @param ViewEvent $event
 	 */
-	public function selectLayout(SelectLayoutEvent $event)
+	public function selectLayout(ViewEvent $event)
 	{
 		if(Bootstrap::isEnabled()) {
-			$event->setLayout('bootstrap');
+            $view = $event->getView();
+
+			$view->setLayout('bootstrap');
+            $view->getAttributes()->addClass('from-group');
 		}
 	}
 
 
 	/**
-	 * @param GenerateEvent $event
+	 * @param ViewEvent $event
 	 */
-	public function generate(GenerateEvent $event)
+	public function generate(ViewEvent $event)
 	{
 		$container = $event->getContainer();
 		$element   = $event->getContainer()->getElement();
 		$widget    = $event->getWidget();
 		$label     = $event->getLabel();
 		$errors    = $event->getErrors();
-		$form      = $event->getForm();
+		$form      = $event->getFormModel();
 
 		// add label class
 		$label->addClass('control-label');
@@ -87,6 +88,13 @@ class Subscriber implements EventSubscriberInterface
 
 		// inject errors into container
 		$container->addChild('errors', $errors);
+
+        if ($widget->hasErrors()) {
+            $view = $event->getView();
+            $view->getAttributes()
+                ->addClass('has-feedback')
+                ->hasClass('has-errors');
+        }
 	}
 
 
@@ -144,12 +152,12 @@ class Subscriber implements EventSubscriberInterface
 	}
 
 	/**
-	 * @param GenerateEvent $event
+	 * @param ViewEvent $event
 	 * @param $element
 	 * @param $widget
 	 * @param $container
 	 */
-	private function adjustElement(GenerateEvent $event, $element, $widget, $container)
+	private function adjustElement(ViewEvent $event, $element, $widget, $container)
 	{
 		if($element instanceof Element) {
 			// apply form control class to the element
@@ -177,13 +185,15 @@ class Subscriber implements EventSubscriberInterface
 
 	/**
 	 * @param $widget
-	 * @param \Netzmacht\FormHelper\Partial\Container $container
-	 * @param \Netzmacht\FormHelper\Partial\Label $label
+	 * @param \Netzmacht\Contao\FormHelper\Partial\Container $container
+	 * @param \Netzmacht\Contao\FormHelper\Partial\Label $label
 	 * @param $form
 	 */
 	private function setColumnLayout($widget, Container $container, Label $label, $form)
 	{
-		if(($form->numRows && !$widget->tableless) || (!$form->numRows && !Bootstrap::getConfigVar('form.default-horizontal'))) {
+		if(($form->numRows && !$widget->tableless)
+            || (!$form->numRows && !Bootstrap::getConfigVar('form.default-horizontal'))
+        ) {
 			$container->setRenderContainer(true);
 			$container->addClass(Bootstrap::getConfigVar('form.horizontal.control'));
 

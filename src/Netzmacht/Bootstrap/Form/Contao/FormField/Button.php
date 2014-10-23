@@ -15,7 +15,7 @@ namespace Netzmacht\Bootstrap\Form\Contao\FormField;
 
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
-use Netzmacht\FormHelper\GeneratesAnElement;
+use Netzmacht\Contao\FormHelper\GeneratesAnElement;
 use Netzmacht\Html\Element;
 
 class Button extends \FormSubmit implements GeneratesAnElement

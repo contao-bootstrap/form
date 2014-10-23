@@ -1,4 +1,4 @@
-<div class="form-group<?php if($this->hasErrors()): ?> has-error<?php endif; ?>">
-	<?php echo $label; ?>
-	<?php echo $container; ?>
+<div <?php echo $this->attributes; ?>>
+	<?php echo $this->label; ?>
+	<?php echo $this->container; ?>
 </div>
