@@ -3,6 +3,8 @@
 namespace Netzmacht\Bootstrap\Form;
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
+use Netzmacht\Bootstrap\Core\Config\TypeManager;
+use Netzmacht\Bootstrap\Core\Event\GetMultipleConfigNamesEvent;
 use Netzmacht\Bootstrap\Core\Util\AssetsManager;
 use Netzmacht\Contao\FormHelper\Event\Events;
 use Netzmacht\Contao\FormHelper\Event\ViewEvent;
@@ -23,9 +25,50 @@ class Subscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            Events::CREATE_VIEW   => 'selectLayout',
-            Events::GENERATE      => 'generate',
+            Events::CREATE_VIEW               => 'selectLayout',
+            Events::GENERATE_VIEW             => 'generate',
+            GetMultipleConfigNamesEvent::NAME => 'getConfigNames',
         );
+    }
+
+    /**
+     * @param GetMultipleConfigNamesEvent $event
+     */
+    public function getConfigNames(GetMultipleConfigNamesEvent $event)
+    {
+        $model = $event->getModel();
+
+        if ($model->type != 'form_widget') {
+            return;
+        }
+
+        if ($model->override) {
+            $typeManager = $this->getTypeManager();
+            $names = $typeManager->getExistingNames($model->type);
+
+            // filter not existing values. basically to remove widgets which only exists in Contao 3.3 when being in
+            // Contao 3.2
+            $names = array_intersect($names, array_keys($GLOBALS['TL_FFL']));
+        }
+        else {
+            $names = array_keys($GLOBALS['TL_FFL']);
+        }
+
+        \Controller::loadLanguageFile('tl_form_field');
+        $options = array();
+
+        foreach ($names as $name) {
+            if (isset($GLOBALS['TL_LANG']['FFL'][$name][0])) {
+                $options[$name] = $GLOBALS['TL_LANG']['FFL'][$name][0];
+            }
+            else {
+                $options[$name] = $name;
+            }
+        }
+
+        $event->setOptions($options);
+        $event->stopPropagation();
+
     }
 
     /**
@@ -61,10 +104,6 @@ class Subscriber implements EventSubscriberInterface
             $label->hide();
         }
 
-        if ($widget->bootstrap_inlineStyle) {
-            $element->addClass('inline');
-        }
-
         $this->setColumnLayout($widget, $container, $label, $form);
         $this->adjustElement($event, $element, $widget, $container);
         $this->addInputGroup($widget, $container, $element);
@@ -76,7 +115,7 @@ class Subscriber implements EventSubscriberInterface
             $view = $event->getView();
             $view->getAttributes()
                 ->addClass('has-feedback')
-                ->hasClass('has-errors');
+                ->addClass('has-errors');
         }
     }
 
@@ -145,6 +184,11 @@ class Subscriber implements EventSubscriberInterface
                 $element->addClass('form-control');
             }
 
+            // add helper inline class. It is used
+            if ($this->getConfig($widget->type, 'inline-style-option') && $widget->bootstrap_inlineStyle) {
+                $element->addClass('inline');
+            }
+
             // enable styled select
             if (Bootstrap::getConfigVar('form.styled-select.enabled')
                 && $this->getConfig($widget->type, 'styled-select')) {
@@ -172,8 +216,8 @@ class Subscriber implements EventSubscriberInterface
      */
     private function setColumnLayout($widget, Container $container, Label $label, $form)
     {
-        if (($form->numRows && !$widget->tableless)
-            || (!$form->numRows && !Bootstrap::getConfigVar('form.default-horizontal'))
+        if (($form && !$widget->tableless)
+            || (!$form && Bootstrap::getConfigVar('form.default-horizontal'))
         ) {
             $container->setRenderContainer(true);
             $container->addClass(Bootstrap::getConfigVar('form.horizontal.control'));
@@ -298,5 +342,13 @@ class Subscriber implements EventSubscriberInterface
             $this->adjustSubmitButton($container, $widget, $inputGroup);
             $this->adjustCaptcha($widget, $container, $inputGroup);
         }
+    }
+
+    /**
+     * @return TypeManager
+     */
+    public function getTypeManager()
+    {
+        return $GLOBALS['container']['bootstrap.config-type-manager'];
     }
 }
