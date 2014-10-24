@@ -41,6 +41,12 @@
         "contao": {
             "sources":{
                 "module": "system/modules/bootstrap-form"
+            },
+            "transifex": {
+                "project": "contao-bootstrap",
+                "prefix": "form-",
+                "languages_cto": "module/languages",
+                "languages_tx": ".tx"
             }
         },
         "branch-alias": {
