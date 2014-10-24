@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['TL_LANG']['bootstrap_config_types']['form_widget'] = 'Form Widget';
+$GLOBALS['TL_LANG']['bootstrap_config_type']['form_widget'] = 'Form Widget';
 
 $GLOBALS['TL_LANG']['tl_bootstrap_config']['form_widget_control'][0]       = 'Form-Control';
 $GLOBALS['TL_LANG']['tl_bootstrap_config']['form_widget_control'][1]       = 'Add the <em>form-control</em> css class.';
