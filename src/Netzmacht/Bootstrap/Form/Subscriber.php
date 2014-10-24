@@ -49,8 +49,7 @@ class Subscriber implements EventSubscriberInterface
             // filter not existing values. basically to remove widgets which only exists in Contao 3.3 when being in
             // Contao 3.2
             $names = array_intersect($names, array_keys($GLOBALS['TL_FFL']));
-        }
-        else {
+        } else {
             $names = array_keys($GLOBALS['TL_FFL']);
         }
 
@@ -60,8 +59,7 @@ class Subscriber implements EventSubscriberInterface
         foreach ($names as $name) {
             if (isset($GLOBALS['TL_LANG']['FFL'][$name][0])) {
                 $options[$name] = $GLOBALS['TL_LANG']['FFL'][$name][0];
-            }
-            else {
+            } else {
                 $options[$name] = $name;
             }
         }
