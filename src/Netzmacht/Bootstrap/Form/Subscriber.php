@@ -174,12 +174,17 @@ class Subscriber implements EventSubscriberInterface
      * @param $widget
      * @param $container
      */
-    private function adjustElement(ViewEvent $event, $element, $widget, $container)
+    private function adjustElement(ViewEvent $event, $element, $widget, Container $container)
     {
         if ($element instanceof Element) {
             // apply form control class to the element
             if ($this->getConfig($widget->type, 'form-control', true)) {
                 $element->addClass('form-control');
+            }
+
+            if ($container->hasChild('repeat')) {
+                $repeat = $container->getChild('repeat');
+                $repeat->addClass('form-control');
             }
 
             // add helper inline class. It is used
@@ -224,6 +229,15 @@ class Subscriber implements EventSubscriberInterface
                 $container->addClass(Bootstrap::getConfigVar('form.horizontal.offset'));
             } else {
                 $label->addClass(Bootstrap::getConfigVar('form.horizontal.label'));
+            }
+
+            if ($container->hasChild('repeatLabel')) {
+                $label = $container->getChild('repeatLabel');
+                $label->addClass('control-label');
+
+                if ($this->getConfig($widget->type, 'label', true)) {
+                    $label->addClass(Bootstrap::getConfigVar('form.horizontal.label'));
+                }
             }
         }
     }
