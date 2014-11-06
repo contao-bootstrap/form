@@ -8,7 +8,8 @@ use Netzmacht\Html\CastsToString;
 use Netzmacht\Html\Element;
 
 /**
- * Class InputGroup
+ * Class InputGroup provides a form wrapper with left right parts.
+ * 
  * @package Netzmacht\Bootstrap\Form
  */
 class InputGroup extends Component implements HasElement
@@ -19,22 +20,30 @@ class InputGroup extends Component implements HasElement
     const BUTTON = 'input-group-btn';
 
     /**
+     * The left addon.
+     * 
      * @var CastsToString|string
      */
     protected $left;
 
     /**
+     * The right addon.
+     * 
      * @var CastsToString|string
      */
     protected $right;
 
     /**
+     * Current element being wrapped.
+     * 
      * @var Element
      */
     protected $element;
 
     /**
-     * @param array $attributes
+     * Construct.
+     * 
+     * @param array $attributes Form attributes.
      */
     public function __construct(array $attributes = array())
     {
@@ -43,18 +52,26 @@ class InputGroup extends Component implements HasElement
     }
 
     /**
-     * @param $addon
-     * @param string $type
+     * Set left addon.
+     * 
+     * @param mixed  $addon The extra.
+     * @param string $type  Extra Type.
+     *
+     * @return $this
      */
-    public function setLeft($addon, $type = InputGroup::ADDON)
+    public function setLeft($addon, $type = self::ADDON)
     {
         $this->left = array(
             'addon' => $addon,
             'type'  => $type,
         );
+
+        return $this;
     }
 
     /**
+     * Get left addon.
+     * 
      * @return CastsToString|null
      */
     public function getLeft()
@@ -67,18 +84,26 @@ class InputGroup extends Component implements HasElement
     }
 
     /**
-     * @param $addon
-     * @param string $type
+     * Set right addon.
+     *
+     * @param mixed  $addon Right addon.
+     * @param string $type  Type of addon.
+     *
+     * @return $this
      */
-    public function setRight($addon, $type = InputGroup::ADDON)
+    public function setRight($addon, $type = self::ADDON)
     {
         $this->right = array(
             'addon' => $addon,
             'type'  => $type,
         );
+
+        return $this;
     }
 
     /**
+     * Get right addon.
+     *
      * @return CastsToString|null
      */
     public function getRight()
@@ -91,7 +116,10 @@ class InputGroup extends Component implements HasElement
     }
 
     /**
-     * @param $element
+     * Set widget element.
+     *
+     * @param mixed $element The widget element.
+     *
      * @return $this
      */
     public function setElement($element)
@@ -102,7 +130,9 @@ class InputGroup extends Component implements HasElement
     }
 
     /**
-     * @return \Netzmacht\Html\Element
+     * Get widget element.
+     *
+     * @return Element|CastsToString|string
      */
     public function getElement()
     {
@@ -110,6 +140,8 @@ class InputGroup extends Component implements HasElement
     }
 
     /**
+     * Generate the input group.
+     *
      * @return string
      */
     public function generate()
@@ -124,7 +156,10 @@ class InputGroup extends Component implements HasElement
     }
 
     /**
-     * @param $addon
+     * Generate an addon.
+     *
+     * @param array|string $addon Addon data.
+     *
      * @return string
      */
     protected function generateAddon($addon)
@@ -140,6 +175,8 @@ class InputGroup extends Component implements HasElement
     }
 
     /**
+     * Casts to string.
+     *
      * @return string
      */
     public function __toString()

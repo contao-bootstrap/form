@@ -11,16 +11,19 @@
 
 namespace Netzmacht\Bootstrap\Form\Config;
 
-
 use Netzmacht\Bootstrap\Core\Config;
 use Netzmacht\Bootstrap\Core\Config\Type;
 use Netzmacht\Bootstrap\Core\Contao\Model\BootstrapConfigModel;
 
+/**
+ * Class FormWidgetType handles backend config of a form widget configuration.
+ *
+ * @package Netzmacht\Bootstrap\Form\Config
+ */
 class FormWidgetType implements Type
 {
     /**
-     * @param Config $config
-     * @param BootstrapConfigModel $model
+     * {@inheritdoc}
      */
     public function buildConfig(Config $config, BootstrapConfigModel $model)
     {
@@ -38,9 +41,7 @@ class FormWidgetType implements Type
     }
 
     /**
-     * @param $key
-     * @param Config $config
-     * @param BootstrapConfigModel $model
+     * {@inheritdoc}
      */
     public function extractConfig($key, Config $config, BootstrapConfigModel $model)
     {
@@ -55,7 +56,7 @@ class FormWidgetType implements Type
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasGlobalScope()
     {
@@ -63,7 +64,7 @@ class FormWidgetType implements Type
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function isMultiple()
     {
@@ -71,7 +72,7 @@ class FormWidgetType implements Type
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getPath()
     {
@@ -79,7 +80,7 @@ class FormWidgetType implements Type
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function isNameEditable()
     {

@@ -16,11 +16,16 @@ use Netzmacht\Html\Element\Node;
 use Netzmacht\Html\Element\StaticHtml;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+/**
+ * Class Subscriber subscribes to form helper to adjust bootstrap form output.
+ *
+ * @package Netzmacht\Bootstrap\Form
+ */
 class Subscriber implements EventSubscriberInterface
 {
 
     /**
-     * @{inheritdoc}
+     * {@inheritdoc}
      */
     public static function getSubscribedEvents()
     {
@@ -32,7 +37,11 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param GetMultipleConfigNamesEvent $event
+     * Get All provides config names for the backend config.
+     *
+     * @param GetMultipleConfigNamesEvent $event Event being handled.
+     *
+     * @return void
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
@@ -46,7 +55,7 @@ class Subscriber implements EventSubscriberInterface
 
         if ($model->override) {
             $typeManager = $this->getTypeManager();
-            $names = $typeManager->getExistingNames($model->type);
+            $names       = $typeManager->getExistingNames($model->type);
 
             // filter not existing values. basically to remove widgets which only exists in Contao 3.3 when being in
             // Contao 3.2
@@ -72,7 +81,11 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param ViewEvent $event
+     * Handle select layout event.
+     *
+     * @param ViewEvent $event View event subscribed.
+     *
+     * @return void
      */
     public function selectLayout(ViewEvent $event)
     {
@@ -85,7 +98,11 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param ViewEvent $event
+     * Generate the form wiedget view.
+     *
+     * @param ViewEvent $event The form widget view event.
+     *
+     * @return void
      */
     public function generate(ViewEvent $event)
     {
@@ -120,7 +137,11 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param Container $container
+     * Generate the upload field.
+     *
+     * @param Container $container Form element container.
+     *
+     * @return void
      */
     protected function generateUpload(Container $container)
     {
@@ -141,7 +162,7 @@ class Subscriber implements EventSubscriberInterface
             $input->setAttribute('placeholder', $element->getAttribute('placeholder'));
         }
 
-        $click = sprintf('$(%s).click();return false;', $element->getId());
+        $click  = sprintf('$(%s).click();return false;', $element->getId());
         $submit = Element::create('button', array('type' => 'submit'))
             ->addChild($config['label'])
             ->addClass($config['class'])
@@ -160,9 +181,12 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param $type
-     * @param $name
-     * @param bool $default
+     * Get a config value for a given form widget type.
+     *
+     * @param string $type    The widget type.
+     * @param string $name    The configuration name.
+     * @param mixed  $default The default value.
+     *
      * @return mixed
      */
     protected function getConfig($type, $name, $default = false)
@@ -171,10 +195,14 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param ViewEvent $event
-     * @param $element
-     * @param $widget
-     * @param $container
+     * Adjust an element.
+     *
+     * @param ViewEvent $event     The view event subscribed to.
+     * @param mixed     $element   The current element.
+     * @param \Widget   $widget    The original form wiedget.
+     * @param Container $container The form widget container.
+     *
+     * @return void
      */
     private function adjustElement(ViewEvent $event, $element, $widget, Container $container)
     {
@@ -206,10 +234,14 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param $widget
-     * @param \Netzmacht\Contao\FormHelper\Partial\Container $container
-     * @param \Netzmacht\Contao\FormHelper\Partial\Label $label
-     * @param $form
+     * Set bootstrap column layout.
+     *
+     * @param \Widget         $widget    The form widget.
+     * @param Container       $container The form element container.
+     * @param Label           $label     The form label.
+     * @param \FormModel|null $form      The form model if it is part of the form generator.
+     *
+     * @return void
      */
     private function setColumnLayout($widget, Container $container, Label $label, $form)
     {
@@ -237,9 +269,12 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param $widget
-     * @param $inputGroup
-     * @return string
+     * Add an icon to the input group.
+     *
+     * @param \Widget    $widget     The form widget.
+     * @param InputGroup $inputGroup The input group.
+     *
+     * @return void
      */
     private function addIcon($widget, InputGroup $inputGroup)
     {
@@ -255,8 +290,12 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param $widget
-     * @param InputGroup $inputGroup
+     * Add a unit to the input group.
+     *
+     * @param \Widget    $widget     The form widget.
+     * @param InputGroup $inputGroup The Input group.
+     *
+     * @return void
      */
     private function addUnit($widget, InputGroup $inputGroup)
     {
@@ -271,9 +310,13 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param $container
-     * @param $widget
-     * @param $inputGroup
+     * Handle submit buttons added to a field.
+     *
+     * @param Container  $container  Form element container.
+     * @param \Widget    $widget     The form widget.
+     * @param InputGroup $inputGroup The input group.
+     *
+     * @return void
      */
     private function adjustSubmitButton(Container $container, $widget, InputGroup $inputGroup)
     {
@@ -300,7 +343,7 @@ class Subscriber implements EventSubscriberInterface
 
                 if ($widget->bootstrap_addSubmitIconPosition == 'left') {
                     $position = Node::POSITION_FIRST;
-                    $icon .= ' ';
+                    $icon    .= ' ';
                 } else {
                     $icon = ' ' . $icon;
                 }
@@ -313,9 +356,13 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param $widget
-     * @param $container
-     * @param $inputGroup
+     * Adjust the captcha element.
+     *
+     * @param \Widget    $widget     The form widget.
+     * @param Container  $container  The element container.
+     * @param InputGroup $inputGroup The input group.
+     *
+     * @return void
      */
     private function adjustCaptcha($widget, Container $container, InputGroup $inputGroup)
     {
@@ -326,9 +373,13 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param $widget
-     * @param $container
-     * @param $element
+     * Add input group to the form container.
+     *
+     * @param \Widget       $widget    The form widget.
+     * @param Container     $container The element container.
+     * @param CastsToString $element   The element.
+     *
+     * @return void
      */
     private function addInputGroup($widget, Container $container, CastsToString $element)
     {
@@ -351,6 +402,8 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
+     * Get form type manager.
+     *
      * @return TypeManager
      *
      * @SuppressWarnings(PHPMD.Superglobals)
@@ -361,15 +414,17 @@ class Subscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param           $element
-     * @param           $widget
-     * @param Container $container
+     * Apply the form control.
      *
-     * @throws \Exception
+     * @param mixed     $element   Current form element.
+     * @param \Widget   $widget    The form widget.
+     * @param Container $container The container.
+     *
+     * @return void
      */
     private function applyFormControl($element, $widget, Container $container)
     {
-// apply form control class to the element
+        // apply form control class to the element
         if ($this->getConfig($widget->type, 'form-control', true)) {
             $element->addClass('form-control');
 

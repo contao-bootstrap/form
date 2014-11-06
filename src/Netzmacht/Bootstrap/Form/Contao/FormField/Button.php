@@ -17,10 +17,16 @@ use Netzmacht\Bootstrap\Core\Bootstrap;
 use Netzmacht\Contao\FormHelper\GeneratesAnElement;
 use Netzmacht\Html\Element;
 
+/**
+ * Class Button is a form element directly renders a form element.
+ *
+ * @package Netzmacht\Bootstrap\Form\Contao\FormField
+ */
 class Button extends \FormSubmit implements GeneratesAnElement
 {
     /**
-     * Generate the widget and return it as string
+     * Generate the widget and return it as string.
+     *
      * @return string
      */
     public function generate()
