@@ -180,11 +180,11 @@ class Subscriber implements EventSubscriberInterface
             // apply form control class to the element
             if ($this->getConfig($widget->type, 'form-control', true)) {
                 $element->addClass('form-control');
-            }
 
-            if ($container->hasChild('repeat')) {
-                $repeat = $container->getChild('repeat');
-                $repeat->addClass('form-control');
+                if ($container->hasChild('repeat')) {
+                    $repeat = $container->getChild('repeat');
+                    $repeat->addClass('form-control');
+                }
             }
 
             // add helper inline class. It is used
