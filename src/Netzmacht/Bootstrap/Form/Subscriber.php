@@ -33,6 +33,8 @@ class Subscriber implements EventSubscriberInterface
 
     /**
      * @param GetMultipleConfigNamesEvent $event
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
      */
     public function getConfigNames(GetMultipleConfigNamesEvent $event)
     {
@@ -177,15 +179,7 @@ class Subscriber implements EventSubscriberInterface
     private function adjustElement(ViewEvent $event, $element, $widget, Container $container)
     {
         if ($element instanceof Element) {
-            // apply form control class to the element
-            if ($this->getConfig($widget->type, 'form-control', true)) {
-                $element->addClass('form-control');
-
-                if ($container->hasChild('repeat')) {
-                    $repeat = $container->getChild('repeat');
-                    $repeat->addClass('form-control');
-                }
-            }
+            $this->applyFormControl($element, $widget, $container);
 
             // add helper inline class. It is used
             if ($this->getConfig($widget->type, 'inline-style-option') && $widget->bootstrap_inlineStyle) {
@@ -358,9 +352,31 @@ class Subscriber implements EventSubscriberInterface
 
     /**
      * @return TypeManager
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
      */
     public function getTypeManager()
     {
         return $GLOBALS['container']['bootstrap.config-type-manager'];
+    }
+
+    /**
+     * @param           $element
+     * @param           $widget
+     * @param Container $container
+     *
+     * @throws \Exception
+     */
+    private function applyFormControl($element, $widget, Container $container)
+    {
+// apply form control class to the element
+        if ($this->getConfig($widget->type, 'form-control', true)) {
+            $element->addClass('form-control');
+
+            if ($container->hasChild('repeat')) {
+                $repeat = $container->getChild('repeat');
+                $repeat->addClass('form-control');
+            }
+        }
     }
 }
