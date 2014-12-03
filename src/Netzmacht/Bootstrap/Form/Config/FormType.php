@@ -15,6 +15,11 @@ use Netzmacht\Bootstrap\Core\Config;
 use Netzmacht\Bootstrap\Core\Config\Type;
 use Netzmacht\Bootstrap\Core\Contao\Model\BootstrapConfigModel;
 
+/**
+ * Class FormType stores configuration for forms.
+ *
+ * @package Netzmacht\Bootstrap\Form\Config
+ */
 class FormType implements Type
 {
     /**
