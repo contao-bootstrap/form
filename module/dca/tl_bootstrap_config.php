@@ -15,6 +15,28 @@ $GLOBALS['TL_DCA']['tl_bootstrap_config']['metapalettes']['form_widget extends d
     ),
 );
 
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['metapalettes']['form extends default'] = array
+(
+    '+config' => array(
+        'form_default_horizontal',
+        'form_horizontal_control',
+        'form_horizontal_label',
+        'form_horizontal_offset',
+        'form_styled_select',
+        'form_styled_upload',
+    ),
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['metasubpalettes']['form_styled_select'] = array(
+    'form_styled_select_class',
+    'form_styled_select_style',
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['metasubpalettes']['form_styled_upload'] = array(
+    'form_styled_upload_class',
+    'form_styled_upload_position',
+);
+
 /*
  * Fields
  */
@@ -76,4 +98,122 @@ $GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_widget_styled_upload']
         'tl_class'       => 'w50',
     ),
     'sql'       => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_default_horizontal'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_default_horizontal'],
+    'inputType' => 'checkbox',
+    'eval'      => array(
+        'tl_class'       => 'w50',
+    ),
+    'sql'       => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_horizontal_control'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_horizontal_control'],
+    'inputType' => 'text',
+    'eval'      => array(
+        'tl_class'       => 'w50',
+        'submitOnChange' => true,
+        'maxlength'      => 32,
+    ),
+    'sql'       => "varchar(32) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_horizontal_label'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_horizontal_label'],
+    'inputType' => 'text',
+    'eval'      => array(
+        'tl_class'       => 'w50',
+        'submitOnChange' => true,
+        'maxlength'      => 32,
+    ),
+    'sql'       => "varchar(32) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_horizontal_offset'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_horizontal_offset'],
+    'inputType' => 'text',
+    'eval'      => array(
+        'tl_class'       => 'w50',
+        'submitOnChange' => true,
+        'maxlength'      => 32,
+    ),
+    'sql'       => "varchar(32) NOT NULL default ''"
+);
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_styled_select'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_select'],
+    'inputType' => 'checkbox',
+    'eval'      => array(
+        'tl_class'       => 'clr w50 m12',
+        'submitOnChange' => true,
+    ),
+    'sql'       => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_styled_select_class'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_select_class'],
+    'inputType' => 'text',
+    'eval'      => array(
+        'tl_class'       => 'clr w50',
+        'submitOnChange' => true,
+        'maxlength'      => 32,
+    ),
+    'sql'       => "varchar(32) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_styled_select_style'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_select_style'],
+    'inputType' => 'text',
+    'eval'      => array(
+        'tl_class'       => 'w50',
+        'submitOnChange' => true,
+        'maxlength'      => 32,
+    ),
+    'sql'       => "varchar(32) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_styled_upload'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_upload'],
+    'inputType' => 'checkbox',
+    'eval'      => array(
+        'tl_class'       => 'clr w50 m12',
+        'submitOnChange' => true,
+    ),
+    'sql'       => "char(1) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_styled_upload_class'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_upload_class'],
+    'inputType' => 'text',
+    'eval'      => array(
+        'tl_class'       => 'clr w50',
+        'submitOnChange' => true,
+        'maxlength'      => 32,
+    ),
+    'sql'       => "varchar(32) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_styled_upload_position'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_upload_position'],
+    'inputType' => 'select',
+    'options'   => array('left', 'right'),
+    'reference' => &$GLOBALS['TL_LANG']['tl_bootstrap_config'],
+    'default'   => 'right',
+    'eval'      => array(
+        'tl_class'       => 'w50',
+        'submitOnChange' => true,
+        'maxlength'      => 32,
+    ),
+    'sql'       => "varchar(32) NOT NULL default 'right'"
 );

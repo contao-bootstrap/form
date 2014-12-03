@@ -6,6 +6,7 @@ return array
     (
         'types' => array(
             'form_widget' => 'Netzmacht\Bootstrap\Form\Config\FormWidgetType',
+            'form'        => 'Netzmacht\Bootstrap\Form\Config\FormType',
         ),
     ),
     'form' => array
