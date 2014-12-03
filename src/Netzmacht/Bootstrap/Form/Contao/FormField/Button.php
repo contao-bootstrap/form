@@ -67,6 +67,8 @@ class Button extends \FormSubmit implements GeneratesAnElement
                     ->addChild($icon . ' ')
                     ->addChild($label);
             }
+        } else {
+            $button->addChild($label);
         }
 
         return $button;
