@@ -132,7 +132,7 @@ class Subscriber implements EventSubscriberInterface
             $view = $event->getView();
             $view->getAttributes()
                 ->addClass('has-feedback')
-                ->addClass('has-errors');
+                ->addClass('has-error');
         }
     }
 
