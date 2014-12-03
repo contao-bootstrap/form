@@ -23,7 +23,7 @@ foreach($this->options as $option):
 
 	else:
 		$child = Element::create('input', array('type' => 'checkbox'))
-			->setAttribute('name', $this->element->getAttribute('name') . '[]')
+			->addAttributes($this->attributes)
 			->setAttribute('id', $this->element->getId() . '_' . $index)
 			->setAttribute('value', $option['value']);
 
