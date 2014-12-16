@@ -35,7 +35,7 @@
         "netzmacht/contao-build-tools": "1.0.x-dev"
     },
     "autoload": {
-        "psr-0": { "Netzmacht\\Bootstrap\\Form\\": "src/" }
+        "psr-0": { "Netzmacht\\Bootstrap\\Form": "src/" }
     },
     "extra":{
         "contao": {

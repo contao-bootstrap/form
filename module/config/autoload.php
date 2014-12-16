@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @package   contao-bootstrap
+ * @author    David Molineus <david.molineus@netzmacht.de>
+ * @license   LGPL 3+
+ * @copyright 2013-2014 netzmacht creative David Molineus
+ */
+
 TemplateLoader::addFiles(array(
 	'form'         				     => 'system/modules/bootstrap-form/templates',
 	'formhelper_element_radios'      => 'system/modules/bootstrap-form/templates',
