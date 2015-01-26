@@ -32,7 +32,7 @@
         "bit3/contao-meta-palettes":"~1.4"
     },
     "require-dev": {
-        "netzmacht/contao-build-tools": "1.0.x-dev"
+        "netzmacht/contao-build-tools": "~1.1"
     },
     "autoload": {
         "psr-0": { "Netzmacht\\Bootstrap\\Form": "src/" }
