@@ -29,7 +29,7 @@
         "netzmacht/contao-iconwizard": "~1.0",
         "netzmacht/html": "~1.0",
         "netzmacht/contao-form-helper": "~1.0",
-        "bit3/contao-meta-palettes":"~1.4"
+        "contao-community-alliance/meta-palettes":"~1.4"
     },
     "require-dev": {
         "netzmacht/contao-build-tools": "~1.1"
