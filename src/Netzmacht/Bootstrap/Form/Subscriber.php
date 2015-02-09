@@ -36,17 +36,22 @@ class Subscriber implements EventSubscriberInterface
      * @type array
      */
     private static $selectLocalizations = array(
-        'cz' => 'cz_CZ',
+        'cs' => 'cs_CZ',
         'de' => 'de_DE',
-        'cl' => 'es_CL',
+        'en' => 'eu_US',
+        'es' => 'es_CL',
         'eu' => 'eu',
         'fr' => 'fr_FR',
         'it' => 'it_IT',
         'nl' => 'nl_NL',
         'pl' => 'pl_PL',
-        'br' => 'pt_BR',
+        'bt' => 'pt_BR',
+        'ro' => 'ro_RO',
         'ru' => 'ru_RU',
-        'cn' => 'zh_CN'
+        'ua' => 'ua_UA',
+        'zh' => 'zh_CN',
+        // Not supported atm.
+        // 'zh' => 'zh_TW'
     );
 
     /**
@@ -247,7 +252,7 @@ class Subscriber implements EventSubscriberInterface
                 $language    = substr($GLOBALS['TL_LANGUAGE'], 0, 2);
 
                 if (isset(static::$selectLocalizations[$language])) {
-                    $javascripts[] = 'system/modules/bootstrap-form/assets/bootstrap-select/i18n/defaults-'.
+                    $javascripts[] = 'system/modules/bootstrap-form/assets/bootstrap-select/js/i18n/defaults-'.
                         static::$selectLocalizations[$language].'.min.js';
                 }
 

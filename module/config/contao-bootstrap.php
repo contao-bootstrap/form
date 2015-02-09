@@ -122,10 +122,10 @@ return array
             'class'      => 'selectpicker',
             'style'      => 'btn-default',
             'javascript' => array(
-                'system/modules/bootstrap-form/assets/bootstrap-select/bootstrap-select.min.js',
+                'system/modules/bootstrap-form/assets/bootstrap-select/js/bootstrap-select.min.js',
                 'system/modules/bootstrap-form/assets/bootstrap-select.js'
             ),
-            'stylesheet' => 'system/modules/bootstrap-form/assets/bootstrap-select/bootstrap-select.min.css',
+            'stylesheet' => 'system/modules/bootstrap-form/assets/bootstrap-select/css/bootstrap-select.min.css',
         ),
 
         // style the upload button
