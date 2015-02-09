@@ -232,6 +232,16 @@ class Subscriber implements EventSubscriberInterface
 
                 $element->addClass(Bootstrap::getConfigVar('form.styled-select.class'));
                 $element->setAttribute('data-style', Bootstrap::getConfigVar('form.styled-select.style'));
+
+                // If a btn-* class isset, set it as data-style attribute.
+                $classes = explode(' ', $widget->class);
+                foreach ($classes as $class) {
+                    if (strpos($class, 'btn-') === 0) {
+                        $element->removeClass($class);
+                        $element->setAttribute('data-style', $class);
+                        break;
+                    }
+                }
             }
 
             if ($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styled-upload.enabled')) {
