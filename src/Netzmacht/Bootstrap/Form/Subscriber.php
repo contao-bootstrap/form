@@ -33,7 +33,7 @@ class Subscriber implements EventSubscriberInterface
     /**
      * Bootstrap-Select localization mapping.
      *
-     * @type array
+     * @var array
      */
     private static $selectLocalizations = array(
         'cs' => 'cs_CZ',
@@ -50,8 +50,7 @@ class Subscriber implements EventSubscriberInterface
         'ru' => 'ru_RU',
         'ua' => 'ua_UA',
         'zh' => 'zh_CN',
-        // Not supported atm.
-        // 'zh' => 'zh_TW'
+        // Not supported zh_TW
     );
 
     /**
@@ -247,30 +246,12 @@ class Subscriber implements EventSubscriberInterface
             // enable styled select
             if (Bootstrap::getConfigVar('form.styled-select.enabled')
                 && $this->getConfig($widget->type, 'styled-select')) {
-                $javascripts = (array) Bootstrap::getConfigVar('form.styled-select.javascript');
-                $stylesheets = Bootstrap::getConfigVar('form.styled-select.stylesheet');
-                $language    = substr($GLOBALS['TL_LANGUAGE'], 0, 2);
-
-                if (isset(static::$selectLocalizations[$language])) {
-                    $javascripts[] = 'system/modules/bootstrap-form/assets/bootstrap-select/js/i18n/defaults-'.
-                        static::$selectLocalizations[$language].'.min.js';
-                }
-
-                AssetsManager::addJavascripts($javascripts, 'bootstrap-styled-select');
-                AssetsManager::addStylesheets($stylesheets, 'bootstrap-styled-select');
 
                 $element->addClass(Bootstrap::getConfigVar('form.styled-select.class'));
                 $element->setAttribute('data-style', Bootstrap::getConfigVar('form.styled-select.style'));
 
-                // If a btn-* class isset, set it as data-style attribute.
-                $classes = explode(' ', $widget->class);
-                foreach ($classes as $class) {
-                    if (strpos($class, 'btn-') === 0) {
-                        $element->removeClass($class);
-                        $element->setAttribute('data-style', $class);
-                        break;
-                    }
-                }
+                $this->registerStyledSelectAssets();
+                $this->setDataStyleAttribute($element, $widget);
             }
 
             if ($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styled-upload.enabled')) {
@@ -477,6 +458,49 @@ class Subscriber implements EventSubscriberInterface
             if ($container->hasChild('repeat')) {
                 $repeat = $container->getChild('repeat');
                 $repeat->addClass('form-control');
+            }
+        }
+    }
+
+    /**
+     * Register styled select assets.
+     *
+     * @return void
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
+    private function registerStyledSelectAssets()
+    {
+        $javascripts = (array) Bootstrap::getConfigVar('form.styled-select.javascript');
+        $stylesheets = Bootstrap::getConfigVar('form.styled-select.stylesheet');
+        $language    = substr($GLOBALS['TL_LANGUAGE'], 0, 2);
+
+        if (isset(static::$selectLocalizations[$language])) {
+            $javascripts[] = 'system/modules/bootstrap-form/assets/bootstrap-select/js/i18n/defaults-' .
+                static::$selectLocalizations[$language] . '.min.js';
+        }
+
+        AssetsManager::addJavascripts($javascripts, 'bootstrap-styled-select');
+        AssetsManager::addStylesheets($stylesheets, 'bootstrap-styled-select');
+    }
+
+    /**
+     * Set data style attribute for bootstrap select.
+     *
+     * @param Element $element The select element.
+     * @param \Widget $widget  The widget.
+     *
+     * @return void
+     */
+    private function setDataStyleAttribute($element, $widget)
+    {
+        // If a btn-* class isset, set it as data-style attribute.
+        $classes = explode(' ', $widget->class);
+        foreach ($classes as $class) {
+            if (strpos($class, 'btn-') === 0) {
+                $element->removeClass($class);
+                $element->setAttribute('data-style', $class);
+                break;
             }
         }
     }
