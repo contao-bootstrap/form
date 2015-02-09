@@ -30,6 +30,24 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class Subscriber implements EventSubscriberInterface
 {
+    /**
+     * Bootstrap-Select localization mapping.
+     *
+     * @type array
+     */
+    private static $selectLocalizations = array(
+        'cz' => 'cz_CZ',
+        'de' => 'de_DE',
+        'cl' => 'es_CL',
+        'eu' => 'eu',
+        'fr' => 'fr_FR',
+        'it' => 'it_IT',
+        'nl' => 'nl_NL',
+        'pl' => 'pl_PL',
+        'br' => 'pt_BR',
+        'ru' => 'ru_RU',
+        'cn' => 'zh_CN'
+    );
 
     /**
      * {@inheritdoc}
@@ -224,8 +242,14 @@ class Subscriber implements EventSubscriberInterface
             // enable styled select
             if (Bootstrap::getConfigVar('form.styled-select.enabled')
                 && $this->getConfig($widget->type, 'styled-select')) {
-                $javascripts = Bootstrap::getConfigVar('form.styled-select.javascript');
+                $javascripts = (array) Bootstrap::getConfigVar('form.styled-select.javascript');
                 $stylesheets = Bootstrap::getConfigVar('form.styled-select.stylesheet');
+                $language    = substr($GLOBALS['TL_LANGUAGE'], 0, 2);
+
+                if (isset(static::$selectLocalizations[$language])) {
+                    $javascripts[] = 'system/modules/bootstrap-form/assets/bootstrap-select/i18n/defaults-'.
+                        static::$selectLocalizations[$language].'.min.js';
+                }
 
                 AssetsManager::addJavascripts($javascripts, 'bootstrap-styled-select');
                 AssetsManager::addStylesheets($stylesheets, 'bootstrap-styled-select');
