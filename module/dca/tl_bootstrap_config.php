@@ -29,6 +29,7 @@ $GLOBALS['TL_DCA']['tl_bootstrap_config']['metapalettes']['form extends default'
         'form_horizontal_control',
         'form_horizontal_label',
         'form_horizontal_offset',
+        'form_default_submit_btn',
         'form_styled_select',
         'form_styled_upload',
     ),
@@ -223,4 +224,16 @@ $GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_styled_upload_position
         'maxlength'      => 32,
     ),
     'sql'       => "varchar(32) NOT NULL default 'right'"
+);
+
+$GLOBALS['TL_DCA']['tl_bootstrap_config']['fields']['form_default_submit_btn'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_default_submit_btn'],
+    'inputType' => 'text',
+    'eval'      => array(
+        'tl_class'       => 'w50',
+        'submitOnChange' => true,
+        'maxlength'      => 32,
+    ),
+    'sql'       => "varchar(32) NOT NULL default ''"
 );

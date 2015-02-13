@@ -27,7 +27,7 @@ class Button extends \FormSubmit implements GeneratesAnElement
      */
     public function generate()
     {
-        $buttonClass = (($this->strClass != '') ? ' ' . $this->strClass : 'btn-default');
+        $buttonClass = $this->strClass ? $this->strClass : Bootstrap::getConfigVar('form.default-submit-btn');
         $button      = Element::create('button', $this->arrAttributes)
             ->setId('ctrl_' . $this->strId)
             ->addAttributes(

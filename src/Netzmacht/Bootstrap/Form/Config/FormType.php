@@ -26,6 +26,7 @@ class FormType implements Type
     public function buildConfig(Config $config, BootstrapConfigModel $model)
     {
         $config->set('form.default-horizontal', (bool) $model->form_default_horizontal);
+        $config->set('form.default-submit-btn', $model->form_default_submit_btn);
         $config->set(
             'form.horizontal',
             array(
@@ -68,6 +69,7 @@ class FormType implements Type
     public function extractConfig($key, Config $config, BootstrapConfigModel $model)
     {
         $model->form_default_horizontal = $config->get('form.default-horizontal');
+        $model->form_default_submit_btn = $config->get('form.default-submit-btn');
         $model->form_horizontal_label   = $config->get('form.horizontal.label');
         $model->form_horizontal_control = $config->get('form.horizontal.control');
         $model->form_horizontal_offset  = $config->get('form.horizontal.offset');

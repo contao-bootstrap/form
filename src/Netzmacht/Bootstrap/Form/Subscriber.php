@@ -362,6 +362,8 @@ class Subscriber implements EventSubscriberInterface
 
             if ($widget->bootstrap_addSubmitClass) {
                 $submit->addClass($widget->bootstrap_addSubmitClass);
+            } else {
+                $submit->addClass(Bootstrap::getConfigVar('form.default-submit-btn'));
             }
 
             if ($widget->bootstrap_addSubmitIcon) {

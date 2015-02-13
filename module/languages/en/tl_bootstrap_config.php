@@ -35,3 +35,5 @@ $GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_upload_class'][0]    = '
 $GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_upload_class'][1]    = 'This classes are added to the upload button.';
 $GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_upload_position'][0] = 'Upload button position';
 $GLOBALS['TL_LANG']['tl_bootstrap_config']['form_styled_upload_position'][1] = 'Define the upload button position.';
+$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_default_submit_btn'][0]     = 'Default submit button';
+$GLOBALS['TL_LANG']['tl_bootstrap_config']['form_default_submit_btn'][1]     = 'Default submit button class.';

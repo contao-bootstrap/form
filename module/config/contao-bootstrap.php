@@ -110,7 +110,7 @@ return array
             'offset'  => 'col-lg-offset-3',
         ),
 
-        'default-submit-btn' => 'btn-primary',
+        'default-submit-btn' => 'btn-default',
 
         // how to display forms like comments form by default
         'default-horizontal' => true,
