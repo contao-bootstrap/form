@@ -169,10 +169,11 @@ class Subscriber implements EventSubscriberInterface
      * Generate the upload field.
      *
      * @param Container $container Form element container.
+     * @param \Widget   $widget    Form widget.
      *
      * @return void
      */
-    protected function generateUpload(Container $container)
+    protected function generateUpload(Container $container, $widget)
     {
         $config  = Bootstrap::getConfigVar('form.styled-upload');
         $element = $container->getElement();
@@ -189,6 +190,8 @@ class Subscriber implements EventSubscriberInterface
 
         if ($element->hasAttribute('placeholder')) {
             $input->setAttribute('placeholder', $element->getAttribute('placeholder'));
+        } elseif ($widget->placeholder) {
+            $input->setAttribute('placeholder', $widget->placeholder);
         }
 
         $click  = sprintf('$(%s).click();return false;', $element->getId());
@@ -255,7 +258,7 @@ class Subscriber implements EventSubscriberInterface
             }
 
             if ($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styled-upload.enabled')) {
-                $this->generateUpload($container);
+                $this->generateUpload($container, $widget);
             }
         }
     }

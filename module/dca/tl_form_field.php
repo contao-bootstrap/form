@@ -34,6 +34,9 @@ foreach(Bootstrap::getConfigVar('form.widgets', array()) as $widget => $config) 
 \MetaPalettes::appendFields('tl_form_field', 'radio', 'fconfig', array('bootstrap_inlineStyle'));
 \MetaPalettes::appendFields('tl_form_field', 'checkbox', 'fconfig', array('bootstrap_inlineStyle'));
 
+if (Bootstrap::getConfigVar('form.styled-upload.enabled')) {
+    \MetaPalettes::appendFields('tl_form_field', 'upload', 'fconfig', array('placeholder'));
+}
 
 /**
  * meta palettes
