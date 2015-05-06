@@ -24,7 +24,7 @@
     "require":{
         "php":">=5.3.4",
         "contao-community-alliance/composer-plugin": "~2.0",
-        "contao/core":">=3.2,<3.5-dev",
+        "contao/core":">=3.2,<3.6-dev",
         "contao-bootstrap/core": "~1.0",
         "netzmacht/contao-iconwizard": "~1.0",
         "netzmacht/html": "~1.0",
