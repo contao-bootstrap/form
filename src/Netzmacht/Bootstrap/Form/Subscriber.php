@@ -10,6 +10,7 @@
 namespace Netzmacht\Bootstrap\Form;
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
+use Netzmacht\Bootstrap\Core\Config\Config;
 use Netzmacht\Bootstrap\Core\Config\TypeManager;
 use Netzmacht\Bootstrap\Core\Event\GetMultipleConfigNamesEvent;
 use Netzmacht\Bootstrap\Core\Util\AssetsManager;
@@ -141,18 +142,19 @@ class Subscriber implements EventSubscriberInterface
         $label     = $event->getLabel();
         $errors    = $event->getErrors();
         $form      = $event->getFormModel();
+        $config    = Bootstrap::getConfig();
 
         // add label class
         $label->addClass('control-label');
         $errors->addClass('help-block');
 
-        if (!$widget->label || !$this->getConfig($widget->type, 'label', true)) {
+        if (!$widget->label || !$this->getWidgetConfigValue($config, $widget->type, 'label', true)) {
             $label->hide();
         }
 
-        $this->setColumnLayout($widget, $container, $label, $form);
+        $this->setColumnLayout($config, $widget, $container, $label, $form);
         $this->adjustElement($event, $element, $widget, $container);
-        $this->addInputGroup($widget, $container, $element);
+        $this->addInputGroup($config, $widget, $container, $element);
 
         // inject errors into container
         $container->addChild('errors', $errors);
@@ -168,14 +170,15 @@ class Subscriber implements EventSubscriberInterface
     /**
      * Generate the upload field.
      *
+     * @param Config    $config    The bootstrap config.
      * @param Container $container Form element container.
      * @param \Widget   $widget    Form widget.
      *
      * @return void
      */
-    protected function generateUpload(Container $container, $widget)
+    protected function generateUpload(Config $config, Container $container, $widget)
     {
-        $config  = Bootstrap::getConfigVar('form.styled-upload');
+        $config  = $config->get('form.styled-upload');
         $element = $container->getElement();
 
         /** @var Element $element */
@@ -215,15 +218,16 @@ class Subscriber implements EventSubscriberInterface
     /**
      * Get a config value for a given form widget type.
      *
+     * @param Config $config  The used config.
      * @param string $type    The widget type.
      * @param string $name    The configuration name.
      * @param mixed  $default The default value.
      *
      * @return mixed
      */
-    protected function getConfig($type, $name, $default = false)
+    protected function getWidgetConfigValue(Config $config, $type, $name, $default = false)
     {
-        return Bootstrap::getConfigVar('form.widgets.' . $type . '.' . $name, $default);
+        return $config->get('form.widgets.' . $type . '.' . $name, $default);
     }
 
     /**
@@ -238,27 +242,30 @@ class Subscriber implements EventSubscriberInterface
      */
     private function adjustElement(ViewEvent $event, $element, $widget, Container $container)
     {
+        $config = Bootstrap::getConfig();
+        
         if ($element instanceof Element) {
-            $this->applyFormControl($element, $widget, $container);
+            $this->applyFormControl($config, $element, $widget, $container);
 
             // add helper inline class. It is used
-            if ($this->getConfig($widget->type, 'inline-style-option') && $widget->bootstrap_inlineStyle) {
+            if ($this->getWidgetConfigValue($config, $widget->type, 'inline-style-option') 
+                && $widget->bootstrap_inlineStyle) {
                 $element->addClass('inline');
             }
 
             // enable styled select
-            if (Bootstrap::getConfigVar('form.styled-select.enabled')
-                && $this->getConfig($widget->type, 'styled-select')) {
+            if ($config->get($config, 'form.styled-select.enabled')
+                && $this->getWidgetConfigValue($config, $widget->type, 'styled-select')) {
 
-                $element->addClass(Bootstrap::getConfigVar('form.styled-select.class'));
-                $element->setAttribute('data-style', Bootstrap::getConfigVar('form.styled-select.style'));
+                $element->addClass($config->get('form.styled-select.class'));
+                $element->setAttribute('data-style', $config->get('form.styled-select.style'));
 
-                $this->registerStyledSelectAssets();
+                $this->registerStyledSelectAssets($config);
                 $this->setDataStyleAttribute($element, $widget);
             }
 
-            if ($event->getWidget()->type == 'upload' && Bootstrap::getConfigVar('form.styled-upload.enabled')) {
-                $this->generateUpload($container, $widget);
+            if ($event->getWidget()->type == 'upload' && $config->get('form.styled-upload.enabled')) {
+                $this->generateUpload($config, $container, $widget);
             }
         }
     }
@@ -266,6 +273,7 @@ class Subscriber implements EventSubscriberInterface
     /**
      * Set bootstrap column layout.
      *
+     * @param Config          $config    The bootstrap config.
      * @param \Widget         $widget    The form widget.
      * @param Container       $container The form element container.
      * @param Label           $label     The form label.
@@ -273,26 +281,27 @@ class Subscriber implements EventSubscriberInterface
      *
      * @return void
      */
-    private function setColumnLayout($widget, Container $container, Label $label, $form)
+    private function setColumnLayout(Config $config, $widget, Container $container, Label $label, $form)
     {
         if (($form && !$widget->tableless)
-            || (!$form && Bootstrap::getConfigVar('form.default-horizontal'))
+            || (!$form && $config->get('form.default-horizontal'))
         ) {
             $container->setRenderContainer(true);
-            $container->addClass(Bootstrap::getConfigVar('form.horizontal.control'));
+            $container->addClass($config->get('form.horizontal.control'));
 
-            if (!$widget->label || !$this->getConfig($widget->type, 'label', true)) {
-                $container->addClass(Bootstrap::getConfigVar('form.horizontal.offset'));
+            if (!$widget->label || !$this->getWidgetConfigValue($config, $widget->type, 'label', true)) {
+                $container->addClass($config->get('form.horizontal.offset'));
             } else {
-                $label->addClass(Bootstrap::getConfigVar('form.horizontal.label'));
+                $label->addClass($config->get('form.horizontal.label'));
             }
 
             if ($container->hasChild('repeatLabel')) {
+                /** @var Label $label */
                 $label = $container->getChild('repeatLabel');
                 $label->addClass('control-label');
 
-                if ($this->getConfig($widget->type, 'label', true)) {
-                    $label->addClass(Bootstrap::getConfigVar('form.horizontal.label'));
+                if ($this->getWidgetConfigValue($config, $widget->type, 'label', true)) {
+                    $label->addClass($config->get('form.horizontal.label'));
                 }
             }
         }
@@ -342,13 +351,14 @@ class Subscriber implements EventSubscriberInterface
     /**
      * Handle submit buttons added to a field.
      *
+     * @param Config     $config     The bootstrap config.
      * @param Container  $container  Form element container.
      * @param \Widget    $widget     The form widget.
      * @param InputGroup $inputGroup The input group.
      *
      * @return void
      */
-    private function adjustSubmitButton(Container $container, $widget, InputGroup $inputGroup)
+    private function adjustSubmitButton(Config $config, Container $container, $widget, InputGroup $inputGroup)
     {
         if ($container->hasChild('submit')) {
             /** @var Node $submit */
@@ -366,7 +376,7 @@ class Subscriber implements EventSubscriberInterface
             if ($widget->bootstrap_addSubmitClass) {
                 $submit->addClass($widget->bootstrap_addSubmitClass);
             } else {
-                $submit->addClass(Bootstrap::getConfigVar('form.default-submit-btn'));
+                $submit->addClass($config->get('form.default-submit-btn'));
             }
 
             if ($widget->bootstrap_addSubmitIcon) {
@@ -407,15 +417,16 @@ class Subscriber implements EventSubscriberInterface
     /**
      * Add input group to the form container.
      *
+     * @param Config        $config    The bootstrap config.
      * @param \Widget       $widget    The form widget.
      * @param Container     $container The element container.
      * @param CastsToString $element   The element.
      *
      * @return void
      */
-    private function addInputGroup($widget, Container $container, CastsToString $element)
+    private function addInputGroup(Config $config, $widget, Container $container, CastsToString $element)
     {
-        if ($this->getConfig($widget->type, 'input-group') &&
+        if ($this->getWidgetConfigValue($config, $widget->type, 'input-group') &&
             ($widget->bootstrap_addIcon ||
                 $widget->bootstrap_addUnit ||
                 $container->hasChild('submit') ||
@@ -428,7 +439,7 @@ class Subscriber implements EventSubscriberInterface
 
             $this->addIcon($widget, $inputGroup);
             $this->addUnit($widget, $inputGroup);
-            $this->adjustSubmitButton($container, $widget, $inputGroup);
+            $this->adjustSubmitButton($config, $container, $widget, $inputGroup);
             $this->adjustCaptcha($widget, $container, $inputGroup);
         }
     }
@@ -448,19 +459,21 @@ class Subscriber implements EventSubscriberInterface
     /**
      * Apply the form control.
      *
+     * @param Config    $config    The bootstrap config.
      * @param mixed     $element   Current form element.
      * @param \Widget   $widget    The form widget.
      * @param Container $container The container.
      *
      * @return void
      */
-    private function applyFormControl($element, $widget, Container $container)
+    private function applyFormControl(Config $config, $element, $widget, Container $container)
     {
         // apply form control class to the element
-        if ($this->getConfig($widget->type, 'form-control', true)) {
+        if ($this->getWidgetConfigValue($config, $widget->type, 'form-control', true)) {
             $element->addClass('form-control');
 
             if ($container->hasChild('repeat')) {
+                /** @var Element $repeat */
                 $repeat = $container->getChild('repeat');
                 $repeat->addClass('form-control');
             }
@@ -470,14 +483,16 @@ class Subscriber implements EventSubscriberInterface
     /**
      * Register styled select assets.
      *
+     * @param Config $config The bootstrap config.
+     *
      * @return void
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    private function registerStyledSelectAssets()
+    private function registerStyledSelectAssets(Config $config)
     {
-        $javascripts = (array) Bootstrap::getConfigVar('form.styled-select.javascript');
-        $stylesheets = Bootstrap::getConfigVar('form.styled-select.stylesheet');
+        $javascripts = (array) $config->get('form.styled-select.javascript');
+        $stylesheets = $config->get('form.styled-select.stylesheet');
         $language    = substr($GLOBALS['TL_LANGUAGE'], 0, 2);
 
         if (isset(static::$selectLocalizations[$language])) {
