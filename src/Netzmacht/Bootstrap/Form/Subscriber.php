@@ -12,6 +12,7 @@ namespace Netzmacht\Bootstrap\Form;
 use Netzmacht\Bootstrap\Core\Bootstrap;
 use Netzmacht\Bootstrap\Core\Config\Config;
 use Netzmacht\Bootstrap\Core\Config\TypeManager;
+use Netzmacht\Bootstrap\Core\Contao\Model\BootstrapConfigModel;
 use Netzmacht\Bootstrap\Core\Event\GetMultipleConfigNamesEvent;
 use Netzmacht\Bootstrap\Core\Util\AssetsManager;
 use Netzmacht\Contao\FormHelper\Event\Events;
@@ -55,6 +56,13 @@ class Subscriber implements EventSubscriberInterface
     );
 
     /**
+     * Config cache.
+     *
+     * @var Config[]
+     */
+    private $configs = array();
+
+    /**
      * {@inheritdoc}
      */
     public static function getSubscribedEvents()
@@ -64,6 +72,29 @@ class Subscriber implements EventSubscriberInterface
             Events::GENERATE_VIEW             => 'generate',
             GetMultipleConfigNamesEvent::NAME => 'getConfigNames',
         );
+    }
+
+    /**
+     * Get the bootstrap config for the form context.
+     *
+     * @param \FormModel|null $formModel The form model to which the widget belongs.
+     *
+     * @return \Netzmacht\Bootstrap\Core\Config
+     */
+    protected function getConfig($formModel = null)
+    {
+        if (!$formModel) {
+            return Bootstrap::getConfig();
+        }
+
+        if (!isset($this->configs[$formModel->id])) {
+            $collection = BootstrapConfigModel::findMultipleByIds(deserialize($formModel->bootstrap_configs, true));
+            $config     = $this->getTypeManager()->buildContextualConfig($collection);
+
+            $this->configs[$formModel->id] = $config;
+        }
+
+        return $this->configs[$formModel->id];
     }
 
     /**
@@ -142,7 +173,7 @@ class Subscriber implements EventSubscriberInterface
         $label     = $event->getLabel();
         $errors    = $event->getErrors();
         $form      = $event->getFormModel();
-        $config    = Bootstrap::getConfig();
+        $config    = $this->getConfig($form);
 
         // add label class
         $label->addClass('control-label');
@@ -242,7 +273,7 @@ class Subscriber implements EventSubscriberInterface
      */
     private function adjustElement(ViewEvent $event, $element, $widget, Container $container)
     {
-        $config = Bootstrap::getConfig();
+        $config = $this->getConfig($event->getFormModel());
         
         if ($element instanceof Element) {
             $this->applyFormControl($config, $element, $widget, $container);
@@ -254,7 +285,7 @@ class Subscriber implements EventSubscriberInterface
             }
 
             // enable styled select
-            if ($config->get($config, 'form.styled-select.enabled')
+            if ($config->get('form.styled-select.enabled')
                 && $this->getWidgetConfigValue($config, $widget->type, 'styled-select')) {
 
                 $element->addClass($config->get('form.styled-select.class'));
