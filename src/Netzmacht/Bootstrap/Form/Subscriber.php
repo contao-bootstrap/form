@@ -279,7 +279,7 @@ class Subscriber implements EventSubscriberInterface
             $this->applyFormControl($config, $element, $widget, $container);
 
             // add helper inline class. It is used
-            if ($this->getWidgetConfigValue($config, $widget->type, 'inline-style-option') 
+            if ($this->getWidgetConfigValue($config, $widget->type, 'inline-style-option')
                 && $widget->bootstrap_inlineStyle) {
                 $element->addClass('inline');
             }

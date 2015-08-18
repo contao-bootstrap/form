@@ -24,6 +24,8 @@ class Form
      * Get config type options.
      *
      * @return array
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
      */
     public function getConfigTypes()
     {
@@ -38,15 +40,18 @@ class Form
 
         if ($collection) {
             foreach ($collection as $model) {
-                $options[$model->id] = sprintf('%s (%s): %s %s (%s)',
+                $type = isset($GLOBALS['TL_LANG']['bootstrap_config_type'][$model->type])
+                    ? $GLOBALS['TL_LANG']['bootstrap_config_type'][$model->type]
+                    : $model->type;
+
+                $options[$model->id] = sprintf(
+                    '%s (%s): %s %s (%s)',
                     $model->getRelated('pid')->name,
                     $model->pid,
-                    isset($GLOBALS['TL_LANG']['bootstrap_config_type'][$model->type])
-                        ? $GLOBALS['TL_LANG']['bootstrap_config_type'][$model->type]
-                        : $model->type,
+                    $type,
                     $model->name,
                     $model->id
-                 );
+                );
             }
         }
 
