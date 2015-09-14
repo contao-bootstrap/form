@@ -100,6 +100,9 @@ return array
                 'input-group' => true,
             ),
 
+            'upload' => array(
+                'form-control' => false,
+            )
         ),
 
         // which columns shall be used for the form in table mode
