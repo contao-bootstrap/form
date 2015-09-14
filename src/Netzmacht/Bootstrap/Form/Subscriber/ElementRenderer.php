@@ -10,7 +10,7 @@
 namespace Netzmacht\Bootstrap\Form\Subscriber;
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
-use Netzmacht\Bootstrap\Core\Config\Config;
+use Netzmacht\Bootstrap\Core\Config;
 use Netzmacht\Bootstrap\Form\InputGroup;
 use Netzmacht\Contao\FormHelper\Event\ViewEvent;
 use Netzmacht\Contao\FormHelper\Partial\Label;

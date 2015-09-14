@@ -12,7 +12,8 @@
 namespace Netzmacht\Bootstrap\Form\Subscriber;
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
-use Netzmacht\Bootstrap\Core\Config\Config;
+use Netzmacht\Bootstrap\Core\Config;
+use Netzmacht\Bootstrap\Core\Config\ContextualConfig;
 use Netzmacht\Bootstrap\Core\Config\TypeManager;
 use Netzmacht\Bootstrap\Core\Contao\Model\BootstrapConfigModel;
 
@@ -26,7 +27,7 @@ abstract class AbstractSubscriber
     /**
      * Config cache.
      *
-     * @var Config[]
+     * @var Config[]|ContextualConfig[]
      */
     protected static $configs = array();
 
@@ -35,7 +36,7 @@ abstract class AbstractSubscriber
      *
      * @param \FormModel|null $formModel The form model to which the widget belongs.
      *
-     * @return Config
+     * @return Config|ContextualConfig
      */
     protected static function getConfig($formModel = null)
     {

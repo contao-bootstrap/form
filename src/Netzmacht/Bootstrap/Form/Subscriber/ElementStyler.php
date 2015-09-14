@@ -9,7 +9,7 @@
 
 namespace Netzmacht\Bootstrap\Form\Subscriber;
 
-use Netzmacht\Bootstrap\Core\Config\Config;
+use Netzmacht\Bootstrap\Core\Config;
 use Netzmacht\Bootstrap\Core\Util\AssetsManager;
 use Netzmacht\Bootstrap\Form\InputGroup;
 use Netzmacht\Contao\FormHelper\Event\ViewEvent;
