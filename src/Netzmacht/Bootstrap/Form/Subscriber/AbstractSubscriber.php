@@ -27,7 +27,7 @@ abstract class AbstractSubscriber
     /**
      * Config cache.
      *
-     * @var Config[]|ContextualConfig[]
+     * @var ContextualConfig[]
      */
     protected static $configs = array();
 
@@ -36,7 +36,7 @@ abstract class AbstractSubscriber
      *
      * @param \FormModel|null $formModel The form model to which the widget belongs.
      *
-     * @return Config|ContextualConfig
+     * @return ContextualConfig
      */
     protected static function getConfig($formModel = null)
     {
@@ -69,14 +69,14 @@ abstract class AbstractSubscriber
     /**
      * Get a config value for a given form widget type.
      *
-     * @param Config $config  The used config.
-     * @param string $type    The widget type.
-     * @param string $name    The configuration name.
-     * @param mixed  $default The default value.
+     * @param ContextualConfig $config  The used config.
+     * @param string           $type    The widget type.
+     * @param string           $name    The configuration name.
+     * @param mixed            $default The default value.
      *
      * @return mixed
      */
-    protected static function getWidgetConfigValue(Config $config, $type, $name, $default = false)
+    protected static function getWidgetConfigValue(ContextualConfig $config, $type, $name, $default = false)
     {
         return $config->get('form.widgets.' . $type . '.' . $name, $default);
     }

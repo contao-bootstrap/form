@@ -10,6 +10,7 @@
 namespace Netzmacht\Bootstrap\Form\Subscriber;
 
 use Netzmacht\Bootstrap\Core\Config;
+use Netzmacht\Bootstrap\Core\Config\ContextualConfig;
 use Netzmacht\Bootstrap\Core\Util\AssetsManager;
 use Netzmacht\Bootstrap\Form\InputGroup;
 use Netzmacht\Contao\FormHelper\Event\ViewEvent;
@@ -49,13 +50,13 @@ class ElementStyler extends AbstractSubscriber
     /**
      * Register styled select assets.
      *
-     * @param Config $config The bootstrap config.
+     * @param Config|ContextualConfig $config The bootstrap config.
      *
      * @return void
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    private function registerStyledSelectAssets(Config $config)
+    private function registerStyledSelectAssets($config)
     {
         $javascripts = (array) $config->get('form.styled-select.javascript');
         $stylesheets = $config->get('form.styled-select.stylesheet');
@@ -73,13 +74,13 @@ class ElementStyler extends AbstractSubscriber
     /**
      * Set bootstrap select element attributes..
      *
-     * @param Config  $config  The config.
-     * @param Element $element The select element.
-     * @param \Widget $widget  The widget.
+     * @param ContextualConfig $config  The config.
+     * @param Element          $element The select element.
+     * @param \Widget          $widget  The widget.
      *
      * @return void
      */
-    private function setStyledSelectAttributes(Config $config, $element, $widget)
+    private function setStyledSelectAttributes(ContextualConfig $config, $element, $widget)
     {
         $element->addClass($config->get('form.styled-select.class'));
         $element->setAttribute('data-style', $config->get('form.styled-select.style'));
@@ -98,13 +99,13 @@ class ElementStyler extends AbstractSubscriber
     /**
      * Generate the upload field.
      *
-     * @param Config    $config    The bootstrap config.
-     * @param Container $container Form element container.
-     * @param \Widget   $widget    Form widget.
+     * @param ContextualConfig $config    The bootstrap config.
+     * @param Container        $container Form element container.
+     * @param \Widget          $widget    Form widget.
      *
      * @return void
      */
-    private function generateUpload(Config $config, Container $container, $widget)
+    private function generateUpload(ContextualConfig $config, Container $container, $widget)
     {
         $config  = $config->get('form.styled-upload');
         $element = $container->getElement();

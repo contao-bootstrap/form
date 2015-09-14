@@ -18,6 +18,6 @@ return array(
         array(new ElementRenderer(), 'handle')
     ),
     GetMultipleConfigNamesEvent::NAME => array(
-        'Netzmacht\Bootstrap\Form\Subscriber::handle'
+        'Netzmacht\Bootstrap\Form\Subscriber\ConfigNamesProvider::handle'
     ),
 );
