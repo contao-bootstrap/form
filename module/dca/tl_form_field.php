@@ -10,11 +10,15 @@
 use Netzmacht\Bootstrap\Core\Bootstrap;
 use Bit3\Contao\MetaPalettes\MetaPalettes;
 
-/**
- * palettes
+/*
+ * Palettes
  */
-$GLOBALS['TL_DCA']['tl_form_field']['palettes']['button'] = $GLOBALS['TL_DCA']['tl_form_field']['palettes']['submit'];
-
+$GLOBALS['TL_DCA']['tl_form_field']['metapalettes']['button'] = array(
+    'type'     => array('type', 'name', 'slabel', 'bootstrap_addIcon'),
+    'image'    => array(':hide', 'imageSubmit'),
+    'expert'   => array(':hide', 'class', 'accesskey', 'tabindex'),
+    'template' => array(':hide,customTpl')
+);
 
 foreach(Bootstrap::getConfigVar('form.widgets', array()) as $widget => $config) {
     if(isset($config['input-group']) && $config['input-group']) {
@@ -26,11 +30,6 @@ foreach(Bootstrap::getConfigVar('form.widgets', array()) as $widget => $config) 
     }
 }
 
-MetaPalettes::appendAfter('tl_form_field', 'button', 'type', array
-(
-    'icon' => array('bootstrap_addIcon'),
-));
-
 // append inlineStyle option to radio and checkbox
 MetaPalettes::appendFields('tl_form_field', 'radio', 'fconfig', array('bootstrap_inlineStyle'));
 MetaPalettes::appendFields('tl_form_field', 'checkbox', 'fconfig', array('bootstrap_inlineStyle'));
@@ -39,9 +38,6 @@ if (Bootstrap::getConfigVar('form.styled-upload.enabled')) {
     MetaPalettes::appendFields('tl_form_field', 'upload', 'fconfig', array('placeholder'));
 }
 
-/**
- * meta palettes
- */
 $GLOBALS['TL_DCA']['tl_form_field']['metasubpalettes']['bootstrap_addIcon'] = array('bootstrap_icon', 'bootstrap_iconPosition');
 $GLOBALS['TL_DCA']['tl_form_field']['metasubpalettes']['bootstrap_addUnit'] = array('bootstrap_unit', 'bootstrap_unitPosition');
 
@@ -49,8 +45,8 @@ unset($GLOBALS['TL_DCA']['tl_form_field']['subpalettes']['addSubmit']);
 $GLOBALS['TL_DCA']['tl_form_field']['metasubpalettes']['addSubmit'] = array('slabel', 'bootstrap_addSubmitIcon', 'bootstrap_addSubmitIconPosition', 'bootstrap_addSubmitClass');
 
 
-/**
- * fields
+/*
+ * Fields
  */
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['type']['options_callback'] = function () {
     return array_keys($GLOBALS['TL_FFL']);

@@ -35,7 +35,6 @@ class Button extends \FormSubmit implements GeneratesAnElement
                     'type'  => 'submit',
                     'class' => array('submit', 'btn', $buttonClass),
                     'title' => specialchars($this->slabel),
-                    'alt'   => specialchars($this->slabel),
                 )
             );
 
