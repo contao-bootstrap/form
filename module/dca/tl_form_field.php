@@ -8,6 +8,7 @@
  */
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
+use Bit3\Contao\MetaPalettes\MetaPalettes;
 
 /**
  * palettes
@@ -17,7 +18,7 @@ $GLOBALS['TL_DCA']['tl_form_field']['palettes']['button'] = $GLOBALS['TL_DCA']['
 
 foreach(Bootstrap::getConfigVar('form.widgets', array()) as $widget => $config) {
     if(isset($config['input-group']) && $config['input-group']) {
-        \MetaPalettes::appendAfter('tl_form_field', $widget, 'fconfig', array
+        MetaPalettes::appendAfter('tl_form_field', $widget, 'fconfig', array
         (
             'icon' => array(':hide', 'bootstrap_addIcon'),
             'unit' => array(':hide', 'bootstrap_addUnit'),
@@ -25,17 +26,17 @@ foreach(Bootstrap::getConfigVar('form.widgets', array()) as $widget => $config) 
     }
 }
 
-\MetaPalettes::appendAfter('tl_form_field', 'button', 'type', array
+MetaPalettes::appendAfter('tl_form_field', 'button', 'type', array
 (
     'icon' => array('bootstrap_addIcon'),
 ));
 
 // append inlineStyle option to radio and checkbox
-\MetaPalettes::appendFields('tl_form_field', 'radio', 'fconfig', array('bootstrap_inlineStyle'));
-\MetaPalettes::appendFields('tl_form_field', 'checkbox', 'fconfig', array('bootstrap_inlineStyle'));
+MetaPalettes::appendFields('tl_form_field', 'radio', 'fconfig', array('bootstrap_inlineStyle'));
+MetaPalettes::appendFields('tl_form_field', 'checkbox', 'fconfig', array('bootstrap_inlineStyle'));
 
 if (Bootstrap::getConfigVar('form.styled-upload.enabled')) {
-    \MetaPalettes::appendFields('tl_form_field', 'upload', 'fconfig', array('placeholder'));
+    MetaPalettes::appendFields('tl_form_field', 'upload', 'fconfig', array('placeholder'));
 }
 
 /**
