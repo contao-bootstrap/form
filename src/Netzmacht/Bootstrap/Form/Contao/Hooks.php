@@ -27,9 +27,16 @@ class Hooks
      */
     public function loadFormField($widget)
     {
-        // Force table less mode in the form field. Otherwise it is not rendered.
-        if ($widget->type === 'fieldset' && Bootstrap::isEnabled()) {
-            $widget->tableless = true;
+        if (Bootstrap::isEnabled()) {
+            // Force table less mode in the form field. Otherwise it is not rendered.
+            if ($widget->type === 'fieldset') {
+                $widget->tableless = true;
+            }
+
+            // Force table less mode otherwise table html would be created.
+            if ($widget instanceof \MadeYourDay\Contao\Form\AntispamField) {
+                $widget->tableless = true;
+            }
         }
 
         return $widget;
