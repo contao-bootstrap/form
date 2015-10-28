@@ -110,6 +110,11 @@ class ElementStyler extends AbstractSubscriber
         $element->addClass($config->get('form.styled-select.class'));
         $element->setAttribute('data-style', $config->get('form.styled-select.style'));
 
+        $size = $config->get('form.styled-select.size');
+        if ($size !== 'auto') {
+            $element->setAttribute('data-size', $size);
+        }
+
         if ($widget->bootstrap_select_search || $this->hasExceededOptionsThreshold($config, $widget)) {
             $element->setAttribute('data-live-search', 'true');
         }

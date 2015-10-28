@@ -125,6 +125,7 @@ return array
             'class'            => 'selectpicker',
             'style'            => 'btn-default',
             'search-threshold' => 10,
+            'size'             => 'auto',
             'javascript'       => array(
                 'system/modules/bootstrap-form/assets/bootstrap-select/js/bootstrap-select.min.js',
                 'system/modules/bootstrap-form/assets/bootstrap-select.js'
