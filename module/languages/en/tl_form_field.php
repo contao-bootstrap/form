@@ -32,6 +32,8 @@ $GLOBALS['TL_LANG']['tl_form_field']['bootstrap_inlineStyle'][1] = 'Radio/Checkb
 $GLOBALS['TL_LANG']['tl_form_field']['bootstrap_addSubmitClass'][0] = 'CSS class of the send button';
 $GLOBALS['TL_LANG']['tl_form_field']['bootstrap_addSubmitClass'][1] = 'You can define any CSS class. If no class is set btn-default class will be assigned to the button.';
 
+$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_select_search'][0] = 'Add search input';
+$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_select_search'][1] = 'If active a search input is displayed for the styled select.';
 
 $GLOBALS['TL_LANG']['tl_form_field']['right'] = 'right';
 $GLOBALS['TL_LANG']['tl_form_field']['left'] = 'left';

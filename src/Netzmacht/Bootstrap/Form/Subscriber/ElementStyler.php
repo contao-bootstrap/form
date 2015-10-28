@@ -30,11 +30,15 @@ class ElementStyler extends AbstractSubscriber
      * @var array
      */
     private static $selectLocalizations = array(
+        'ar' => 'ar_AR',
+        'bg' => 'bg_BG',
         'cs' => 'cs_CZ',
+        'da' => 'da_DK',
         'de' => 'de_DE',
         'en' => 'eu_US',
         'es' => 'es_CL',
         'eu' => 'eu',
+        'fa' => 'fa_IR',
         'fr' => 'fr_FR',
         'it' => 'it_IT',
         'nl' => 'nl_NL',
@@ -42,6 +46,10 @@ class ElementStyler extends AbstractSubscriber
         'bt' => 'pt_BR',
         'ro' => 'ro_RO',
         'ru' => 'ru_RU',
+        'sk' => 'sk_SK',
+        'sl' => 'sl_SI',
+        'sv' => 'sv_SE',
+        'tr' => 'tr_TR',
         'ua' => 'ua_UA',
         'zh' => 'zh_CN',
         // Not supported zh_TW
@@ -84,6 +92,10 @@ class ElementStyler extends AbstractSubscriber
     {
         $element->addClass($config->get('form.styled-select.class'));
         $element->setAttribute('data-style', $config->get('form.styled-select.style'));
+
+        if ($widget->bootstrap_select_search) {
+            $element->setAttribute('data-live-search', 'true');
+        }
 
         // If a btn-* class isset, set it as data-style attribute.
         $classes = explode(' ', $widget->class);

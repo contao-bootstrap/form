@@ -34,6 +34,9 @@ foreach(Bootstrap::getConfigVar('form.widgets', array()) as $widget => $config) 
 MetaPalettes::appendFields('tl_form_field', 'radio', 'fconfig', array('bootstrap_inlineStyle'));
 MetaPalettes::appendFields('tl_form_field', 'checkbox', 'fconfig', array('bootstrap_inlineStyle'));
 
+// Add search select option
+MetaPalettes::appendFields('tl_form_field', 'select', 'fconfig', array('bootstrap_select_search'));
+
 if (Bootstrap::getConfigVar('form.styled-upload.enabled')) {
     MetaPalettes::appendFields('tl_form_field', 'upload', 'fconfig', array('placeholder'));
 }
@@ -149,4 +152,14 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['bootstrap_addSubmitIconPosition']
     'reference'               => &$GLOBALS['TL_LANG']['tl_form_field'],
     'eval'                    => array('tl_class' => 'w50'),
     'sql'                     => "varchar(32) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_form_field']['fields']['bootstrap_select_search'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_select_search'],
+    'inputType' => 'checkbox',
+    'eval'      => array(
+        'tl_class'       => 'w50',
+    ),
+    'sql'       => "char(1) NOT NULL default ''"
 );
