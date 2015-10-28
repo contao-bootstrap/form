@@ -39,9 +39,10 @@ class FormType implements Type
         if ($model->form_styled_select) {
             $config->merge(
                 array(
-                    'enabled' => true,
-                    'class'   => $model->form_styled_select_class,
-                    'style'   => $model->form_styled_select_style,
+                    'enabled'          => true,
+                    'class'            => $model->form_styled_select_class,
+                    'style'            => $model->form_styled_select_style,
+                    'search-threshold' => $model->form_styled_select_threshold,
                 ),
                 'form.styled-select'
             );
@@ -74,9 +75,10 @@ class FormType implements Type
         $model->form_horizontal_control = $config->get('form.horizontal.control');
         $model->form_horizontal_offset  = $config->get('form.horizontal.offset');
 
-        $model->form_styled_select       = $config->get('form.styled-select.enabled');
-        $model->form_styled_select_class = $config->get('form.styled-select.class');
-        $model->form_styled_select_style = $config->get('form.styled-select.style');
+        $model->form_styled_select           = $config->get('form.styled-select.enabled');
+        $model->form_styled_select_class     = $config->get('form.styled-select.class');
+        $model->form_styled_select_style     = $config->get('form.styled-select.style');
+        $model->form_styled_select_threshold = $config->get('form.styled-select.search-threshold');
 
         $model->form_styled_upload          = $config->get('form.styled-upload.enabled');
         $model->form_styled_upload_class    = $config->get('form.styled-upload.class');
