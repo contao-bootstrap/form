@@ -80,6 +80,23 @@ class ElementStyler extends AbstractSubscriber
     }
 
     /**
+     * Check if the select has passed the options threshold.
+     *
+     * @param ContextualConfig|Config $config  The config.
+     * @param \Widget                 $widget  The widget.
+     *
+     * @return bool
+     */
+    private function hasExceededOptionsThreshold($config, $widget)
+    {
+        if (!is_array($widget->options) || !$config->get('form.styled-select.search-threshold')) {
+            return false;
+        }
+
+        return (count($widget->options) >= $config->get('form.styled-select.search-threshold'));
+    }
+
+    /**
      * Set bootstrap select element attributes..
      *
      * @param ContextualConfig|Config $config  The config.
@@ -93,7 +110,7 @@ class ElementStyler extends AbstractSubscriber
         $element->addClass($config->get('form.styled-select.class'));
         $element->setAttribute('data-style', $config->get('form.styled-select.style'));
 
-        if ($widget->bootstrap_select_search) {
+        if ($widget->bootstrap_select_search || $this->hasExceededOptionsThreshold($config, $widget)) {
             $element->setAttribute('data-live-search', 'true');
         }
 

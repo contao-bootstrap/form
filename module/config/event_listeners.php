@@ -17,7 +17,6 @@ return array(
     Events::GENERATE_VIEW => array(
         array(new ElementStyler(), 'handle'),
         array(new ElementRenderer(), 'handle'),
-        array(new ContaoFormsRenderer(), 'handle'),
     ),
     GetMultipleConfigNamesEvent::NAME => array(
         'Netzmacht\Bootstrap\Form\Subscriber\ConfigNamesProvider::handle'
