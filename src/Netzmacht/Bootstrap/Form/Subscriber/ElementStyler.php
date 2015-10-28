@@ -82,8 +82,8 @@ class ElementStyler extends AbstractSubscriber
     /**
      * Check if the select has passed the options threshold.
      *
-     * @param ContextualConfig|Config $config  The config.
-     * @param \Widget                 $widget  The widget.
+     * @param ContextualConfig|Config $config The config.
+     * @param \Widget                 $widget The widget.
      *
      * @return bool
      */

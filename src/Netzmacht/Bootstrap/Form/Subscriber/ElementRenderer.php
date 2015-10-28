@@ -33,7 +33,7 @@ class ElementRenderer extends AbstractSubscriber
      *
      * @param ContextualConfig|Config $config The bootstrap config.
      * @param Label                   $label  The label class.
-     * @param \Widget                  $widget The widget.
+     * @param \Widget                 $widget The widget.
      *
      * @return void
      */
@@ -49,7 +49,7 @@ class ElementRenderer extends AbstractSubscriber
     /**
      * Apply the form control.
      *
-     * @param ContextualConfig|Config $config The bootstrap config.
+     * @param ContextualConfig|Config $config    The bootstrap config.
      * @param Element                 $element   Current form element.
      * @param \Widget                 $widget    The form widget.
      * @param Container               $container The container.
