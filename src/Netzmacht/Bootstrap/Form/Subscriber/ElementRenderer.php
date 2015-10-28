@@ -10,6 +10,7 @@
 namespace Netzmacht\Bootstrap\Form\Subscriber;
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
+use Netzmacht\Bootstrap\Core\Config;
 use Netzmacht\Bootstrap\Core\Config\ContextualConfig;
 use Netzmacht\Bootstrap\Form\InputGroup;
 use Netzmacht\Contao\FormHelper\Event\ViewEvent;
@@ -30,13 +31,13 @@ class ElementRenderer extends AbstractSubscriber
     /**
      * Modify the label.
      *
-     * @param ContextualConfig $config The bootstrap config.
-     * @param Label            $label  The label class.
-     * @param \Widget          $widget The widget.
+     * @param ContextualConfig|Config $config The bootstrap config.
+     * @param Label                   $label  The label class.
+     * @param \Widget                  $widget The widget.
      *
      * @return void
      */
-    private function modifyLabel(ContextualConfig $config, Label $label, \Widget $widget)
+    private function modifyLabel($config, Label $label, \Widget $widget)
     {
         if (!$widget->label || !$this->getWidgetConfigValue($config, $widget->type, 'label', true)) {
             $label->hide();
@@ -48,14 +49,14 @@ class ElementRenderer extends AbstractSubscriber
     /**
      * Apply the form control.
      *
-     * @param ContextualConfig $config    The bootstrap config.
-     * @param Element          $element   Current form element.
-     * @param \Widget          $widget    The form widget.
-     * @param Container        $container The container.
+     * @param ContextualConfig|Config $config The bootstrap config.
+     * @param Element                 $element   Current form element.
+     * @param \Widget                 $widget    The form widget.
+     * @param Container               $container The container.
      *
      * @return void
      */
-    private function applyFormControl(ContextualConfig $config, $element, $widget, Container $container)
+    private function applyFormControl($config, $element, $widget, Container $container)
     {
         // apply form control class to the element
         if ($this->getWidgetConfigValue($config, $widget->type, 'form-control', true)) {
@@ -72,14 +73,14 @@ class ElementRenderer extends AbstractSubscriber
     /**
      * Adjust an element.
      *
-     * @param ContextualConfig $config    The bootstrap config.
-     * @param mixed            $element   The current element.
-     * @param \Widget          $widget    The original form widget.
-     * @param Container        $container The form widget container.
+     * @param ContextualConfig|Config $config    The bootstrap config.
+     * @param mixed                   $element   The current element.
+     * @param \Widget                 $widget    The original form widget.
+     * @param Container               $container The form widget container.
      *
      * @return void
      */
-    private function modifyElement(ContextualConfig $config, $element, $widget, Container $container)
+    private function modifyElement($config, $element, $widget, Container $container)
     {
         if ($element instanceof Element) {
             $this->applyFormControl($config, $element, $widget, $container);
@@ -160,15 +161,15 @@ class ElementRenderer extends AbstractSubscriber
     /**
      * Handle submit buttons added to a field.
      *
-     * @param ContextualConfig $config     The bootstrap config.
-     * @param Container        $container  Form element container.
-     * @param \Widget          $widget     The form widget.
-     * @param InputGroup       $inputGroup The input group.
+     * @param ContextualConfig|Config $config     The bootstrap config.
+     * @param Container               $container  Form element container.
+     * @param \Widget                 $widget     The form widget.
+     * @param InputGroup              $inputGroup The input group.
      *
      * @return void
      */
     private function adjustSubmitButton(
-        ContextualConfig $config,
+        $config,
         Container $container,
         \Widget $widget,
         InputGroup $inputGroup
@@ -230,14 +231,14 @@ class ElementRenderer extends AbstractSubscriber
     /**
      * Add input group to the form container.
      *
-     * @param ContextualConfig $config    The bootstrap config.
-     * @param \Widget          $widget    The form widget.
-     * @param Container        $container The element container.
-     * @param CastsToString    $element   The element.
+     * @param ContextualConfig|Config $config    The bootstrap config.
+     * @param \Widget                 $widget    The form widget.
+     * @param Container               $container The element container.
+     * @param CastsToString           $element   The element.
      *
      * @return void
      */
-    private function addInputGroup(ContextualConfig $config, $widget, Container $container, CastsToString $element)
+    private function addInputGroup($config, $widget, Container $container, CastsToString $element)
     {
         if ($this->getWidgetConfigValue($config, $widget->type, 'input-group')
             && ($widget->bootstrap_addIcon || $widget->bootstrap_addUnit || $container->hasChild('submit')

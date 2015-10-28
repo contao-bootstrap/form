@@ -82,13 +82,13 @@ class ElementStyler extends AbstractSubscriber
     /**
      * Set bootstrap select element attributes..
      *
-     * @param ContextualConfig $config  The config.
-     * @param Element          $element The select element.
-     * @param \Widget          $widget  The widget.
+     * @param ContextualConfig|Config $config  The config.
+     * @param Element                 $element The select element.
+     * @param \Widget                 $widget  The widget.
      *
      * @return void
      */
-    private function setStyledSelectAttributes(ContextualConfig $config, $element, $widget)
+    private function setStyledSelectAttributes($config, $element, $widget)
     {
         $element->addClass($config->get('form.styled-select.class'));
         $element->setAttribute('data-style', $config->get('form.styled-select.style'));
@@ -111,13 +111,13 @@ class ElementStyler extends AbstractSubscriber
     /**
      * Generate the upload field.
      *
-     * @param ContextualConfig $config    The bootstrap config.
-     * @param Container        $container Form element container.
-     * @param \Widget          $widget    Form widget.
+     * @param ContextualConfig|Config $config    The bootstrap config.
+     * @param Container               $container Form element container.
+     * @param \Widget                 $widget    Form widget.
      *
      * @return void
      */
-    private function generateUpload(ContextualConfig $config, Container $container, $widget)
+    private function generateUpload($config, Container $container, $widget)
     {
         $config  = $config->get('form.styled-upload');
         $element = $container->getElement();

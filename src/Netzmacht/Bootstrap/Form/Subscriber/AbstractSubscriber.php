@@ -69,14 +69,14 @@ abstract class AbstractSubscriber
     /**
      * Get a config value for a given form widget type.
      *
-     * @param ContextualConfig $config  The used config.
-     * @param string           $type    The widget type.
-     * @param string           $name    The configuration name.
-     * @param mixed            $default The default value.
+     * @param ContextualConfig|Config $config  The used config.
+     * @param string                  $type    The widget type.
+     * @param string                  $name    The configuration name.
+     * @param mixed                   $default The default value.
      *
      * @return mixed
      */
-    protected static function getWidgetConfigValue(ContextualConfig $config, $type, $name, $default = false)
+    protected static function getWidgetConfigValue($config, $type, $name, $default = false)
     {
         return $config->get('form.widgets.' . $type . '.' . $name, $default);
     }
