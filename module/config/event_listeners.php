@@ -8,6 +8,7 @@
  */
 
 use Netzmacht\Bootstrap\Core\Event\GetMultipleConfigNamesEvent;
+use Netzmacht\Bootstrap\Form\Subscriber\ContaoFormsRenderer;
 use Netzmacht\Bootstrap\Form\Subscriber\ElementRenderer;
 use Netzmacht\Bootstrap\Form\Subscriber\ElementStyler;
 use Netzmacht\Contao\FormHelper\Event\Events;
@@ -15,7 +16,8 @@ use Netzmacht\Contao\FormHelper\Event\Events;
 return array(
     Events::GENERATE_VIEW => array(
         array(new ElementStyler(), 'handle'),
-        array(new ElementRenderer(), 'handle')
+        array(new ElementRenderer(), 'handle'),
+        array(new ContaoFormsRenderer(), 'handle'),
     ),
     GetMultipleConfigNamesEvent::NAME => array(
         'Netzmacht\Bootstrap\Form\Subscriber\ConfigNamesProvider::handle'

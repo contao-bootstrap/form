@@ -121,14 +121,15 @@ return array
         // add style select to select list, set to false to disable
         'styled-select'      => array
         (
-            'enabled'    => true,
-            'class'      => 'selectpicker',
-            'style'      => 'btn-default',
-            'javascript' => array(
+            'enabled'          => true,
+            'class'            => 'selectpicker',
+            'style'            => 'btn-default',
+            'search-threshold' => 10,
+            'javascript'       => array(
                 'system/modules/bootstrap-form/assets/bootstrap-select/js/bootstrap-select.min.js',
                 'system/modules/bootstrap-form/assets/bootstrap-select.js'
             ),
-            'stylesheet' => 'system/modules/bootstrap-form/assets/bootstrap-select/css/bootstrap-select.min.css',
+            'stylesheet'       => 'system/modules/bootstrap-form/assets/bootstrap-select/css/bootstrap-select.min.css',
         ),
 
         // style the upload button
