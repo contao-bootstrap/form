@@ -39,11 +39,12 @@ class FormType implements Type
         if ($model->form_styled_select) {
             $config->merge(
                 array(
-                    'enabled'          => true,
-                    'class'            => $model->form_styled_select_class,
-                    'style'            => $model->form_styled_select_style,
-                    'size'             => $model->form_styled_select_size,
-                    'search-threshold' => $model->form_styled_select_threshold,
+                    'enabled'              => true,
+                    'class'                => $model->form_styled_select_class,
+                    'style'                => $model->form_styled_select_style,
+                    'size'                 => $model->form_styled_select_size,
+                    'search-threshold'     => $model->form_styled_select_threshold,
+                    'selected-text-format' => $model->form_styled_select_format
                 ),
                 'form.styled-select'
             );
@@ -81,6 +82,7 @@ class FormType implements Type
         $model->form_styled_select_style     = $config->get('form.styled-select.style');
         $model->form_styled_select_size      = $config->get('form.styled-select.size');
         $model->form_styled_select_threshold = $config->get('form.styled-select.search-threshold');
+        $model->form_styled_select_format    = $config->get('form.styled-select.selected-text-format');
 
         $model->form_styled_upload          = $config->get('form.styled-upload.enabled');
         $model->form_styled_upload_class    = $config->get('form.styled-upload.class');

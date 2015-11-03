@@ -119,6 +119,11 @@ class ElementStyler extends AbstractSubscriber
             $element->setAttribute('data-live-search', 'true');
         }
 
+        $format = $config->get('form.styled-select.selected-text-format');
+        if ($widget->multiple && $format) {
+            $element->setAttribute('data-selected-text-format', html_entity_decode($format));
+        }
+
         // If a btn-* class isset, set it as data-style attribute.
         $classes = explode(' ', $widget->class);
         foreach ($classes as $class) {
