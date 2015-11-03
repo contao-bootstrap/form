@@ -127,10 +127,11 @@ return array
             'search-threshold' => 10,
             'size'             => 'auto',
             'javascript'       => array(
-                'system/modules/bootstrap-form/assets/bootstrap-select/js/bootstrap-select.min.js',
+                'composer/vendor/bootstrap-select/bootstrap-select/dist/js/bootstrap-select.min.js',
                 'system/modules/bootstrap-form/assets/bootstrap-select.js'
             ),
-            'stylesheet'       => 'system/modules/bootstrap-form/assets/bootstrap-select/css/bootstrap-select.min.css',
+            'stylesheet'       => 'composer/vendor/bootstrap-select/bootstrap-select/dist/css/bootstrap-select.min.css',
+            'i18n'             => 'composer/vendor/bootstrap-select/bootstrap-select/dist/js/i18n/defaults-%s.min.js',
         ),
 
         // style the upload button

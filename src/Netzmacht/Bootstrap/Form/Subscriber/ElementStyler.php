@@ -71,8 +71,7 @@ class ElementStyler extends AbstractSubscriber
         $language    = substr($GLOBALS['TL_LANGUAGE'], 0, 2);
 
         if (isset(static::$selectLocalizations[$language])) {
-            $javascripts[] = 'system/modules/bootstrap-form/assets/bootstrap-select/js/i18n/defaults-' .
-                static::$selectLocalizations[$language] . '.min.js';
+            $javascripts[] = sprintf($config->get('form.styled-select.i18n'), static::$selectLocalizations[$language]);
         }
 
         AssetsManager::addJavascripts($javascripts, 'bootstrap-styled-select');
