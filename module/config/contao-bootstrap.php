@@ -128,7 +128,7 @@ return array
             'size'             => 'auto',
             'javascript'       => array(
                 'composer/vendor/bootstrap-select/bootstrap-select/dist/js/bootstrap-select.min.js|static',
-                'system/modules/bootstrap-form/assets/bootstrap-select.js'
+                'system/modules/bootstrap-form/assets/bootstrap-select.js|static'
             ),
             'stylesheet'       => 'composer/vendor/bootstrap-select/bootstrap-select/dist/css/bootstrap-select.min.css|all|static',
             'i18n'             => 'composer/vendor/bootstrap-select/bootstrap-select/dist/js/i18n/defaults-%s.min.js|static',
