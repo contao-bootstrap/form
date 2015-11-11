@@ -35,7 +35,7 @@ class ElementStyler extends AbstractSubscriber
         'cs' => 'cs_CZ',
         'da' => 'da_DK',
         'de' => 'de_DE',
-        'en' => 'eu_US',
+        'en' => 'en_US',
         'es' => 'es_CL',
         'eu' => 'eu',
         'fa' => 'fa_IR',
