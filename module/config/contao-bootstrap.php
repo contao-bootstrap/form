@@ -145,6 +145,6 @@ return array
         ),
 
         // provides data attributes for custom select
-        'data-attributes'    => array('target', 'toggle', 'dismiss', 'remote'),
+        'data-attributes'    => array('target', 'toggle', 'dismiss', 'remote', 'parent', 'backdrop', 'spy', 'offset', 'content'),
     )
 );
