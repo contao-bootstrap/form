@@ -8,11 +8,12 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2015-10-17T20:11:03+02:00
+ * last-updated: 2016-04-05T16:24:25+02:00
  */
-
 
 $GLOBALS['TL_LANG']['tl_form']['bootstrap_configs']['0'] = 'Bootstrap configs';
 $GLOBALS['TL_LANG']['tl_form']['bootstrap_configs']['1'] = 'Choose configs which are used for this form locally.';
 $GLOBALS['TL_LANG']['tl_form']['bootstrap_legend']       = 'Bootstrap';
+$GLOBALS['TL_LANG']['tl_form']['tableless']['0']         = 'Horizontale Form deaktivieren';
+$GLOBALS['TL_LANG']['tl_form']['tableless']['1']         = 'Das Form Element nicht als horizontales Form Element anzeigen (Bootstrap) / mit HTML-Tabellen (Contao).';
 
