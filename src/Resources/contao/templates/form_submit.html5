@@ -4,6 +4,6 @@
   <?php if ($this->src): ?>
     <input type="image" src="<?= $this->src ?>" id="ctrl_<?= $this->id ?>" class="submit<?php if ($this->class) echo ' ' . $this->class; ?>" title="<?= StringUtil::specialchars($this->slabel) ?>" alt="<?= StringUtil::specialchars($this->slabel) ?>"<?= $this->getattributes() ?>>
   <?php else: ?>
-    <button type="submit" id="ctrl_<?= $this->id ?>" class="submit<?php if ($this->class) echo ' ' . $this->class; ?>"<?= $this->getattributes() ?>><?= $this->slabel ?></button>
+    <button type="submit" id="ctrl_<?= $this->id ?>" class="submit btn btn-primary <?php if ($this->class) echo ' ' . $this->class; ?>"<?= $this->getattributes() ?>><?= $this->slabel ?></button>
   <?php endif; ?>
 <?php $this->endblock(); ?>
