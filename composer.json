@@ -1,6 +1,6 @@
 {
     "name":"contao-bootstrap/form",
-    "description":"Navigation templates supporting bootstrap dropdown navigation",
+    "description":"Contao form templates for Bootstrap 4",
     "keywords":["bootstrap", "form", "contao"],
     "type":"contao-module",
     "license":"LGPL-3.0+",
@@ -9,7 +9,7 @@
             "name":"David Molineus",
             "email":"mail@netzmacht.de",
             "homepage":"http://www.netzmacht.de",
-            "role":"Project leader"
+            "role":"Developer"
         }
     ],
     "support":{
@@ -22,27 +22,21 @@
         "netzmacht/contao-bootstrap": "*"
     },
     "require":{
-        "php":">=5.3.4",
-        "contao-community-alliance/composer-plugin": "~2.0",
-        "contao/core":">=3.2,<3.6-dev",
-        "contao-bootstrap/core": "~1.0",
-        "netzmacht/contao-iconwizard": "~1.0",
-        "netzmacht/html": "~1.0",
-        "netzmacht/contao-form-helper": "~1.0",
-        "contao-community-alliance/meta-palettes":"~1.4",
+        "php":">=5.6.0",
+        "contao-community-alliance/composer-plugin": "~3.0",
+        "contao/core-bundle":"~4.4",
+        "contao-bootstrap/core": "~2.0",
+        "contao-community-alliance/meta-palettes":"~1.10",
         "bootstrap-select/bootstrap-select": "~1.7"
     },
     "require-dev": {
         "netzmacht/contao-build-tools": "~1.1"
     },
     "autoload": {
-        "psr-4": { "ContaoBootstrap\\Form": "src/" }
+        "psr-4": { "ContaoBootstrap\\Form\\": "src/" }
     },
     "extra":{
         "contao": {
-            "sources":{
-                "module": "system/modules/bootstrap-form"
-            },
             "transifex": {
                 "project": "contao-bootstrap",
                 "prefix": "form-",
@@ -55,7 +49,5 @@
             "dev-develop": "1.2.x-dev",
             "dev-contao4": "2.0.x-dev"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
