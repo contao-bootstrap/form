@@ -7,12 +7,12 @@
  * @copyright 2013-2015 netzmacht creative David Molineus
  */
 
-namespace Netzmacht\Bootstrap\Form\Subscriber;
+namespace ContaoBootstrap\Form\Subscriber;
 
 use Netzmacht\Bootstrap\Core\Config;
 use Netzmacht\Bootstrap\Core\Config\ContextualConfig;
 use Netzmacht\Bootstrap\Core\Util\AssetsManager;
-use Netzmacht\Bootstrap\Form\InputGroup;
+use ContaoBootstrap\Form\InputGroup;
 use Netzmacht\Contao\FormHelper\Event\ViewEvent;
 use Netzmacht\Contao\FormHelper\Partial\Container;
 use Netzmacht\Html\Element;

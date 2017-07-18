@@ -7,7 +7,7 @@
  * @copyright 2013-2015 netzmacht creative David Molineus
  */
 
-namespace Netzmacht\Bootstrap\Form\Contao;
+namespace ContaoBootstrap\Form\Contao;
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
 

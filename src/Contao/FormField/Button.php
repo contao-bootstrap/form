@@ -7,7 +7,7 @@
  * @copyright 2013-2015 netzmacht creative David Molineus
  */
 
-namespace Netzmacht\Bootstrap\Form\Contao\FormField;
+namespace ContaoBootstrap\Form\Contao\FormField;
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
 use Netzmacht\Contao\FormHelper\GeneratesAnElement;

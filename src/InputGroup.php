@@ -7,7 +7,7 @@
  * @copyright 2013-2015 netzmacht creative David Molineus
  */
 
-namespace Netzmacht\Bootstrap\Form;
+namespace ContaoBootstrap\Form;
 
 use Netzmacht\Contao\FormHelper\Component;
 use Netzmacht\Contao\FormHelper\HasElement;

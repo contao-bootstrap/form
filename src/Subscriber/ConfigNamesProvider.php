@@ -7,7 +7,7 @@
  * @copyright 2013-2015 netzmacht creative David Molineus
  */
 
-namespace Netzmacht\Bootstrap\Form\Subscriber;
+namespace ContaoBootstrap\Form\Subscriber;
 
 use Netzmacht\Bootstrap\Core\Event\GetMultipleConfigNamesEvent;
 

@@ -8,9 +8,9 @@
  */
 
 use Netzmacht\Bootstrap\Core\Event\GetMultipleConfigNamesEvent;
-use Netzmacht\Bootstrap\Form\Subscriber\ContaoFormsRenderer;
-use Netzmacht\Bootstrap\Form\Subscriber\ElementRenderer;
-use Netzmacht\Bootstrap\Form\Subscriber\ElementStyler;
+use ContaoBootstrap\Form\Subscriber\ContaoFormsRenderer;
+use ContaoBootstrap\Form\Subscriber\ElementRenderer;
+use ContaoBootstrap\Form\Subscriber\ElementStyler;
 use Netzmacht\Contao\FormHelper\Event\Events;
 
 return array(

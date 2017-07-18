@@ -7,7 +7,7 @@
  * @copyright 2013-2015 netzmacht creative David Molineus
  */
 
-namespace Netzmacht\Bootstrap\Form\Config;
+namespace ContaoBootstrap\Form\Config;
 
 use Netzmacht\Bootstrap\Core\Config;
 use Netzmacht\Bootstrap\Core\Config\Type;

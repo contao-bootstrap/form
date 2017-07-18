@@ -9,7 +9,7 @@
  *
  */
 
-namespace Netzmacht\Bootstrap\Form\Subscriber;
+namespace ContaoBootstrap\Form\Subscriber;
 
 use Netzmacht\Bootstrap\Core\Bootstrap;
 use Netzmacht\Bootstrap\Core\Config;

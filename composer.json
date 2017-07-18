@@ -36,7 +36,7 @@
         "netzmacht/contao-build-tools": "~1.1"
     },
     "autoload": {
-        "psr-0": { "Netzmacht\\Bootstrap\\Form": "src/" }
+        "psr-4": { "ContaoBootstrap\\Form": "src/" }
     },
     "extra":{
         "contao": {
@@ -52,7 +52,8 @@
         },
         "branch-alias": {
             "dev-master": "1.1.x-dev",
-            "dev-develop": "1.2.x-dev"
+            "dev-develop": "1.2.x-dev",
+            "dev-contao4": "2.0.x-dev"
         }
     },
     "minimum-stability": "dev",

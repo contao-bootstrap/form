@@ -7,7 +7,7 @@
  * @copyright 2013-2015 netzmacht creative David Molineus
  */
 
-use Netzmacht\Bootstrap\Form\Subscriber\LayoutDesigner;
+use ContaoBootstrap\Form\Subscriber\LayoutDesigner;
 
 return array(
     new LayoutDesigner()

@@ -9,7 +9,7 @@
  *
  */
 
-namespace Netzmacht\Bootstrap\Form\Contao\Dca;
+namespace ContaoBootstrap\Form\Contao\Dca;
 
 use Netzmacht\Bootstrap\Core\Contao\Model\BootstrapConfigModel;
 
