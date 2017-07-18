@@ -26,8 +26,7 @@
         "contao-community-alliance/composer-plugin": "~3.0",
         "contao/core-bundle":"~4.4",
         "contao-bootstrap/core": "~2.0",
-        "contao-community-alliance/meta-palettes":"~1.10",
-        "bootstrap-select/bootstrap-select": "~1.7"
+        "contao-community-alliance/meta-palettes":"~1.10"
     },
     "require-dev": {
         "netzmacht/contao-build-tools": "~1.1"
