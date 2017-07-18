@@ -17,25 +17,27 @@
       <p class="error"><?= $this->getErrorAsString() ?></p>
     <?php endif; ?>
 
+      <div class="custom-controls-stacked">
+
     <?php foreach ($this->getOptions() as $option): ?>
       <?php if ($option['type'] == 'group_start'): ?>
-        <fieldset>
+        <fieldset class="custom-controls-stacked">
         <legend><?= $option['label'] ?></legend>
       <?php endif; ?>
 
       <?php if ($option['type'] == 'option'): ?>
-        <span class="form-check">
-          <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>" class="form-check-label">
-            <input type="radio" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="radio form-check-input" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>>
-            <?= $option['label'] ?>
+          <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>" class="custom-control custom-radio">
+            <input type="radio" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="radio custom-control-input" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>>
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"><?= $option['label'] ?></span>
           </label>
-        </span>
       <?php endif; ?>
 
       <?php if ($option['type'] == 'group_end'): ?>
         </fieldset>
       <?php endif; ?>
     <?php endforeach; ?>
+      </div>
 
   </fieldset>
 <?php $this->endblock(); ?>
