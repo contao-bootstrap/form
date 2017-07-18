@@ -36,6 +36,7 @@
         "psr-4": { "ContaoBootstrap\\Form\\": "src/" }
     },
     "extra":{
+        "contao-manager-plugin": "ContaoBootstrap\\Form\\ContaoManager\\Plugin",
         "contao": {
             "transifex": {
                 "project": "contao-bootstrap",
