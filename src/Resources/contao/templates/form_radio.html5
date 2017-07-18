@@ -24,7 +24,12 @@
       <?php endif; ?>
 
       <?php if ($option['type'] == 'option'): ?>
-        <span><input type="radio" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="radio" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>> <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>"><?= $option['label'] ?></label></span>
+        <span class="form-check">
+          <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>" class="form-check-label">
+            <input type="radio" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="radio form-check-input" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>>
+            <?= $option['label'] ?>
+          </label>
+        </span>
       <?php endif; ?>
 
       <?php if ($option['type'] == 'group_end'): ?>
