@@ -1,39 +1,18 @@
 <?php
 
-$GLOBALS['TL_LANG']['FFL']['button'][0] = 'Button';
-$GLOBALS['TL_LANG']['FFL']['button'][1] = 'Button with text, icon or an image.';
+/**
+ * @package    contao-bootstrap.
+ * @author     David Molineus <david.molineus@netzmacht.de>
+ * @copyright  2017 netzmacht David Molineus. All rights reserved.
+ * @filesource
+ *
+ */
 
-
-$GLOBALS['TL_LANG']['tl_form_field']['unit_legend'] = 'Unit';
-$GLOBALS['TL_LANG']['tl_form_field']['icon_legend'] = 'Icon';
-
-
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_addIcon'][0] = 'Add icon';
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_addIcon'][1] = 'Add an icon to the form element.';
-
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_addUnit'][0] = 'Add unit';
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_addUnit'][1] = 'Add a unit to the input field.';
-
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_icon'][0] = 'Choose icon';
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_icon'][1] = 'Choose the deired icon.';
-
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_iconPosition'][0] = 'Position';
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_iconPosition'][1] = 'Choose on which side the icon will be displayed.';
-
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_unit'][0] = 'Unit';
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_unit'][1] = 'You can add any text as a unit.';
-
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_unitPosition'][0] = 'Position';
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_unitPosition'][1] = 'Choose on which side the unit will be displayed.';
-
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_inlineStyle'][0] = 'Inline style';
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_inlineStyle'][1] = 'Radio/Checkboxes will be displayed next to each other.';
-
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_addSubmitClass'][0] = 'CSS class of the send button';
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_addSubmitClass'][1] = 'You can define any CSS class. If no class is set btn-default class will be assigned to the button.';
-
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_select_search'][0] = 'Add search input';
-$GLOBALS['TL_LANG']['tl_form_field']['bootstrap_select_search'][1] = 'If active a search input is displayed for the styled select.';
-
-$GLOBALS['TL_LANG']['tl_form_field']['right'] = 'right';
-$GLOBALS['TL_LANG']['tl_form_field']['left'] = 'left';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_addInputGroup'][0] = 'Add input group';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_addInputGroup'][1] = 'Add additional information using the input group.';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup'][0] = 'Input group';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup'][1] = 'Define input group entries.';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_addon'][0] = 'Content';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_addon'][1] = 'Content of the input group addon.';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_position'][0] = 'Position';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_position'][1] = 'Position of input group addon.';

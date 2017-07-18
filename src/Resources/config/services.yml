@@ -1,0 +1,5 @@
+services:
+  contao_bootstrap.form.dca.form_field:
+    class: ContaoBootstrap\Form\Dca\FormField
+    arguments:
+      - '@contao_bootstrap.environment'

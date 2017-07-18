@@ -1,0 +1,8 @@
+form:
+  widgets:
+    text:
+      input_group: true
+    password:
+      input_group: true
+    captcha:
+      input_group: true

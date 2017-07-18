@@ -17,5 +17,20 @@
     <p class="error"><?= $this->getErrorAsString() ?></p>
   <?php endif; ?>
 
+  <?php if ($this->bs_addInputGroup): ?>
+      <?php $inputGroupHelper = \ContaoBootstrap\Form\Helper\InputGroupHelper::forWidget($this); ?>
+      <div class="input-group">
+      <?php foreach ($inputGroupHelper->before() as $entry): ?>
+          <div class="input-group-addon"><?= $entry ?></div>
+      <?php endforeach; ?>
+  <?php endif ;?>
+
   <input type="<?= $this->type ?>" name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>" class="text form-control<?php if ($this->hideInput) echo ' password'; ?><?php if ($this->class) echo ' ' . $this->class; ?>" value="<?= StringUtil::specialchars($this->value) ?>"<?= $this->getAttributes() ?>>
+
+  <?php if (isset($inputGroupHelper)): ?>
+      <?php foreach ($inputGroupHelper->after() as $entry): ?>
+          <div class="input-group-addon"><?= $entry ?></div>
+      <?php endforeach; ?>
+      </div>
+  <?php endif; ?>
 <?php $this->endblock(); ?>
