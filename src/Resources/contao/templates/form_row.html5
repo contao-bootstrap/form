@@ -1,9 +1,8 @@
-<div <?php echo $this->attributes; ?>>
+
+<div class="<?= $this->prefix ?> form-group<?php if ($this->class) echo ' ' . $this->class; ?>">
   <?php $this->block('label'); ?>
-  <?php echo $this->label; ?>
   <?php $this->endblock(); ?>
 
   <?php $this->block('field'); ?>
-  <?php echo $this->container; ?>
   <?php $this->endblock(); ?>
 </div>
