@@ -8,7 +8,7 @@
  *
  */
 
-namespace ContaoBootstrap\Form\Config;
+namespace ContaoBootstrap\Form\Environment;
 
 use ContaoBootstrap\Core\Environment\AbstractContext;
 use ContaoBootstrap\Core\Environment\ApplicationContext;
