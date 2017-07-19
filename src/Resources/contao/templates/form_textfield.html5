@@ -21,7 +21,7 @@
       <?php $inputGroupHelper = \ContaoBootstrap\Form\Helper\InputGroupHelper::forWidget($this); ?>
       <div class="input-group">
       <?php foreach ($inputGroupHelper->before() as $entry): ?>
-          <div class="input-group-addon"><?= $entry ?></div>
+          <div class="input-group-<?= $entry['type'] ?>"><?= $entry['content'] ?></div>
       <?php endforeach; ?>
   <?php endif ;?>
 
@@ -29,7 +29,7 @@
 
   <?php if (isset($inputGroupHelper)): ?>
       <?php foreach ($inputGroupHelper->after() as $entry): ?>
-          <div class="input-group-addon"><?= $entry ?></div>
+          <div class="input-group-<?= $entry['type'] ?>"><?= $entry['content'] ?></div>
       <?php endforeach; ?>
       </div>
   <?php endif; ?>

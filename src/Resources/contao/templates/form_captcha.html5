@@ -15,16 +15,16 @@
 
   <div class="input-group">
   <?php if ($this->bs_addInputGroup): ?>
-      <?php $inputGroupHelper = \ContaoBootstrap\Form\Helper\InputGroupHelper::forWidget($this); ?>
-      <?php foreach ($inputGroupHelper->before() as $entry): ?>
-          <div class="input-group-addon"><?= $entry ?></div>
-      <?php endforeach; ?>
+    <?php $inputGroupHelper = \ContaoBootstrap\Form\Helper\InputGroupHelper::forWidget($this); ?>
+    <?php foreach ($inputGroupHelper->before() as $entry): ?>
+      <div class="input-group-<?= $entry['type'] ?>"><?= $entry['content'] ?></div>
+    <?php endforeach; ?>
   <?php endif ;?>
   <input type="text" name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>" class="captcha mandatory form-control<?php if ($this->class) echo ' ' . $this->class; ?>" value="" aria-describedby="captcha_text_<?= $this->id ?>"<?= $this->getAttributes() ?>>
   <span id="captcha_text_<?= $this->id ?>" class="captcha_text input-group-addon<?php if ($this->class) echo ' ' . $this->class; ?>"><?= $this->getQuestion() ?></span>
   <?php if (isset($inputGroupHelper)): ?>
     <?php foreach ($inputGroupHelper->after() as $entry): ?>
-        <div class="input-group-addon"><?= $entry ?></div>
+      <div class="input-group-<?= $entry['type'] ?>"><?= $entry['content'] ?></div>
     <?php endforeach; ?>
   <?php endif; ?>
   </div>

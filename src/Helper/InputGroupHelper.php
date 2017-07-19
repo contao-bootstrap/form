@@ -20,31 +20,22 @@ use Contao\Widget;
  */
 class InputGroupHelper
 {
+    const TYPE_BUTTON = 'btn';
+    const TYPE_ADDON  = 'addon';
+
     /**
      * After entries.
      *
      * @var array
      */
-    private $after;
+    private $after = [];
 
     /**
      * Before entries.
      *
      * @var array
      */
-    private $before;
-
-    /**
-     * InputGroupHelper constructor.
-     *
-     * @param array $before Before entries.
-     * @param array $after  After entries.
-     */
-    public function __construct(array $before, array $after)
-    {
-        $this->after  = $after;
-        $this->before = $before;
-    }
+    private $before = [];
 
     /**
      * Create input group helper for a widget.
@@ -56,8 +47,7 @@ class InputGroupHelper
     public static function forWidget($widget)
     {
         $values = StringUtil::deserialize($widget->bs_inputGroup, true);
-        $before = [];
-        $after  = [];
+        $helper = new static();
 
         foreach ($values as $entry) {
             if (!strlen($entry['addon'])) {
@@ -65,13 +55,49 @@ class InputGroupHelper
             }
 
             if ($entry['position'] === 'after') {
-                $after[] = $entry['addon'];
+                $helper->addAfter($entry['addon']);
             } else {
-                $before[] = $entry['addon'];
+                $helper->addBefore($entry['addon']);
             }
         }
 
-        return new static($before, $after);
+        return $helper;
+    }
+
+    /**
+     * Add after entry.
+     *
+     * @param string $content Content of the addon.
+     * @param string $type    Input group addon type: addon or btn.
+     *
+     * @return $this
+     */
+    public function addAfter($content, $type = self::TYPE_ADDON)
+    {
+        $this->after[] = [
+            'type'    => $type,
+            'content' => $content,
+        ];
+
+        return $this;
+    }
+
+    /**
+     * Add before entry.
+     *
+     * @param string $content Content of the addon.
+     * @param string $type    Input group addon type: addon or btn.
+     *
+     * @return $this
+     */
+    public function addBefore($content, $type = self::TYPE_ADDON)
+    {
+        $this->before[] = [
+            'type'    => $type,
+            'content' => $content,
+        ];
+
+        return $this;
     }
 
     /**
