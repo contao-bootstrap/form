@@ -16,7 +16,7 @@ use ContaoBootstrap\Core\Environment\Context;
 use ContaoBootstrap\Core\Environment\ThemeContext;
 
 /**
- * Class FormContext
+ * Class FormContext.
  *
  * @package ContaoBootstrap\Form\Config
  */
@@ -48,6 +48,16 @@ class FormContext extends AbstractContext
     public static function forForm($formId)
     {
         return new static($formId);
+    }
+
+    /**
+     * Get form id.
+     *
+     * @return int
+     */
+    public function getFormId()
+    {
+        return $this->formId;
     }
 
     /**
