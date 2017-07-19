@@ -1,5 +1,8 @@
 <?php $this->extend('form_row'); ?>
 
+<?php $this->block('label'); ?>
+<?php $this->endblock(); ?>
+
 <?php $this->block('field'); ?>
   <fieldset id="ctrl_<?= $this->id ?>" class="radio_container<?php if ($this->class) echo ' ' . $this->class; ?>">
 

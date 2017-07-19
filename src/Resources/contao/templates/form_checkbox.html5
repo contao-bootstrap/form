@@ -1,10 +1,13 @@
 <?php $this->extend('form_row'); ?>
 
+<?php $this->block('label'); ?>
+<?php $this->endblock(); ?>
+
 <?php $this->block('field'); ?>
   <fieldset id="ctrl_<?= $this->id ?>" class="checkbox_container<?php if ($this->class) echo ' ' . $this->class; ?>">
 
     <?php if ($this->label): ?>
-      <legend>
+      <legend<?php if ($this->labelClass): ?> class="<?= $this->labelClass ?> form-control-legend"<?php endif; ?>>
         <?php if ($this->mandatory): ?>
           <span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->label ?><span class="mandatory">*</span>
         <?php else: ?>

@@ -1,5 +1,5 @@
 
-<div class="<?= $this->prefix ?> form-group<?php if ($this->class) echo ' ' . $this->class; ?>">
+<div class="<?= $this->prefix ?> form-group row<?php if ($this->class) echo ' ' . $this->class; ?>">
   <?php $this->block('label'); ?>
   <?php if ($this->label): ?>
     <label for="ctrl_<?= $this->id ?>"<?php if ($this->labelClass): ?> class="<?= $this->labelClass ?>"<?php endif; ?>>
@@ -12,6 +12,8 @@
   <?php endif; ?>
   <?php $this->endblock(); ?>
 
+  <div class="<?= $this->fieldColumnClass ?>">
   <?php $this->block('field'); ?>
   <?php $this->endblock(); ?>
+  </div>
 </div>
