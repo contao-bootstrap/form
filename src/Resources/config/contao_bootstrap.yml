@@ -6,3 +6,5 @@ form:
       input_group: true
     captcha:
       input_group: true
+  buttons:
+    submit: btn-primary
