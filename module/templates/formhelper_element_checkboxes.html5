@@ -1,5 +1,7 @@
 <<?php echo $this->tag; ?> <?php echo $this->element->generateAttributes(); ?>>
-  <?php if((string)$this->label): ?><legend><?php echo $this->label; ?></legend><?php endif; ?>
+    <?php if((string)$this->label): ?>
+        <legend <?php if (Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.widgets.checkbox.label')): ?>class="sr-only"<?php endif ;?>><?php echo $this->label; ?></legend>
+    <?php endif; ?>
 <?php
 
 use Netzmacht\Html\Element;
