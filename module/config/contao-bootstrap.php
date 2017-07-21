@@ -75,9 +75,9 @@ return array
                 'input-group' => true,
             ),
 
-            'digit'       => array
+            'number' => array
             (
-                'input-group' => true,
+                'input-group' => true
             ),
 
             'tel'         => array
@@ -86,6 +86,11 @@ return array
             ),
 
             'url'         => array
+            (
+                'input-group' => true,
+            ),
+
+            'search' => array
             (
                 'input-group' => true,
             ),
