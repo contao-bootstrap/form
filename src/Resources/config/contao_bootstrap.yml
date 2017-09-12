@@ -1,10 +1,77 @@
 form:
   widgets:
-    text:
-      input_group: true
+    checkbox:
+      templates:
+        control: 'fd_control_checkbox_bs_custom'
+        layout:  'fd_layout_row'
+
+    explanation:
+      templates:
+        layout: 'fd_layout_row_field'
+
     password:
       input_group: true
-    captcha:
+      templates:
+        layout: 'fd_layout_row_password'
+
+    radio:
+      templates:
+        control: 'fd_control_radio_bs_custom'
+        layout:  'fd_layout_row'
+
+    submit:
+      form_control: false
+      templates:
+        layout: 'fd_layout_row_field'
+
+    text:
       input_group: true
+
+    upload:
+      form_control: false
+      templates:
+        control: 'fd_control_upload_bs_custom'
+
+  layouts:
+    default:
+      templates:
+        layout: 'fd_layout_row'
+        help: 'fd_help_bs'
+
+    horizontal:
+      classes:
+        label: col-sm-3
+        control: col-sm-9
+        offset: ml-auto
+
+      widgets:
+        captcha:
+          templates:
+            control: 'fd_control_captcha_bs_horizontal'
+
+        checkbox:
+          templates:
+            layout: 'fd_layout_bs_horizontal'
+
+        explanation:
+          templates:
+            layout: 'fd_layout_bs_horizontal_field'
+
+        password:
+          templates:
+            layout: 'fd_layout_bs_horizontal_password'
+
+        radio:
+          templates:
+            layout: 'fd_layout_bs_horizontal'
+
+        submit:
+          templates:
+            layout: 'fd_layout_bs_horizontal_field'
+
+      templates:
+        layout: 'fd_layout_bs_horizontal'
+        help: 'fd_help_bs'
+
   buttons:
     submit: btn-primary

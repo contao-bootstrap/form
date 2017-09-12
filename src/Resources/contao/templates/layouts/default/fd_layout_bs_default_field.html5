@@ -1,0 +1,8 @@
+
+<div <?= $this->layout->getContainerAttributes($this->widget) ?>>
+
+    <?php $this->block('field'); ?>
+    <?= $this->layout->renderControl($this->widget) ?>
+    <?php $this->endblock(); ?>
+
+</div>

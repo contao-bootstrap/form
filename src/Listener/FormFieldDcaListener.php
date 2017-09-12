@@ -8,7 +8,7 @@
  *
  */
 
-namespace ContaoBootstrap\Form\Dca;
+namespace ContaoBootstrap\Form\Listener;
 
 use Bit3\Contao\MetaPalettes\MetaPalettes;
 use ContaoBootstrap\Core\Environment;
@@ -19,7 +19,7 @@ use ContaoBootstrap\Form\Environment\FormContext;
  *
  * @package ContaoBootstrap\Form\Dca
  */
-class FormField
+class FormFieldDcaListener
 {
     /**
      * Bootstrap environment.
@@ -46,16 +46,13 @@ class FormField
     public function adjustPalettes()
     {
         // Load custom form config.
-        $context = FormContext::forForm(CURRENT_ID);
-        $this->environment->enterContext($context);
-
+        $this->environment->enterContext(FormContext::forForm(CURRENT_ID));
         $widgets = $this->environment->getConfig()->get('form.widgets', []);
+
         foreach ($widgets as $name => $config) {
             if (!empty($config['input_group'])) {
                 MetaPalettes::appendFields('tl_form_field', $name, 'fconfig', ['bs_addInputGroup']);
             }
         }
-
-        $this->environment->leaveContext($context);
     }
 }

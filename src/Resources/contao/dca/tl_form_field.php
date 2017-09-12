@@ -9,7 +9,7 @@
 
 // Config
 $GLOBALS['TL_DCA']['tl_form_field']['config']['onload_callback'][] = [
-    'contao_bootstrap.form.dca.form_field',
+    'contao_bootstrap.form.listener.form_field_dca',
     'adjustPalettes'
 ];
 

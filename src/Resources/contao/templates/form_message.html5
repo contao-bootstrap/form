@@ -1,4 +1,0 @@
-
-<div class="form-text <?= $this->class ?>">
-  <?= $this->message ?>
-</div>

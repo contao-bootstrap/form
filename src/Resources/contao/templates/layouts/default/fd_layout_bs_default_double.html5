@@ -1,0 +1,32 @@
+<?php $attributes = $this->layout->getContainerAttributes($this->widget); ?>
+<div <?= $attributes ?>>
+    <?php $this->block('label'); ?>
+    <?= $this->layout->renderLabel($this->widget) ?>
+    <?php $this->endblock(); ?>
+
+    <?php $this->block('field'); ?>
+    <?= $this->layout->renderControl($this->widget) ?>
+    <?php $this->endblock(); ?>
+
+    <?php $this->block('error'); ?>
+    <?= $this->layout->renderErrors($this->widget) ?>
+    <?php $this->endblock(); ?>
+
+</div>
+
+<div <?= $attributes->addClass('confirm') ?>>
+    <?php $this->block('label2'); ?>
+    <?php $this->endblock(); ?>
+
+
+    <?php $this->block('field2'); ?>
+    <?php $this->endblock(); ?>
+
+    <?php $this->block('help'); ?>
+    <?= $this->layout->renderHelpText($this->widget) ?>
+    <?php $this->endblock(); ?>
+
+    <?php $this->block('error2'); ?>
+    <?php $this->endblock(); ?>
+
+</div>

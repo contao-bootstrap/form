@@ -16,6 +16,7 @@ use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use ContaoBootstrap\Core\ContaoBootstrapCoreBundle;
 use ContaoBootstrap\Form\ContaoBootstrapFormBundle;
+use Netzmacht\Contao\FormDesigner\NetzmachtContaoFormDesignerBundle;
 
 /**
  * Class Plugin.
@@ -31,7 +32,13 @@ class Plugin implements BundlePluginInterface
     {
         return [
             BundleConfig::create(ContaoBootstrapFormBundle::class)
-                ->setLoadAfter([ContaoCoreBundle::class, ContaoBootstrapCoreBundle::class])
+                ->setLoadAfter(
+                    [
+                        ContaoCoreBundle::class,
+                        ContaoBootstrapCoreBundle::class,
+                        NetzmachtContaoFormDesignerBundle::class,
+                    ]
+                ),
         ];
     }
 }

@@ -1,0 +1,4 @@
+<?php if ($this->widget->helpMessage): ?>
+    <small class="form-help-message text-muted"><?= $this->widget->helpMessage ?></small>
+<?php endif; ?>
+
