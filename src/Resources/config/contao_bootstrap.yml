@@ -41,6 +41,7 @@ form:
       templates:
         layout: 'fd_layout_bs_default'
         help: 'fd_help_bs_default'
+        error: 'fd_error_latest_bs'
 
     horizontal:
       classes:
@@ -76,6 +77,7 @@ form:
       templates:
         layout: 'fd_layout_bs_horizontal'
         help: 'fd_help_bs_default'
+        error: 'fd_error_latest_bs'
 
   buttons:
     submit: 'btn-primary'

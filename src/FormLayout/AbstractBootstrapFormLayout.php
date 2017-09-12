@@ -79,6 +79,10 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
             $attributes->addClass($this->widgetConfig[$widget->type]['control_class']);
         }
 
+        if ($widget->hasErrors()) {
+            $attributes->addClass('is-invalid');
+        }
+
         return $attributes;
     }
 
