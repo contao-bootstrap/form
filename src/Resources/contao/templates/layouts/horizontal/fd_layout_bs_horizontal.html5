@@ -5,9 +5,8 @@
     <?php $this->endblock(); ?>
 
     <div class="<?= $this->layout->getColumnClass() ?>">
-
         <?php $this->block('field'); ?>
-        <?= $this->layout->renderControl($this->widget) ?>
+        <?php $this->insert('fd_control_bs_input_group', $this->getData()) ?>
         <?php $this->endblock(); ?>
 
         <?php $this->block('help2'); ?>

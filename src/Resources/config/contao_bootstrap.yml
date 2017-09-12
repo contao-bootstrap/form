@@ -12,7 +12,7 @@ form:
     password:
       input_group: true
       templates:
-        layout: 'fd_layout_row_password'
+        layout: 'fd_layout_bs_default_password'
 
     radio:
       templates:
@@ -27,6 +27,9 @@ form:
     text:
       input_group: true
 
+    textarea:
+      input_group: true
+
     upload:
       form_control: false
       templates:
@@ -35,8 +38,8 @@ form:
   layouts:
     default:
       templates:
-        layout: 'fd_layout_row'
-        help: 'fd_help_bs'
+        layout: 'fd_layout_bs_default'
+        help: 'fd_help_bs_default'
 
     horizontal:
       classes:
@@ -71,7 +74,7 @@ form:
 
       templates:
         layout: 'fd_layout_bs_horizontal'
-        help: 'fd_help_bs'
+        help: 'fd_help_bs_default'
 
   buttons:
     submit: btn-primary

@@ -11,6 +11,7 @@
 namespace ContaoBootstrap\Form\FormLayout;
 
 use Contao\Widget;
+use ContaoBootstrap\Form\Helper\InputGroupHelper;
 use Netzmacht\Contao\FormDesigner\Layout\AbstractFormLayout;
 use Netzmacht\Html\Attributes;
 
@@ -75,6 +76,22 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
         }
 
         return $attributes;
+    }
+
+    /**
+     * Get the input group.
+     *
+     * @param Widget $widget Widget.
+     *
+     * @return InputGroupHelper
+     */
+    public function getInputGroup(Widget $widget)
+    {
+        if ($this->widgetConfig[$widget->type]['input_group'] && $widget->bs_addInputGroup) {
+            return InputGroupHelper::forWidget($widget);
+        }
+
+        return null;
     }
 
     /**
