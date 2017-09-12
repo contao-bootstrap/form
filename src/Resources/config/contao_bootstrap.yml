@@ -3,7 +3,7 @@ form:
     checkbox:
       templates:
         control: 'fd_control_checkbox_bs_custom'
-        layout:  'fd_layout_row'
+        layout:  'fd_layout_bs_default'
 
     explanation:
       templates:
@@ -17,7 +17,7 @@ form:
     radio:
       templates:
         control: 'fd_control_radio_bs_custom'
-        layout:  'fd_layout_row'
+        layout:  'fd_layout_bs_default'
 
     submit:
       form_control: false
