@@ -81,11 +81,6 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
         $widgetConfig   = $this->buildWidgetConfig($type, $config);
         $fallbackConfig = $this->buildFallbackConfig($type, $config);
 
-//        echo '<pre>';
-//        var_dump($fallbackConfig);
-//        var_dump($widgetConfig);
-//        echo '</pre>';
-
         switch ($type) {
             case 'bs_horizontal':
                 return new HorizontalFormLayout(
@@ -129,12 +124,6 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
                 }
             }
         }
-
-        $widgetConfig['submit']['attributes']['class']['value'] = [
-            'submit',
-            'btn',
-            $bootstrapConfig->get('form.buttons.submit', 'btn-default')
-        ];
 
         return $widgetConfig;
     }

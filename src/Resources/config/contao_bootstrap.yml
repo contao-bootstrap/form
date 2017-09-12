@@ -21,6 +21,7 @@ form:
 
     submit:
       form_control: false
+      control_class: 'btn btn-primary'
       templates:
         layout: 'fd_layout_row_field'
 
@@ -77,4 +78,4 @@ form:
         help: 'fd_help_bs_default'
 
   buttons:
-    submit: btn-primary
+    submit: 'btn-primary'
