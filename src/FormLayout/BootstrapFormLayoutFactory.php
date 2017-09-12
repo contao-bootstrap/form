@@ -146,7 +146,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
             $name = 'fallback' . ucfirst($section);
 
             if ($config[$name]) {
-                $fallbackConfig[$section] = $config[$name];
+                $fallbackConfig['templates'][$section] = $config[$name];
             }
         }
 
