@@ -17,7 +17,7 @@ form:
     radio:
       templates:
         control: 'fd_control_radio_bs_custom'
-        layout:  'fd_layout_bs_default_field'
+        layout:  'fd_layout_bs_default'
 
     submit:
       form_control: false

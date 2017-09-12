@@ -1,4 +1,3 @@
-<input type="hidden" name="<?= $this->widget->name ?>" value="">
 
 <?php foreach (\Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getOptions($this->widget) as $option): ?>
     <?php if ($option['type'] == 'group_start'): ?>
@@ -7,7 +6,14 @@
     <?php endif; ?>
 
     <?php if ($option['type'] == 'option'): ?>
-        <span><input type="checkbox" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="checkbox" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>> <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>"><?= $option['label'] ?></label></span>
+        <div class="form-check">
+            <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>" class="form-check-label">
+                <input type="checkbox" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>"
+                       class="checkbox form-check-input"
+                       value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>>
+                <?= $option['label'] ?>
+            </label>
+        </div>
     <?php endif; ?>
 
     <?php if ($option['type'] == 'group_end'): ?>
