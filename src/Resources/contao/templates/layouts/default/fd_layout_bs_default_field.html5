@@ -5,8 +5,4 @@
     <?php $this->insert('fd_control_bs_input_group', $this->getData()) ?>
     <?php $this->endblock(); ?>
 
-    <?php $this->block('error'); ?>
-    <?= $this->layout->renderErrors($this->widget) ?>
-    <?php $this->endblock(); ?>
-
 </div>
