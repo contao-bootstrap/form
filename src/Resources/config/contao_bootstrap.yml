@@ -28,6 +28,15 @@ form:
     text:
       input_group: true
 
+    email:
+      input_group: true
+
+    url:
+      input_group: true
+
+    number:
+      input_group: true
+
     textarea:
       input_group: true
 
