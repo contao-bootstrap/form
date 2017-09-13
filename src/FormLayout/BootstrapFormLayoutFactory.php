@@ -1,11 +1,13 @@
 <?php
 
 /**
- * @package    Website
+ * Contao Bootstrap form.
+ *
+ * @package    contao-bootstrap
  * @author     David Molineus <david.molineus@netzmacht.de>
  * @copyright  2017 netzmacht David Molineus. All rights reserved.
+ * @license    LGPL 3.0
  * @filesource
- *
  */
 
 namespace ContaoBootstrap\Form\FormLayout;
@@ -65,7 +67,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function supportedTypes(): array
     {
@@ -131,7 +133,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
     /**
      * Build the fallback config.
      *
-     * @param string $type
+     * @param string $type   Layout type.
      * @param array  $config Configuration.
      *
      * @return array

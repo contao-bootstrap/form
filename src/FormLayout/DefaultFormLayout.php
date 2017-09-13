@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @package    Website
+ * Contao Bootstrap form.
+ *
+ * @package    contao-bootstrap
  * @author     David Molineus <david.molineus@netzmacht.de>
  * @copyright  2017 netzmacht David Molineus. All rights reserved.
+ * @license    LGPL 3.0
  * @filesource
- *
  */
 
-
 namespace ContaoBootstrap\Form\FormLayout;
-
 
 /**
  * Class BootstrapFormLayout
@@ -20,7 +20,7 @@ namespace ContaoBootstrap\Form\FormLayout;
 class DefaultFormLayout extends AbstractBootstrapFormLayout
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function isInline(): bool
     {
@@ -28,7 +28,7 @@ class DefaultFormLayout extends AbstractBootstrapFormLayout
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function isHorizontal(): bool
     {
