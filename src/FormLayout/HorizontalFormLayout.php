@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Form\FormLayout;
 
 use Contao\Widget;
@@ -67,29 +69,13 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
     }
 
     /**
-     * {@inheritDoc}
-     */
-    public function isInline(): bool
-    {
-        return false;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function isHorizontal(): bool
-    {
-        return true;
-    }
-
-    /**
      * Get the column class.
      *
      * @param bool $withOffset If true the offset class is added.
      *
      * @return string
      */
-    public function getColumnClass($withOffset = false): string
+    public function getColumnClass(bool $withOffset = false): string
     {
         $class = $this->horizontalConfig['control'];
 

@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Form\Environment;
 
 use ContaoBootstrap\Core\Environment\AbstractContext;
@@ -36,7 +38,7 @@ class FormContext extends AbstractContext
      *
      * @param int $formId Form id.
      */
-    private function __construct($formId)
+    private function __construct(int $formId)
     {
         $this->formId = $formId;
     }
@@ -48,7 +50,7 @@ class FormContext extends AbstractContext
      *
      * @return static
      */
-    public static function forForm($formId)
+    public static function forForm(int $formId): self
     {
         return new static($formId);
     }
@@ -58,7 +60,7 @@ class FormContext extends AbstractContext
      *
      * @return int
      */
-    public function getFormId()
+    public function getFormId(): int
     {
         return $this->formId;
     }
@@ -66,7 +68,7 @@ class FormContext extends AbstractContext
     /**
      * {@inheritDoc}
      */
-    public function supports(Context $context)
+    public function supports(Context $context): bool
     {
         if ($context instanceof ApplicationContext) {
             return true;
@@ -82,7 +84,7 @@ class FormContext extends AbstractContext
     /**
      * {@inheritDoc}
      */
-    public function __toString()
+    public function __toString(): string
     {
         return 'form:' . $this->formId;
     }

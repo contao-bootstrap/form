@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Form\Helper;
 
 use Contao\StringUtil;
@@ -46,7 +48,7 @@ class InputGroupHelper
      *
      * @return static
      */
-    public static function forWidget($widget)
+    public static function forWidget(Widget $widget): self
     {
         $values = StringUtil::deserialize($widget->bs_inputGroup, true);
         $helper = new static();
@@ -74,7 +76,7 @@ class InputGroupHelper
      *
      * @return $this
      */
-    public function addAfter($content, $type = self::TYPE_ADDON)
+    public function addAfter(string $content, string $type = self::TYPE_ADDON): self
     {
         $this->after[] = [
             'type'    => $type,
@@ -92,7 +94,7 @@ class InputGroupHelper
      *
      * @return $this
      */
-    public function addBefore($content, $type = self::TYPE_ADDON)
+    public function addBefore(string $content, string $type = self::TYPE_ADDON): self
     {
         $this->before[] = [
             'type'    => $type,
@@ -107,7 +109,7 @@ class InputGroupHelper
      *
      * @return array
      */
-    public function before()
+    public function before(): array
     {
         return $this->before;
     }
@@ -117,7 +119,7 @@ class InputGroupHelper
      *
      * @return array
      */
-    public function after()
+    public function after(): array
     {
         return $this->after;
     }

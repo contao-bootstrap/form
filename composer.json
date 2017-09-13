@@ -27,7 +27,7 @@
         "contao/core-bundle":"~4.4",
         "contao-bootstrap/core": "~2.0@alpha",
         "contao-community-alliance/meta-palettes":"~1.10",
-        "netzmacht/contao-form-designer": "~1.0@rc"
+        "netzmacht/contao-form-designer": "~1.0"
     },
     "require-dev": {
         "phpcq/all-tasks": "^1.2",
@@ -51,5 +51,7 @@
             "dev-develop": "1.2.x-dev",
             "dev-contao4": "2.0.x-dev"
         }
-    }
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true
 }

@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Form\Listener;
 
 use Bit3\Contao\MetaPalettes\MetaPalettes;
@@ -45,10 +47,10 @@ class FormFieldDcaListener
      *
      * @return void
      */
-    public function adjustPalettes()
+    public function adjustPalettes(): void
     {
         // Load custom form config.
-        $this->environment->enterContext(FormContext::forForm(CURRENT_ID));
+        $this->environment->enterContext(FormContext::forForm((int) CURRENT_ID));
         $widgets = $this->environment->getConfig()->get('form.widgets', []);
 
         foreach ($widgets as $name => $config) {

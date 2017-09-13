@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Form\FormLayout;
 
 use ContaoBootstrap\Core\Environment;
@@ -77,7 +79,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
     /**
      * {@inheritdoc}
      */
-    public function create($type, array $config): FormLayout
+    public function create(string $type, array $config): FormLayout
     {
         $config         = array_merge(['widgets' => []], $config);
         $widgetConfig   = $this->buildWidgetConfig($type, $config);

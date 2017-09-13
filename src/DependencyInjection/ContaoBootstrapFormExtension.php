@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Form\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;

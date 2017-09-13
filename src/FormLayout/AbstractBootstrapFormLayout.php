@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Form\FormLayout;
 
 use Contao\Widget;
@@ -128,18 +130,4 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
 
         return '';
     }
-
-    /**
-     * Check if form is horizontal.
-     *
-     * @return bool
-     */
-    abstract public function isHorizontal(): bool;
-
-    /**
-     * Check if form is inline.
-     *
-     * @return bool
-     */
-    abstract public function isInline(): bool;
 }

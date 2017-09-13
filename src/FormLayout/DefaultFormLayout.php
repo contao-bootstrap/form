@@ -10,6 +10,8 @@
  * @filesource
  */
 
+declare(strict_types=1);
+
 namespace ContaoBootstrap\Form\FormLayout;
 
 /**
@@ -19,19 +21,4 @@ namespace ContaoBootstrap\Form\FormLayout;
  */
 class DefaultFormLayout extends AbstractBootstrapFormLayout
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function isInline(): bool
-    {
-        return false;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function isHorizontal(): bool
-    {
-        return false;
-    }
 }
