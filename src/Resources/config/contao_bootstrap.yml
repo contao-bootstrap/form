@@ -25,6 +25,10 @@ form:
       templates:
         layout: 'fd_layout_row_field'
 
+    select:
+      templates:
+        control: 'fd_control_select_bs_custom'
+
     text:
       input_group: true
 
