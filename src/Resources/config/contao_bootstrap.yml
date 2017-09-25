@@ -37,6 +37,9 @@ form:
     number:
       input_group: true
 
+    tel:
+      input_group: true
+
     textarea:
       input_group: true
 
