@@ -51,7 +51,5 @@
             "dev-develop": "1.2.x-dev",
             "dev-contao4": "2.0.x-dev"
         }
-    },
-    "minimum-stability": "beta",
-    "prefer-stable": true
+    }
 }
