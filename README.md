@@ -17,6 +17,8 @@ Features
  - Vertical forms
  - Choose different form layouts for each form
  - Choose form layout in content element or module
+ - Uses custom styles by default
+ - Support of non custom styles by changing form layout
  
 Changelog
 ---------
