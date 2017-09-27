@@ -2,13 +2,13 @@
     "name":"contao-bootstrap/form",
     "description":"Contao form templates for Bootstrap 4",
     "keywords":["bootstrap", "form", "contao"],
-    "type":"contao-module",
+    "type":"contao-bundle",
     "license":"LGPL-3.0+",
     "authors":[
         {
             "name":"David Molineus",
             "email":"mail@netzmacht.de",
-            "homepage":"http://www.netzmacht.de",
+            "homepage":"https://netzmacht.de",
             "role":"Developer"
         }
     ],
@@ -23,7 +23,6 @@
     },
     "require":{
         "php":">=7.1",
-        "contao-community-alliance/composer-plugin": "~3.0",
         "contao/core-bundle":"~4.4",
         "contao-bootstrap/core": "~2.0@alpha",
         "contao-community-alliance/meta-palettes":"~1.10",
