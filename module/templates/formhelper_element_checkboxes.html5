@@ -1,6 +1,6 @@
 <<?php echo $this->tag; ?> <?php echo $this->element->generateAttributes(); ?>>
     <?php if((string)$this->label): ?>
-        <legend <?php if (Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.widgets.radio.label')): ?>class="sr-only"<?php endif ;?>>
+        <legend <?php if (Netzmacht\Bootstrap\Core\Bootstrap::getConfigVar('form.widgets.checkbox.label')): ?>class="sr-only"<?php endif ;?>>
             <?php echo $this->label; ?><?php if (!empty($this->attributes['class']) && in_array('mandatory', (array) $this->attributes['class'])): ?><span class="mandatory"><span class="sr-only"><?= $GLOBALS['TL_LANG']['MSC']['mandatory'] ?></span>*</span><?php endif; ?>
         </legend>
     <?php endif; ?>
