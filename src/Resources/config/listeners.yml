@@ -1,4 +1,7 @@
 services:
+  _defaults:
+    public: true
+
   contao_bootstrap.form.listener.default_form_layout:
     class: ContaoBootstrap\Form\Listener\DefaultFormLayoutListener
     arguments:
