@@ -1,0 +1,26 @@
+<?php if ($this->widget->multiple): ?>
+    <input type="hidden" name="<?= rtrim($this->widget->name, '[]') ?>" value="">
+<?php endif; ?>
+
+<?php
+    $attributes = $this->layout->getControlAttributes($this->widget);
+    if (!$this->widget->multiple) {
+        $attributes->addClass('custom-select');
+    }
+?>
+
+<select <?= $attributes ?>>
+    <?php foreach (\Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getOptions($this->widget) as $option): ?>
+        <?php if ($option['type'] == 'group_start'): ?>
+            <optgroup label="<?= $option['label'] ?>">
+        <?php endif; ?>
+
+        <?php if ($option['type'] == 'option'): ?>
+            <option value="<?= $option['value'] ?>"<?= $option['selected'] ?>><?= $option['label'] ?></option>
+        <?php endif; ?>
+
+        <?php if ($option['type'] == 'group_end'): ?>
+            </optgroup>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</select>

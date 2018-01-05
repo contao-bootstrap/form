@@ -1,9 +1,0 @@
-<div <?php echo $this->attributes; ?>>
-  <?php $this->block('label'); ?>
-  <?php echo $this->label; ?>
-  <?php $this->endblock(); ?>
-
-  <?php $this->block('field'); ?>
-  <?php echo $this->container; ?>
-  <?php $this->endblock(); ?>
-</div>

@@ -1,4 +1,0 @@
-<div <?php echo $this->attributes; ?>>
-  <?php echo $this->label; ?>
-  <?php echo $this->container; ?>
-</div>

@@ -1,0 +1,14 @@
+<?php $inputGroup = $this->layout->getInputGroup($this->widget) ?>
+<?php if ($inputGroup): ?>
+<div class="input-group">
+    <?php foreach ($inputGroup->before() as $entry): ?>
+        <div class="input-group-prepend"><?= $entry ?></div>
+    <?php endforeach; ?>
+    <?php endif; ?>
+    <?= $this->layout->renderControl($this->widget) ?>
+    <?php if ($inputGroup): ?>
+    <?php foreach ($inputGroup->after() as $entry): ?>
+        <div class="input-group-append"><?= $entry ?></div>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>

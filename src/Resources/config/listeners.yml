@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    public: true
+
+  contao_bootstrap.form.listener.default_form_layout:
+    class: ContaoBootstrap\Form\Listener\DefaultFormLayoutListener
+    arguments:
+      - '@netzmacht.contao_form_designer.layout_manager'
+      - '@netzmacht.contao_form_designer.repository.layout'
+      - '@netzmacht.contao_form_designer.layout_factory'
+      - '@logger'

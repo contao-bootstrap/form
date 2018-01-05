@@ -1,15 +1,15 @@
 {
     "name":"contao-bootstrap/form",
-    "description":"Navigation templates supporting bootstrap dropdown navigation",
+    "description":"Contao form templates for Bootstrap 4",
     "keywords":["bootstrap", "form", "contao"],
-    "type":"contao-module",
+    "type":"contao-bundle",
     "license":"LGPL-3.0+",
     "authors":[
         {
             "name":"David Molineus",
             "email":"mail@netzmacht.de",
-            "homepage":"http://www.netzmacht.de",
-            "role":"Project leader"
+            "homepage":"https://netzmacht.de",
+            "role":"Developer"
         }
     ],
     "support":{
@@ -22,39 +22,33 @@
         "netzmacht/contao-bootstrap": "*"
     },
     "require":{
-        "php":">=5.4",
-        "contao-community-alliance/composer-plugin": "~2.0",
-        "contao/core":">=3.2,<3.6-dev",
-        "contao-bootstrap/core": "~1.0",
-        "netzmacht/contao-iconwizard": "~1.0",
-        "netzmacht/html": "~1.0",
-        "netzmacht/contao-form-helper": "~1.0",
-        "contao-community-alliance/meta-palettes":"~1.4",
-        "bootstrap-select/bootstrap-select": "~1.7"
+        "php":">=7.1",
+        "contao/core-bundle":"~4.4",
+        "contao-bootstrap/core": "~2.0",
+        "contao-community-alliance/meta-palettes":"~2.0 || ~1.11",
+        "netzmacht/contao-form-designer": "~1.0"
     },
     "require-dev": {
-        "netzmacht/contao-build-tools": "~1.1"
+        "phpcq/all-tasks": "^1.2",
+        "contao/manager-plugin": "^2.1"
     },
     "autoload": {
-        "psr-0": { "Netzmacht\\Bootstrap\\Form": "src/" }
+        "psr-4": { "ContaoBootstrap\\Form\\": "src/" }
     },
     "extra":{
+        "contao-manager-plugin": "ContaoBootstrap\\Form\\ContaoManager\\Plugin",
         "contao": {
-            "sources":{
-                "module": "system/modules/bootstrap-form"
-            },
             "transifex": {
                 "project": "contao-bootstrap",
                 "prefix": "form-",
-                "languages_cto": "module/languages",
+                "languages_cto": "src/Resources/contao/languages",
                 "languages_tx": ".tx"
             }
         },
         "branch-alias": {
-            "dev-master": "1.1.x-dev",
-            "dev-develop": "1.2.x-dev"
+            "dev-master": "2.0.x-dev",
+            "dev-develop": "2.1.x-dev",
+            "dev-support/1.x": "1.1.x-dev"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

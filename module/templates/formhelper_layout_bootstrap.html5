@@ -1,8 +1,0 @@
-<?php
-
-if(version_compare(VERSION, '3.3', '<')) {
-    include $this->getTemplate('formhelper_layout_bootstrap_32');
-}
-else {
-    include $this->getTemplate('formhelper_layout_bootstrap_33');
-}

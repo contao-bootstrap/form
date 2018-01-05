@@ -1,0 +1,21 @@
+
+<div <?= $this->layout->getContainerAttributes($this->widget) ?>>
+    <?php $this->block('label'); ?>
+    <?= $this->layout->renderLabel($this->widget) ?>
+    <?php $this->endblock(); ?>
+
+    <div class="<?= $this->layout->getColumnClass() ?>">
+        <?php $this->block('field'); ?>
+        <?php $this->insert('fd_control_bs_input_group', $this->getData()) ?>
+        <?php $this->endblock(); ?>
+
+        <?php $this->block('help2'); ?>
+        <?= $this->layout->renderHelpText($this->widget) ?>
+        <?php $this->endblock(); ?>
+
+        <?php $this->block('error'); ?>
+        <?= $this->layout->renderErrors($this->widget) ?>
+        <?php $this->endblock(); ?>
+
+    </div>
+</div>

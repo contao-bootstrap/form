@@ -1,0 +1,10 @@
+
+<div <?= $this->layout->getContainerAttributes($this->widget) ?>>
+    <div class="<?= $this->layout->getColumnClass(true) ?>">
+
+        <?php $this->block('field'); ?>
+        <?php $this->insert('fd_control_bs_input_group', $this->getData()) ?>
+        <?php $this->endblock(); ?>
+
+    </div>
+</div>

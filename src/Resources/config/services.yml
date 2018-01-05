@@ -1,0 +1,14 @@
+services:
+  contao_bootstrap.form.listener.form_field_dca:
+    class: ContaoBootstrap\Form\Listener\FormFieldDcaListener
+    arguments:
+      - '@contao_bootstrap.environment'
+
+  contao.bootstrap.form.form_layout.factory:
+    class: ContaoBootstrap\Form\FormLayout\BootstrapFormLayoutFactory
+    arguments:
+      - '@contao_bootstrap.environment'
+      - '%netzmacht.contao_form_designer.widgets%'
+      - '%netzmacht.contao_form_designer.defaults%'
+    tags:
+      - { name: 'netzmacht.contao_form_designer.factory' }

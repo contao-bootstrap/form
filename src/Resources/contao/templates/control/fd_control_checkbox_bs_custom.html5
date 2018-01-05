@@ -1,0 +1,22 @@
+<input type="hidden" name="<?= $this->widget->name ?>" value="">
+<div class="custom-controls-stacked">
+<?php foreach (\Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getOptions($this->widget) as $option): ?>
+    <?php if ($option['type'] == 'group_start'): ?>
+        <fieldset class="custom-controls-stacked">
+        <legend><?= $option['label'] ?></legend>
+    <?php endif; ?>
+
+    <?php if ($option['type'] == 'option'): ?>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="checkbox custom-control-input" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>>
+        <label class="custom-control-label" id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>">
+            <?= $option['label'] ?>
+        </label>
+    </div>
+    <?php endif; ?>
+
+    <?php if ($option['type'] == 'group_end'): ?>
+        </fieldset>
+    <?php endif; ?>
+<?php endforeach; ?>
+</div>
