@@ -72,16 +72,12 @@ class InputGroupHelper
      * Add after entry.
      *
      * @param string $content Content of the addon.
-     * @param string $type    Input group addon type: addon or btn.
      *
      * @return $this
      */
-    public function addAfter(string $content, string $type = self::TYPE_ADDON): self
+    public function addAfter(string $content): self
     {
-        $this->after[] = [
-            'type'    => $type,
-            'content' => $content,
-        ];
+        $this->after[] = $content;
 
         return $this;
     }
@@ -90,16 +86,12 @@ class InputGroupHelper
      * Add before entry.
      *
      * @param string $content Content of the addon.
-     * @param string $type    Input group addon type: addon or btn.
      *
      * @return $this
      */
-    public function addBefore(string $content, string $type = self::TYPE_ADDON): self
+    public function addBefore(string $content): self
     {
-        $this->before[] = [
-            'type'    => $type,
-            'content' => $content,
-        ];
+        $this->before[] = $content;
 
         return $this;
     }
