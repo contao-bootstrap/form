@@ -2,13 +2,25 @@
 <?php if ($inputGroup): ?>
 <div class="input-group">
     <?php foreach ($inputGroup->before() as $entry): ?>
-        <div class="input-group-prepend"><?= $entry ?></div>
+        <div class="input-group-prepend">
+            <?php if ($entry['text']): ?>
+                <span class="input-group-text"><?= $entry['content'] ?></span>
+            <?php else: ?>
+                <?= $entry['content'] ?>
+            <?php endif ?>
+        </div>
     <?php endforeach; ?>
     <?php endif; ?>
     <?= $this->layout->renderControl($this->widget) ?>
     <?php if ($inputGroup): ?>
     <?php foreach ($inputGroup->after() as $entry): ?>
-        <div class="input-group-append"><?= $entry ?></div>
+        <div class="input-group-append">
+            <?php if ($entry['text']): ?>
+                <span class="input-group-text"><?= $entry['content'] ?></span>
+            <?php else: ?>
+                <?= $entry['content'] ?>
+            <?php endif ?>
+        </div>
     <?php endforeach; ?>
 </div>
 <?php endif; ?>

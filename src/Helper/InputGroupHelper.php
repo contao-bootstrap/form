@@ -71,13 +71,17 @@ class InputGroupHelper
     /**
      * Add after entry.
      *
-     * @param string $content Content of the addon.
+     * @param string $content Content of the add on.
+     * @param bool   $text    If true, no input-group-text wrapper is added.
      *
      * @return $this
      */
-    public function addAfter(string $content): self
+    public function addAfter(string $content, bool $text = true): self
     {
-        $this->after[] = $content;
+        $this->after[] = [
+            'content' => $content,
+            'text'    => $text
+        ];
 
         return $this;
     }
@@ -85,13 +89,17 @@ class InputGroupHelper
     /**
      * Add before entry.
      *
-     * @param string $content Content of the addon.
+     * @param string $content Content of the addo n.
+     * @param bool   $text    If true, no input-group-text wrapper is added.
      *
      * @return $this
      */
-    public function addBefore(string $content): self
+    public function addBefore(string $content, bool $text = true): self
     {
-        $this->before[] = $content;
+        $this->before[] = [
+            'content' => $content,
+            'text'    => $text
+        ];
 
         return $this;
     }
