@@ -24,8 +24,8 @@
     "require":{
         "php":">=7.1",
         "contao/core-bundle":"~4.4",
-        "contao-bootstrap/core": "~2.0@alpha",
-        "contao-community-alliance/meta-palettes":"~1.10",
+        "contao-bootstrap/core": "~2.0",
+        "contao-community-alliance/meta-palettes":"~2.0 || ~1.11",
         "netzmacht/contao-form-designer": "~1.0"
     },
     "require-dev": {
@@ -46,9 +46,9 @@
             }
         },
         "branch-alias": {
-            "dev-master": "1.1.x-dev",
-            "dev-develop": "1.2.x-dev",
-            "dev-release/2.0.0": "2.0.x-dev"
+            "dev-master": "2.0.x-dev",
+            "dev-develop": "2.1.x-dev",
+            "dev-support/1.x": "1.1.x-dev"
         }
     }
 }
