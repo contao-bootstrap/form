@@ -7,11 +7,12 @@
     <?php endif; ?>
 
     <?php if ($option['type'] == 'option'): ?>
-        <label class="custom-control custom-checkbox" id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>">
-            <input <input type="checkbox" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="checkbox custom-control-input" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>>
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description"><?= $option['label'] ?></span>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="checkbox custom-control-input" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>>
+        <label class="custom-control-label" id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>">
+            <?= $option['label'] ?>
         </label>
+    </div>
     <?php endif; ?>
 
     <?php if ($option['type'] == 'group_end'): ?>
