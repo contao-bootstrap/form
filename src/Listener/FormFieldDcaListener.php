@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Form\Listener;
 
-use Bit3\Contao\MetaPalettes\MetaPalettes;
+use ContaoCommunityAlliance\MetaPalettes\MetaPalettes;
 use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Form\Environment\FormContext;
 
