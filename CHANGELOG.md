@@ -2,6 +2,13 @@
 Changelog
 =========
 
+2.0.2 (2018-01-10)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.0.1...2.0.2)
+
+ - Bugfix: Changed MetaPalettes Namespace (#30)
+
 2.0.1 (2018-01-05)
 ------------------
 
