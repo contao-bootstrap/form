@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Form\Listener;
 
+use Contao\CoreBundle\Exception\PaletteNotFoundException;
 use ContaoCommunityAlliance\MetaPalettes\MetaPalettes;
 use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Form\Environment\FormContext;
@@ -56,7 +57,11 @@ class FormFieldDcaListener
 
         foreach ($widgets as $name => $config) {
             if (!empty($config['input_group'])) {
-                MetaPalettes::appendFields('tl_form_field', $name, 'fconfig', ['bs_addInputGroup']);
+                try {
+                    MetaPalettes::appendFields('tl_form_field', $name, 'fconfig', ['bs_addInputGroup']);
+                } catch (PaletteNotFoundException $e) {
+                    // Palette does not exist. Just skip it.
+                }
             }
         }
     }
