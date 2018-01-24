@@ -9,6 +9,7 @@ Changelog
 
  - Fix issue that undefined palettes thrown an exception in the form view (#31)
  - Fix spdx license format
+ - Fix adding bootstrap form styles for hidden captca (#27)
 
 2.0.2 (2018-01-10)
 ------------------
