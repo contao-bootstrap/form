@@ -1,0 +1,22 @@
+<?php
+
+/** @var \Netzmacht\Html\Attributes $attributes */
+$attributes = $this->layout->getControlAttributes($this->widget);
+$attributes->setAttribute('aria-describedby', 'captcha_text_' . $this->widget->id);
+?>
+
+<input <?= $attributes ?>>
+<small id="captcha_text_<?= $this->widget->id ?>" class="captcha_text form-help-message form-text"><?= $this->widget->question ?></small>
+
+<?php if (!$this->widget->hasErrors()): ?>
+    <div style="display:none">
+        <label for="ctrl_<?= $this->widget->id ?>_hp">Do not fill in this field</label>
+        <input type="text" name="<?= $this->widget->name ?>_name" id="ctrl_<?= $this->widget->id ?>_hp" value="">
+    </div>
+    <?php $this->block('script') ?>
+    <script>
+        document.getElementById('ctrl_<?= $this->widget->id ?>').parentNode.style.display = 'none';
+        document.getElementById('ctrl_<?= $this->widget->id ?>').value = '<?= \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getSum($this->widget) ?>';
+    </script>
+    <?php $this->endblock() ?>
+<?php endif ?>
