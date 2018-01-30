@@ -13,6 +13,8 @@
     <?php $this->endblock(); ?>
 
     <?php $this->block('error'); ?>
+    <?php if(!$this->layout->getInputGroup($this->widget)): ?>
     <?= $this->layout->renderErrors($this->widget) ?>
+    <?php endif ?>
     <?php $this->endblock(); ?>
 </div>

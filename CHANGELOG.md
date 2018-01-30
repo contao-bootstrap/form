@@ -2,6 +2,13 @@
 Changelog
 =========
 
+2.0.3 (2018-xx-xx)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.0.2...2.0.3)
+
+ - Fix error markup for fields with input groups.
+
 2.0.2 (2018-01-10)
 ------------------
 
