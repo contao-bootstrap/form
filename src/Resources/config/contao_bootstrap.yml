@@ -59,6 +59,11 @@ form:
         help: 'fd_help_bs_default'
         error: 'fd_error_latest_bs'
 
+      widgets:
+        captcha:
+          templates:
+            control: 'fd_control_captcha_bs_default'
+
     horizontal:
       classes:
         label: col-sm-3

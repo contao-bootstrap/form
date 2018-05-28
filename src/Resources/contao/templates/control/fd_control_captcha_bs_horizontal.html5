@@ -1,13 +1,8 @@
-<input type="text" name="<?= $this->widget->name ?>" id="ctrl_<?= $this->widget->id ?>" class="captcha mandatory<?php if ($this->widget->class) echo ' ' . $this->widget->class; ?>" value="" aria-describedby="captcha_text_<?= $this->widget->id ?>"<?= $this->widget->getAttributes() ?>>
-<span id="captcha_text_<?= $this->widget->id ?>" class="captcha_text<?php if ($this->widget->class) echo ' ' . $this->widget->class; ?>"><?= $this->widget->question ?></span>
+<?php $this->extend('fd_control_captcha_bs_default') ?>
 
-<?php if (!$this->widget->hasErrors()): ?>
-    <div style="display:none">
-        <label for="ctrl_<?= $this->widget->id ?>_hp">Do not fill in this field</label>
-        <input type="text" name="<?= $this->widget->name ?>_name" id="ctrl_<?= $this->widget->id ?>_hp" value="">
-    </div>
-    <script>
-        document.getElementById('ctrl_<?= $this->widget->id ?>').parentNode.parentNode.style.display = 'none';
-        document.getElementById('ctrl_<?= $this->widget->id ?>').value = '<?= \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getSum($this->widget) ?>';
-    </script>
-<?php endif ?>
+<?php $this->block('script') ?>
+<script>
+    document.getElementById('ctrl_<?= $this->widget->id ?>').parentNode.parentNode.style.display = 'none';
+    document.getElementById('ctrl_<?= $this->widget->id ?>').value = '<?= \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getSum($this->widget) ?>';
+</script>
+<?php $this->endblock() ?>

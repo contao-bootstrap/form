@@ -2,12 +2,14 @@
 Changelog
 =========
 
-2.0.3 (2018-xx-xx)
+2.0.3 (2018-01-24)
 ------------------
 
 [Full Changelog](https://github.com/contao-bootstrap/form/compare/2.0.2...2.0.3)
 
- - Fix error markup for fields with input groups.
+ - Fix issue that undefined palettes thrown an exception in the form view (#31)
+ - Fix spdx license format
+ - Fix adding bootstrap form styles for hidden captca (#27)
 
 2.0.2 (2018-01-10)
 ------------------
