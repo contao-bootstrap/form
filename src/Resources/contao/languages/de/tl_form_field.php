@@ -8,9 +8,8 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2016-04-05T16:24:25+02:00
+ * last-updated: 2018-01-05T13:58:34+00:00
  */
-
 
 $GLOBALS['TL_LANG']['FFL']['button']['0']                             = 'Schaltfläche';
 $GLOBALS['TL_LANG']['FFL']['button']['1']                             = 'Schaltfläche mit Text, Icon oder Bild';
@@ -32,6 +31,14 @@ $GLOBALS['TL_LANG']['tl_form_field']['bootstrap_unit']['0']           = 'Einheit
 $GLOBALS['TL_LANG']['tl_form_field']['bootstrap_unit']['1']           = 'Sie können eine beliebige Texteingabe als Einheit hinzufügen.';
 $GLOBALS['TL_LANG']['tl_form_field']['bootstrap_unitPosition']['0']   = 'Position';
 $GLOBALS['TL_LANG']['tl_form_field']['bootstrap_unitPosition']['1']   = 'Wählen Sie auf welcher Seite die Einheit angezeigt werden soll.';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_addInputGroup']['0']         = 'Input-Gruppe hinzufügen';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_addInputGroup']['1']         = 'Strukturieren Sie Ihr Formular mit weiteren Informationen indem Sie Gruppen hinzufügen.';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup']['0']            = 'Input-Gruppe';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup']['1']            = 'Legen Sie die Gruppeneinträge fest.';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_addon']['0']      = 'Inhalt';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_addon']['1']      = 'Legen Sie den Inhalt der Input-Gruppe fest.';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_position']['0']   = 'Position';
+$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_position']['1']   = 'Position der Input-Gruppe';
 $GLOBALS['TL_LANG']['tl_form_field']['icon_legend']                   = 'Icon';
 $GLOBALS['TL_LANG']['tl_form_field']['left']                          = 'links';
 $GLOBALS['TL_LANG']['tl_form_field']['right']                         = 'rechts';
