@@ -2,6 +2,16 @@
 Changelog
 =========
 
+2.0.4 (2018-05-28)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.0.3...2.0.4)
+
+ - Fix error markup for fields with input groups.
+ - Bugfix: Add offset if no label is defined.
+ - Bugfix: Add missing grid column classes.
+ - Update translations.
+
 2.0.3 (2018-01-24)
 ------------------
 
