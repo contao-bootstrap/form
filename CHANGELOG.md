@@ -2,6 +2,13 @@
 Changelog
 =========
 
+2.0.5 (2018-06-28)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.0.4...2.0.5)
+
+ - Fix upload label class for custom file uploads.
+
 2.0.4 (2018-05-28)
 ------------------
 
