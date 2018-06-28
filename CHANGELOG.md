@@ -2,6 +2,14 @@
 Changelog
 =========
 
+2.1.0 (xxxx-xx-xx)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.0...2.1.0)
+
+ - Add javascript to fd_control_upload_bs_custom to update the label
+ - Add fd_control_upload_bs_custom_no_js to keep option without js
+
 2.0.4 (2018-05-28)
 ------------------
 
