@@ -1,4 +1,4 @@
 <label class="custom-file d-block">
     <input <?= $this->layout->getControlAttributes($this->widget)->addClass('custom-file-input') ?>>
-    <span class="custom-file-control"></span>
+    <span class="custom-file-label"></span>
 </label>
