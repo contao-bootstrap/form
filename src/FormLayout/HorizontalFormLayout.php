@@ -51,7 +51,7 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
     public function getContainerAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getContainerAttributes($widget);
-        $attributes->addClass('row');
+        $attributes->addClass($this->horizontalConfig['row']);
 
         return $attributes;
     }
@@ -84,5 +84,25 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
         }
 
         return $class;
+    }
+
+    /**
+     * Get the offset class.
+     *
+     * @return string
+     */
+    public function getOffsetClass(): string
+    {
+        return $this->horizontalConfig['offset'];
+    }
+
+    /**
+     * Get the label column class.
+     *
+     * @return string
+     */
+    public function getLabelColumnClass(): string
+    {
+        return $this->horizontalConfig['label'];
     }
 }

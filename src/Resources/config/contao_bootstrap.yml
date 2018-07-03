@@ -66,6 +66,7 @@ form:
 
     horizontal:
       classes:
+        row: form-row
         label: col-sm-3
         control: col-sm-9
         offset: ml-auto

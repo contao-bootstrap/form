@@ -2,3 +2,14 @@
     <input <?= $this->layout->getControlAttributes($this->widget)->addClass('custom-file-input') ?>>
     <span class="custom-file-label"></span>
 </label>
+<script>
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+        (function () {
+            var input = document.getElementById('<?= $this->layout->getControlAttributes($this->widget)->getId() ?>');
+            input.addEventListener('change', function () {
+                var label = input.parentNode.querySelector('.custom-file-label');
+                label.innerHTML = input.files[0].name;
+            });
+        })();
+    }
+</script>
