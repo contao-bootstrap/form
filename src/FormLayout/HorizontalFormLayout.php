@@ -85,4 +85,24 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
 
         return $class;
     }
+
+    /**
+     * Get the offset class.
+     *
+     * @return string
+     */
+    public function getOffsetClass(): string
+    {
+        return $this->horizontalConfig['offset'];
+    }
+
+    /**
+     * Get the label column class.
+     *
+     * @return string
+     */
+    public function getLabelColumnClass(): string
+    {
+        return $this->horizontalConfig['label'];
+    }
 }
