@@ -51,7 +51,7 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
     public function getContainerAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getContainerAttributes($widget);
-        $attributes->addClass('row');
+        $attributes->addClass($this->horizontalConfig['row']);
 
         return $attributes;
     }

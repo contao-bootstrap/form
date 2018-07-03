@@ -168,7 +168,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
     {
         $horizontalConfig = $this->environment->getConfig()->get('form.layouts.horizontal.classes', []);
 
-        foreach (['label', 'control', 'offset'] as $key) {
+        foreach (['row', 'label', 'control', 'offset'] as $key) {
             if (!empty($config['bs_' . $key])) {
                 $horizontalConfig[$key] = $config['bs_' . $key];
             }

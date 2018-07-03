@@ -7,8 +7,10 @@ Changelog
 
 [Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.0...2.1.0)
 
- - Add javascript to fd_control_upload_bs_custom to update the label
- - Add fd_control_upload_bs_custom_no_js to keep option without js
+ - Add javascript to fd_control_upload_bs_custom to update the label.
+ - Add fd_control_upload_bs_custom_no_js to keep option without js.
+ - Use `form-row` instead of `row` as default grid row class.
+ - Make row class configurable in the form layout.
 
 2.0.5 (2018-06-28)
 ------------------

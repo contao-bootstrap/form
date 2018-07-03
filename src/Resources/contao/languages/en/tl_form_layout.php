@@ -15,6 +15,8 @@ $GLOBALS['TL_LANG']['tl_form_layout']['types']['bs_horizontal'] = 'Bootstrap hor
 
 $GLOBALS['TL_LANG']['tl_form_layout']['bs_grid_legend'] = 'Grid classes';
 
+$GLOBALS['TL_LANG']['tl_form_layout']['bs_row'][0]   = 'Row class';
+$GLOBALS['TL_LANG']['tl_form_layout']['bs_row'][1]   = 'Choose which class for the grid form row should be used. Default value is <em>form-row</em>.';
 $GLOBALS['TL_LANG']['tl_form_layout']['bs_label'][0]   = 'Label grid class';
 $GLOBALS['TL_LANG']['tl_form_layout']['bs_label'][1]   = 'Define a custom label grid class. Default value is <em>col-sm-3</em>.';
 $GLOBALS['TL_LANG']['tl_form_layout']['bs_control'][0] = 'Control grid class';
