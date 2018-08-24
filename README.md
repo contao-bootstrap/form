@@ -1,11 +1,11 @@
 Contao-Bootstrap Form Component
 ===============================
 
-[![Build Status](http://img.shields.io/travis/contao-bootstrap/form/master.svg?style=flat-square)](https://travis-ci.org/contao-bootstrap/form)
-[![Version](http://img.shields.io/packagist/v/contao-bootstrap/form.svg?style=flat-square)](http://packagist.org/packages/contao-bootstrap/form)
-[![License](http://img.shields.io/packagist/l/contao-bootstrap/form.svg?style=flat-square)](http://packagist.org/packages/contao-bootstrap/form)
-[![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/form.svg?style=flat-square)](http://packagist.org/packages/contao-bootstrap/form)
-[![Contao Community Alliance coding standard](http://img.shields.io/badge/cca-coding_standard-red.svg?style=flat-square)](https://github.com/contao-community-alliance/coding-standard)
+[![Version](http://img.shields.io/packagist/v/contao-bootstrap/form.svg?style=for-the-badge&label=Latest)](http://packagist.org/packages/contao-bootstrap/form)
+[![GitHub issues](https://img.shields.io/github/issues/contao-bootstrap/form.svg?style=for-the-badge&logo=github)](https://github.com/contao-bootstrap/form/issues)
+[![License](http://img.shields.io/packagist/l/contao-bootstrap/form.svg?style=for-the-badge&label=License)](http://packagist.org/packages/contao-bootstrap/form)
+[![Build Status](http://img.shields.io/travis/contao-bootstrap/form/master.svg?style=for-the-badge&logo=travis)](https://travis-ci.org/contao-bootstrap/form)
+[![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/form.svg?style=for-the-badge&label=Downloads)](http://packagist.org/packages/contao-bootstrap/form)
 
 
 This extension provides Bootstrap 4 form support for Contao CMS.
@@ -46,28 +46,4 @@ $ php contao-manager.phar.php composer require contao-bootstrap/form~2.0@beta
 
 # Using composer directly
 $ php composer.phar require contao-bootstrap/form~2.0@beta
-```
-
-### Standard edition
-
-Without the contao manager you also have to register the bundle
-
-```php
-
-class AppKernel
-{
-    public function registerBundles()
-    {
-        $bundles = [
-            // ...
-            new Contao\CoreBundle\HttpKernel\Bundle\ContaoModuleBundle('metapalettes', $this->getRootDir()),
-            new Contao\CoreBundle\HttpKernel\Bundle\ContaoModuleBundle('multicolumnwizard', $this->getRootDir()),
-            new Netzmacht\Html\Netzmacht\HtmlBundle(),
-            new Netzmacht\Contao\FormDesigner\NetzmachtContaoFormDesignerBundle(),
-            new ContaoBootstrap\Core\ContaoBootstrapCoreBundle(),
-            new ContaoBootstrap\Form\ContaoBootstrapFormBundle()
-        ];
-    }
-}
-
 ```

@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Form\FormLayout;
 
+use Contao\StringUtil;
 use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Core\Util\ArrayUtil;
 use Netzmacht\Contao\FormDesigner\Factory\FormLayoutFactory;
@@ -117,7 +118,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
             $widgetConfig = ArrayUtil::merge($widgetConfig, $bootstrapConfig->get($configKey));
         }
 
-        foreach (deserialize($config['widgets'], true) as $widget) {
+        foreach (StringUtil::deserialize($config['widgets'], true) as $widget) {
             if ($widget['widget'] === '') {
                 continue;
             }

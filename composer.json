@@ -26,7 +26,11 @@
         "contao/core-bundle":"~4.4",
         "contao-bootstrap/core": "~2.0",
         "contao-community-alliance/meta-palettes":"~2.0 || ~1.11",
-        "netzmacht/contao-form-designer": "~1.0"
+        "netzmacht/contao-form-designer": "~1.0",
+        "netzmacht/html": "^2.0",
+        "symfony/config": "^3.3 || ^4.0",
+        "symfony/dependency-injection": "^3.3 || ^4.0",
+        "symfony/http-kernel": "^3.3 || ^4.0"
     },
     "require-dev": {
         "phpcq/all-tasks": "^1.2",
