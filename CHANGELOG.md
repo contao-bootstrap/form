@@ -2,10 +2,24 @@
 Changelog
 =========
 
-2.1.0 (xxxx-xx-xx)
+2.1.2 (2018-08-24)
 ------------------
 
-[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.0...2.1.0)
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.1...2.1.2)
+ 
+ - Make service "contao_bootstrap.form.listener.form_field_dca" public for symfony/dependency-container v4 compatibility.
+ 
+2.1.1 (2018-07-03)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.0...2.1.1)
+ 
+ - Add missing getRowClass().
+
+2.1.0 (2018-07-03)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.0.5...2.1.0)
 
  - Add javascript to fd_control_upload_bs_custom to update the label.
  - Add fd_control_upload_bs_custom_no_js to keep option without js.

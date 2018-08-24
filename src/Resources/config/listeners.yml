@@ -2,6 +2,11 @@ services:
   _defaults:
     public: true
 
+  contao_bootstrap.form.listener.form_field_dca:
+    class: ContaoBootstrap\Form\Listener\FormFieldDcaListener
+    arguments:
+    - '@contao_bootstrap.environment'
+
   contao_bootstrap.form.listener.default_form_layout:
     class: ContaoBootstrap\Form\Listener\DefaultFormLayoutListener
     arguments:
