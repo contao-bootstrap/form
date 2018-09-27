@@ -7,6 +7,7 @@ $attributes->setAttribute('aria-describedby', 'captcha_text_' . $this->widget->i
 
 <input <?= $attributes ?>>
 <small id="captcha_text_<?= $this->widget->id ?>" class="captcha_text form-help-message form-text"><?= $this->widget->question ?></small>
+<input type="hidden" name="<?= $this->widget->name ?>_hash" value="<?= \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getHash($this->widget) ?>">
 
 <?php if (!$this->widget->hasErrors()): ?>
     <div style="display:none">
