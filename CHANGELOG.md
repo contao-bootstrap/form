@@ -2,6 +2,14 @@
 Changelog
 =========
 
+2.1.3 (2018-09-28)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.2...2.1.3)
+ 
+ - Fix captcha for Contao 4.6 (#41)
+ - Force error message being visible (#40)
+
 2.1.2 (2018-08-24)
 ------------------
 
