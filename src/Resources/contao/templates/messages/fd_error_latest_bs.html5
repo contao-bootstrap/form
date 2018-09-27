@@ -1,3 +1,3 @@
 <?php if ($this->widget->hasErrors()): ?>
-    <p class="error invalid-feedback"><?= $this->widget->getErrorAsString() ?></p>
+    <p class="error invalid-feedback d-block"><?= $this->widget->getErrorAsString() ?></p>
 <?php endif; ?>
