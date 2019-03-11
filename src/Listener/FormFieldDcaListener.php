@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Form\Listener;
 
-use Contao\CoreBundle\Exception\PaletteNotFoundException;
+use Contao\CoreBundle\DataContainer\PaletteNotFoundException;
 use ContaoCommunityAlliance\MetaPalettes\MetaPalettes;
 use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Form\Environment\FormContext;
