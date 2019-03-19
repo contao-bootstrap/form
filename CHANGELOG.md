@@ -2,6 +2,16 @@
 Changelog
 =========
 
+2.1.4 (2019-03-19)
+------------------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.3...2.1.4)
+
+### Changed
+
+ - Catch `Contao\CoreBundle\DataContainer\PaletteNotFoundException` for forward compatibility (#42). Resolves also 
+   contao/contao#378  
+
 2.1.3 (2018-09-28)
 ------------------
 
