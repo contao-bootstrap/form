@@ -60,9 +60,11 @@ class FormFieldDcaListener
             if (!empty($config['input_group'])) {
                 try {
                     MetaPalettes::appendFields('tl_form_field', $name, 'fconfig', ['bs_addInputGroup']);
+                    // @codingStandardsIgnoreStart Catch statement is empty on purpose
                 } catch (PaletteNotFoundException | LegacyPaletteNotFoundException $e) {
                     // Palette does not exist. Just skip it.
                 }
+                // @codingStandardsIgnoreEnd
             }
         }
     }
