@@ -5,7 +5,7 @@ Changelog
 2.1.5
 -----
 
-[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.3...hotfix/2.1.5)
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.4...2.1.5)
 
 ### Fixed
 
