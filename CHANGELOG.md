@@ -2,6 +2,15 @@
 Changelog
 =========
 
+2.1.5
+-----
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.3...hotfix/2.1.5)
+
+### Fixed
+
+ - Show missing asterisk for confirming password (#45)
+
 2.1.4 (2019-03-19)
 ------------------
 
