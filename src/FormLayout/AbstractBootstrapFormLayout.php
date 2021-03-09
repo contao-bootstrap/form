@@ -17,7 +17,9 @@ namespace ContaoBootstrap\Form\FormLayout;
 use Contao\Widget;
 use ContaoBootstrap\Form\Helper\InputGroupHelper;
 use Netzmacht\Contao\FormDesigner\Layout\AbstractFormLayout;
+use Netzmacht\Contao\FormDesigner\Util\WidgetUtil;
 use Netzmacht\Html\Attributes;
+use function array_key_exists;
 
 /**
  * Class AbstractBootstrapFormLayout
@@ -73,14 +75,17 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
     public function getControlAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getControlAttributes($widget);
+        $type       = WidgetUtil::getType($widget);
 
-        if (!array_key_exists('form_control', $this->widgetConfig[$widget->type])
-            || $this->widgetConfig[$widget->type]['form_control']) {
+        if (!isset($this->widgetConfig[$type])
+            || !array_key_exists('form_control', $this->widgetConfig[$type])
+            || $this->widgetConfig[$type]['form_control']
+        ) {
             $attributes->addClass('form-control');
         }
 
-        if (!$widget->controlClass && $this->widgetConfig[$widget->type]['control_class']) {
-            $attributes->addClass($this->widgetConfig[$widget->type]['control_class']);
+        if (!$widget->controlClass && isset($this->widgetConfig[$type]['control_class'])) {
+            $attributes->addClass($this->widgetConfig[$type]['control_class']);
         }
 
         if ($widget->hasErrors()) {
@@ -99,7 +104,9 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
      */
     public function getInputGroup(Widget $widget)
     {
-        if ($this->widgetConfig[$widget->type]['input_group'] && $widget->bs_addInputGroup) {
+        $type = WidgetUtil::getType($widget);
+
+        if (isset($this->widgetConfig[$type]['input_group']) && $widget->bs_addInputGroup) {
             return InputGroupHelper::forWidget($widget);
         }
 
@@ -116,12 +123,14 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
      */
     protected function getTemplate(Widget $widget, string $section): string
     {
-        if ($section === 'help' && empty($this->widgetConfig[$widget->type]['help'])) {
+        $type = WidgetUtil::getType($widget);
+
+        if ($section === 'help' && empty($this->widgetConfig[$type]['help'])) {
             return '';
         }
 
-        if (isset($this->widgetConfig[$widget->type]['templates'][$section])) {
-            return $this->widgetConfig[$widget->type]['templates'][$section];
+        if (isset($this->widgetConfig[$type]['templates'][$section])) {
+            return $this->widgetConfig[$type]['templates'][$section];
         }
 
         if (isset($this->fallbackConfig['templates'][$section])) {

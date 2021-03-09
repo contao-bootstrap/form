@@ -2,6 +2,15 @@
 Changelog
 =========
 
+2.1.6
+-----
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.5...2.1.6)
+
+### Fixed
+
+ - Fix widget type detection for widgets not providing type information
+
 2.1.5
 -----
 
