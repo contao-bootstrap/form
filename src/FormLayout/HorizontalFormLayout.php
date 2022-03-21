@@ -29,7 +29,7 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
      *
      * @var array
      */
-    private $horizontalConfig;
+    private array $horizontalConfig;
 
     /**
      * AbstractFormLayout constructor.
