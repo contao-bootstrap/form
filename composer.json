@@ -10,6 +10,12 @@
             "email":"mail@netzmacht.de",
             "homepage":"https://netzmacht.de",
             "role":"Developer"
+        },
+        {
+            "name": "Alexander Kehr",
+            "email": "info@kehr-solutions.de",
+            "homepage": "https://www.kehr-solutions.de",
+            "role": "Developer"
         }
     ],
     "support":{
@@ -22,15 +28,15 @@
         "netzmacht/contao-bootstrap": "*"
     },
     "require":{
-        "php":">=7.1",
-        "contao/core-bundle":"~4.4",
+        "php":"^7.4",
+        "contao/core-bundle":"^4.9",
         "contao-bootstrap/core": "~2.0",
         "contao-community-alliance/meta-palettes":"~2.0 || ~1.11",
         "netzmacht/contao-form-designer": "^1.1.7",
         "netzmacht/html": "^2.0",
-        "symfony/config": "^3.3 || ^4.0",
-        "symfony/dependency-injection": "^3.3 || ^4.0",
-        "symfony/http-kernel": "^3.3 || ^4.0"
+        "symfony/config": "~4.4 || ^5.4",
+        "symfony/dependency-injection": "~4.4 || ^5.4",
+        "symfony/http-kernel": "~4.4 || ^5.4"
     },
     "require-dev": {
         "phpcq/all-tasks": "^1.2",

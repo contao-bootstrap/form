@@ -33,7 +33,7 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
      *
      * @var array
      */
-    private $fallbackConfig;
+    private array $fallbackConfig;
 
     /**
      * AbstractFormLayout constructor.

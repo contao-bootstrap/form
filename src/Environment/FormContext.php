@@ -31,7 +31,7 @@ class FormContext extends AbstractContext
      *
      * @var int
      */
-    private $formId;
+    private int $formId;
 
     /**
      * FormContext constructor.
