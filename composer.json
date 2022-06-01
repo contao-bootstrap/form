@@ -1,63 +1,80 @@
 {
-    "name":"contao-bootstrap/form",
-    "description":"Contao form templates for Bootstrap 4",
-    "keywords":["bootstrap", "form", "contao"],
-    "type":"contao-bundle",
-    "license":"LGPL-3.0-or-later",
-    "authors":[
-        {
-            "name":"David Molineus",
-            "email":"mail@netzmacht.de",
-            "homepage":"https://netzmacht.de",
-            "role":"Developer"
-        },
-        {
-            "name": "Alexander Kehr",
-            "email": "info@kehr-solutions.de",
-            "homepage": "https://www.kehr-solutions.de",
-            "role": "Developer"
-        }
-    ],
-    "support":{
-        "email":"mail@netzmacht.de",
-        "issues":"https://github.com/contao-bootstrap/form/issues",
-        "wiki":"http://contao-bootstrap.netzmacht.de",
-        "source":"https://github.com/contao-bootstrap/form"
+  "name": "contao-bootstrap/form",
+  "description": "Contao form templates for Bootstrap 4",
+  "license": "LGPL-3.0-or-later",
+  "type": "contao-bundle",
+  "keywords": [
+    "bootstrap",
+    "form",
+    "contao"
+  ],
+  "authors": [
+    {
+      "name": "David Molineus",
+      "email": "mail@netzmacht.de",
+      "homepage": "https://netzmacht.de",
+      "role": "Developer"
     },
-    "conflict": {
-        "netzmacht/contao-bootstrap": "*"
-    },
-    "require":{
-        "php":"^7.1 || ^8.0",
-        "contao/core-bundle":"~4.9",
-        "contao-bootstrap/core": "~2.0",
-        "contao-community-alliance/meta-palettes":"~2.0 || ~1.11",
-        "netzmacht/contao-form-designer": "^1.1.7",
-        "netzmacht/html": "^2.0",
-        "symfony/config": "^4.4 || ^5.4",
-        "symfony/dependency-injection": "^4.4 || ^5.4",
-        "symfony/http-kernel": "^4.4 || ^5.4"
-    },
-    "require-dev": {
-        "phpcq/all-tasks": "^1.2",
-        "contao/manager-plugin": "^2.1"
-    },
-    "autoload": {
-        "psr-4": { "ContaoBootstrap\\Form\\": "src/" }
-    },
-    "extra":{
-        "contao-manager-plugin": "ContaoBootstrap\\Form\\ContaoManager\\Plugin",
-        "contao": {
-            "transifex": {
-                "project": "contao-bootstrap",
-                "prefix": "form-",
-                "languages_cto": "src/Resources/contao/languages",
-                "languages_tx": ".tx"
-            }
-        },
-        "branch-alias": {
-            "dev-master": "2.1.x-dev",
-            "dev-develop": "2.2.x-dev"
-        }
+    {
+      "name": "Alexander Kehr",
+      "email": "info@kehr-solutions.de",
+      "homepage": "https://www.kehr-solutions.de",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "email": "mail@netzmacht.de",
+    "issues": "https://github.com/contao-bootstrap/form/issues",
+    "wiki": "http://contao-bootstrap.netzmacht.de",
+    "source": "https://github.com/contao-bootstrap/form"
+  },
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "contao-bootstrap/core": "~2.0",
+    "contao-community-alliance/meta-palettes": "~2.0 || ~1.11",
+    "contao/core-bundle": "~4.9",
+    "netzmacht/contao-form-designer": "^1.1.7",
+    "netzmacht/html": "^2.0",
+    "symfony/config": "^4.4 || ^5.4",
+    "symfony/dependency-injection": "^4.4 || ^5.4",
+    "symfony/http-kernel": "^4.4 || ^5.4"
+  },
+  "require-dev": {
+    "contao/manager-plugin": "^2.1",
+    "doctrine/coding-standard": "^9.0",
+    "phpcq/all-tasks": "^1.2",
+    "phpcq/coding-standard": "^2.1.2",
+    "phpcq/runner-bootstrap": "1.x-dev"
+  },
+  "conflict": {
+    "netzmacht/contao-bootstrap": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ContaoBootstrap\\Form\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "contao-components/installer": true,
+      "contao-community-alliance/composer-plugin": true,
+      "contao/manager-plugin": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "2.2.x-dev",
+      "dev-master": "2.1.x-dev"
+    },
+    "contao": {
+      "transifex": {
+        "languages_cto": "src/Resources/contao/languages",
+        "languages_tx": ".tx",
+        "prefix": "form-",
+        "project": "contao-bootstrap"
+      }
+    },
+    "contao-manager-plugin": "ContaoBootstrap\\Form\\ContaoManager\\Plugin"
+  }
 }

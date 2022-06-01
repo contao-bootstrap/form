@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<psalm
+        errorLevel="8"
+        hideExternalErrors="true"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://getpsalm.org/schema/config"
+        xsi:schemaLocation="https://getpsalm.org/schema/config https://getpsalm.org/schema/config"
+>
+    <projectFiles>
+        <directory name="src"/>
+    </projectFiles>
+
+    <issueHandlers>
+    </issueHandlers>
+
+    <universalObjectCrates>
+        <class name="Contao\BackendTemplate"/>
+        <class name="Contao\ContentModel"/>
+        <class name="Contao\Database\Result"/>
+        <class name="Contao\FormFieldModel"/>
+        <class name="Contao\Model"/>
+        <class name="Contao\ModuleModel"/>
+        <class name="Contao\ModuleNews"/>
+        <class name="Contao\Template"/>
+        <class name="Contao\ThemeModel"/>
+    </universalObjectCrates>
+</psalm>

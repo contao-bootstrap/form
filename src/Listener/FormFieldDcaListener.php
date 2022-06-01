@@ -1,43 +1,23 @@
 <?php
 
-/**
- * Contao Bootstrap form.
- *
- * @package    contao-bootstrap
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @author     Nikolas Runde <mail@nrun.de>
- * @copyright  2017-2019 netzmacht David Molineus. All rights reserved.
- * @license    LGPL 3.0-or-later
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Form\Listener;
 
 use Contao\CoreBundle\DataContainer\PaletteNotFoundException;
 use Contao\CoreBundle\Exception\PaletteNotFoundException as LegacyPaletteNotFoundException;
-use ContaoCommunityAlliance\MetaPalettes\MetaPalettes;
 use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Form\Environment\FormContext;
+use ContaoCommunityAlliance\MetaPalettes\MetaPalettes;
 
-/**
- * Class FormField.
- *
- * @package ContaoBootstrap\Form\Dca
- */
 class FormFieldDcaListener
 {
     /**
      * Bootstrap environment.
-     *
-     * @var Environment
      */
     private Environment $environment;
 
     /**
-     * FormField constructor.
-     *
      * @param Environment $environment Bootstrap environment.
      */
     public function __construct(Environment $environment)
@@ -47,8 +27,6 @@ class FormFieldDcaListener
 
     /**
      * Adjust the palettes.
-     *
-     * @return void
      */
     public function adjustPalettes(): void
     {
@@ -57,15 +35,17 @@ class FormFieldDcaListener
         $widgets = $this->environment->getConfig()->get('form.widgets', []);
 
         foreach ($widgets as $name => $config) {
-            if (!empty($config['input_group'])) {
-                try {
-                    MetaPalettes::appendFields('tl_form_field', $name, 'fconfig', ['bs_addInputGroup']);
-                    // @codingStandardsIgnoreStart Catch statement is empty on purpose
-                } catch (PaletteNotFoundException | LegacyPaletteNotFoundException $e) {
-                    // Palette does not exist. Just skip it.
-                }
-                // @codingStandardsIgnoreEnd
+            if (empty($config['input_group'])) {
+                continue;
             }
+
+            try {
+                MetaPalettes::appendFields('tl_form_field', $name, 'fconfig', ['bs_addInputGroup']);
+                // @codingStandardsIgnoreStart Catch statement is empty on purpose
+            } catch (PaletteNotFoundException | LegacyPaletteNotFoundException $e) {
+                // Palette does not exist. Just skip it.
+            }
+            // @codingStandardsIgnoreEnd
         }
     }
 }

@@ -1,15 +1,5 @@
 <?php
 
-/**
- * Contao Bootstrap form.
- *
- * @package    contao-bootstrap
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2017-2019 netzmacht David Molineus. All rights reserved.
- * @license    LGPL 3.0-or-later
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Form\Helper;
@@ -17,27 +7,24 @@ namespace ContaoBootstrap\Form\Helper;
 use Contao\StringUtil;
 use Contao\Widget;
 
-/**
- * Class InputGroupHelper.
- *
- * @package ContaoBootstrap\Form\Helper
- */
+use function strlen;
+
 class InputGroupHelper
 {
-    const TYPE_BUTTON = 'btn';
-    const TYPE_ADDON  = 'addon';
+    public const TYPE_BUTTON = 'btn';
+    public const TYPE_ADDON  = 'addon';
 
     /**
      * After entries.
      *
-     * @var array
+     * @var array<string,array<string,string|bool>>
      */
     private array $after = [];
 
     /**
      * Before entries.
      *
-     * @var array
+     * @var array<string,array<string,string|bool>>
      */
     private array $before = [];
 
@@ -54,7 +41,7 @@ class InputGroupHelper
         $helper = new static();
 
         foreach ($values as $entry) {
-            if (!strlen($entry['addon'])) {
+            if (! strlen($entry['addon'])) {
                 continue;
             }
 
@@ -80,7 +67,7 @@ class InputGroupHelper
     {
         $this->after[] = [
             'content' => $content,
-            'text'    => $text
+            'text'    => $text,
         ];
 
         return $this;
@@ -98,7 +85,7 @@ class InputGroupHelper
     {
         $this->before[] = [
             'content' => $content,
-            'text'    => $text
+            'text'    => $text,
         ];
 
         return $this;
@@ -107,7 +94,7 @@ class InputGroupHelper
     /**
      * Get before entries.
      *
-     * @return array
+     * @return array<string,array<string,string|bool>>
      */
     public function before(): array
     {
@@ -117,7 +104,7 @@ class InputGroupHelper
     /**
      * Get after entries.
      *
-     * @return array
+     * @return array<string,array<string,string|bool>>
      */
     public function after(): array
     {
