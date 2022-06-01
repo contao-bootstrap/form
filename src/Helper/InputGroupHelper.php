@@ -17,14 +17,14 @@ class InputGroupHelper
     /**
      * After entries.
      *
-     * @var array<string,array<string,string|bool>>
+     * @var list<array<string,string|bool>>
      */
     private array $after = [];
 
     /**
      * Before entries.
      *
-     * @var array<string,array<string,string|bool>>
+     * @var list<array<string,string|bool>>
      */
     private array $before = [];
 
@@ -32,13 +32,11 @@ class InputGroupHelper
      * Create input group helper for a widget.
      *
      * @param Widget $widget Form widget.
-     *
-     * @return static
      */
     public static function forWidget(Widget $widget): self
     {
         $values = StringUtil::deserialize($widget->bs_inputGroup, true);
-        $helper = new static();
+        $helper = new self();
 
         foreach ($values as $entry) {
             if (! strlen($entry['addon'])) {
@@ -94,7 +92,7 @@ class InputGroupHelper
     /**
      * Get before entries.
      *
-     * @return array<string,array<string,string|bool>>
+     * @return list<array<string,string|bool>>
      */
     public function before(): array
     {
@@ -104,7 +102,7 @@ class InputGroupHelper
     /**
      * Get after entries.
      *
-     * @return array<string,array<string,string|bool>>
+     * @return list<array<string,string|bool>>
      */
     public function after(): array
     {

@@ -25,12 +25,10 @@ class FormContext extends AbstractContext
      * Create context for given form.
      *
      * @param int $formId Form id.
-     *
-     * @return static
      */
     public static function forForm(int $formId): self
     {
-        return new static($formId);
+        return new self($formId);
     }
 
     /**

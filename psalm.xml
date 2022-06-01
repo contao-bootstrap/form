@@ -10,18 +10,7 @@
         <directory name="src"/>
     </projectFiles>
 
-    <issueHandlers>
-    </issueHandlers>
-
     <universalObjectCrates>
-        <class name="Contao\BackendTemplate"/>
-        <class name="Contao\ContentModel"/>
-        <class name="Contao\Database\Result"/>
-        <class name="Contao\FormFieldModel"/>
-        <class name="Contao\Model"/>
-        <class name="Contao\ModuleModel"/>
-        <class name="Contao\ModuleNews"/>
-        <class name="Contao\Template"/>
-        <class name="Contao\ThemeModel"/>
+        <class name="Contao\Widget"/>
     </universalObjectCrates>
 </psalm>
