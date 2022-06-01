@@ -10,6 +10,12 @@
             "email":"mail@netzmacht.de",
             "homepage":"https://netzmacht.de",
             "role":"Developer"
+        },
+        {
+            "name": "Alexander Kehr",
+            "email": "info@kehr-solutions.de",
+            "homepage": "https://www.kehr-solutions.de",
+            "role": "Developer"
         }
     ],
     "support":{

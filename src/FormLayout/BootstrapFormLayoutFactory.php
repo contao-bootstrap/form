@@ -32,28 +32,28 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
      *
      * @var Environment
      */
-    private $environment;
+    private Environment $environment;
 
     /**
      * Widget config.
      *
      * @var array
      */
-    private $widgetConfig;
+    private array $widgetConfig;
 
     /**
      * Fallback config.
      *
      * @var array
      */
-    private $fallbackConfig;
+    private array $fallbackConfig;
 
     /**
      * Sections of the form.
      *
      * @var array
      */
-    private $sections = ['layout', 'label', 'control', 'error', 'help'];
+    private array $sections = ['layout', 'label', 'control', 'error', 'help'];
 
     /**
      * AbstractFormLayout constructor.

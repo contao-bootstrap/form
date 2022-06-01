@@ -33,7 +33,7 @@ class FormFieldDcaListener
      *
      * @var Environment
      */
-    private $environment;
+    private Environment $environment;
 
     /**
      * FormField constructor.

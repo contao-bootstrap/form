@@ -32,14 +32,14 @@ class InputGroupHelper
      *
      * @var array
      */
-    private $after = [];
+    private array $after = [];
 
     /**
      * Before entries.
      *
      * @var array
      */
-    private $before = [];
+    private array $before = [];
 
     /**
      * Create input group helper for a widget.
