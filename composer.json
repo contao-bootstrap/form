@@ -28,15 +28,15 @@
         "netzmacht/contao-bootstrap": "*"
     },
     "require":{
-        "php":"^7.4",
-        "contao/core-bundle":"^4.9",
+        "php":"^7.1 || ^8.0",
+        "contao/core-bundle":"~4.9",
         "contao-bootstrap/core": "~2.0",
         "contao-community-alliance/meta-palettes":"~2.0 || ~1.11",
         "netzmacht/contao-form-designer": "^1.1.7",
         "netzmacht/html": "^2.0",
-        "symfony/config": "~4.4 || ^5.4",
-        "symfony/dependency-injection": "~4.4 || ^5.4",
-        "symfony/http-kernel": "~4.4 || ^5.4"
+        "symfony/config": "^4.4 || ^5.4",
+        "symfony/dependency-injection": "^4.4 || ^5.4",
+        "symfony/http-kernel": "^4.4 || ^5.4"
     },
     "require-dev": {
         "phpcq/all-tasks": "^1.2",
@@ -57,8 +57,7 @@
         },
         "branch-alias": {
             "dev-master": "2.1.x-dev",
-            "dev-develop": "2.2.x-dev",
-            "dev-support/1.x": "1.1.x-dev"
+            "dev-develop": "2.2.x-dev"
         }
     }
 }
