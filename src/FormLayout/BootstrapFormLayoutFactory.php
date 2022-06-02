@@ -136,7 +136,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
         foreach ($this->sections as $section) {
             $name = 'fallback' . ucfirst($section);
 
-            if (! $config[$name]) {
+            if (empty($config[$name])) {
                 continue;
             }
 

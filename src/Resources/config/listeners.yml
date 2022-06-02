@@ -14,3 +14,8 @@ services:
       - '@netzmacht.contao_form_designer.repository.layout'
       - '@netzmacht.contao_form_designer.layout_factory'
       - '@logger'
+
+  contao_bootstrap.form.listener.backwards_compatibility_form_password:
+    class: ContaoBootstrap\Form\Listener\FormPasswordListener
+    tags:
+      - { name: kernel.event_listener, event: contao_bootstrap.core.build_context_config}

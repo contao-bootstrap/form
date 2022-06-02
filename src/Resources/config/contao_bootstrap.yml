@@ -12,7 +12,7 @@ form:
     password:
       input_group: true
       templates:
-        layout: 'fd_layout_bs_default_password'
+        layout: 'fd_layout_bs_default'
 
     radio:
       templates:
@@ -86,7 +86,7 @@ form:
 
         password:
           templates:
-            layout: 'fd_layout_bs_horizontal_password'
+            layout: 'fd_layout_bs_horizontal'
 
         radio:
           templates:
