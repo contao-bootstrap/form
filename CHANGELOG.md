@@ -2,6 +2,16 @@
 Changelog
 =========
 
+2.2.1
+-----
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.0...2.2.1)
+
+### Fixed
+
+ - Do not render errors within input groups (#48)
+
+
 2.2.0
 ------
 
