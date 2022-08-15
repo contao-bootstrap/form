@@ -40,11 +40,6 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
         return $attributes;
     }
 
-    public function getLabelAttributes(Widget $widget): Attributes
-    {
-        return parent::getLabelAttributes($widget);
-    }
-
     public function getControlAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getControlAttributes($widget);

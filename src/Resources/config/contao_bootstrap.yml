@@ -13,6 +13,8 @@ form:
       input_group: true
       templates:
         layout: 'fd_layout_bs_default'
+      palettes:
+        - passwordcustom
 
     radio:
       templates:
@@ -31,6 +33,9 @@ form:
 
     text:
       input_group: true
+      palettes:
+        - textcustom
+        - textdigit
 
     email:
       input_group: true
@@ -46,6 +51,8 @@ form:
 
     textarea:
       input_group: true
+      palettes:
+        - textareacustom
 
     upload:
       form_control: false
