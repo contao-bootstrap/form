@@ -2,6 +2,16 @@
 Changelog
 =========
 
+2.2.0
+------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.6...2.2.0)
+
+### Changed
+
+ - Restore compatibility with Contao 4.13
+ - Bump dependencies
+
 2.1.6
 -----
 
@@ -27,14 +37,14 @@ Changelog
 
 ### Changed
 
- - Catch `Contao\CoreBundle\DataContainer\PaletteNotFoundException` for forward compatibility (#42). Resolves also 
-   contao/contao#378  
+ - Catch `Contao\CoreBundle\DataContainer\PaletteNotFoundException` for forward compatibility (#42). Resolves also
+   contao/contao#378
 
 2.1.3 (2018-09-28)
 ------------------
 
 [Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.2...2.1.3)
- 
+
  - Fix captcha for Contao 4.6 (#41)
  - Force error message being visible (#40)
 
@@ -42,14 +52,14 @@ Changelog
 ------------------
 
 [Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.1...2.1.2)
- 
+
  - Make service "contao_bootstrap.form.listener.form_field_dca" public for symfony/dependency-container v4 compatibility.
- 
+
 2.1.1 (2018-07-03)
 ------------------
 
 [Full Changelog](https://github.com/contao-bootstrap/form/compare/2.1.0...2.1.1)
- 
+
  - Add missing getRowClass().
 
 2.1.0 (2018-07-03)
@@ -109,7 +119,7 @@ Changelog
 
  - Apply markup changes of Bootstrap 4 beta 3 (#29)
  - Support Metapalettes v2.0
- 
+
 
 2.0.0-beta1 (2017-12-01)
 ------------------------

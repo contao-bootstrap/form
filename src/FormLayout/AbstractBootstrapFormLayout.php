@@ -1,15 +1,5 @@
 <?php
 
-/**
- * Contao Bootstrap form.
- *
- * @package    contao-bootstrap
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2017-2019 netzmacht David Molineus. All rights reserved.
- * @license    LGPL 3.0-or-later
- * @filesource
- */
-
 declare(strict_types=1);
 
 namespace ContaoBootstrap\Form\FormLayout;
@@ -19,27 +9,21 @@ use ContaoBootstrap\Form\Helper\InputGroupHelper;
 use Netzmacht\Contao\FormDesigner\Layout\AbstractFormLayout;
 use Netzmacht\Contao\FormDesigner\Util\WidgetUtil;
 use Netzmacht\Html\Attributes;
+
 use function array_key_exists;
 
-/**
- * Class AbstractBootstrapFormLayout
- *
- * @package ContaoBootstrap\Form\FormLayout
- */
 abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
 {
     /**
      * Fallback templates config.
      *
-     * @var array
+     * @var array<string,mixed>
      */
-    private $fallbackConfig;
+    private array $fallbackConfig;
 
     /**
-     * AbstractFormLayout constructor.
-     *
-     * @param array $widgetConfig   Widget config map.
-     * @param array $fallbackConfig Control fallback config.
+     * @param array<string,array<string,mixed>> $widgetConfig
+     * @param array<string,mixed>               $fallbackConfig
      */
     public function __construct(array $widgetConfig, array $fallbackConfig)
     {
@@ -48,9 +32,6 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
         $this->fallbackConfig = $fallbackConfig;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getContainerAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getContainerAttributes($widget);
@@ -59,32 +40,25 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
         return $attributes;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getLabelAttributes(Widget $widget): Attributes
     {
-        $attributes = parent::getLabelAttributes($widget);
-
-        return $attributes;
+        return parent::getLabelAttributes($widget);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public function getControlAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getControlAttributes($widget);
         $type       = WidgetUtil::getType($widget);
 
-        if (!isset($this->widgetConfig[$type])
-            || !array_key_exists('form_control', $this->widgetConfig[$type])
+        if (
+            ! isset($this->widgetConfig[$type])
+            || ! array_key_exists('form_control', $this->widgetConfig[$type])
             || $this->widgetConfig[$type]['form_control']
         ) {
             $attributes->addClass('form-control');
         }
 
-        if (!$widget->controlClass && isset($this->widgetConfig[$type]['control_class'])) {
+        if (! $widget->controlClass && isset($this->widgetConfig[$type]['control_class'])) {
             $attributes->addClass($this->widgetConfig[$type]['control_class']);
         }
 
@@ -100,8 +74,9 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
      *
      * @param Widget $widget Widget.
      *
-     * @return InputGroupHelper
+     * @return InputGroupHelper|null
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint
     public function getInputGroup(Widget $widget)
     {
         $type = WidgetUtil::getType($widget);
@@ -118,8 +93,6 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
      *
      * @param Widget $widget  Widget.
      * @param string $section Section.
-     *
-     * @return string
      */
     protected function getTemplate(Widget $widget, string $section): string
     {
