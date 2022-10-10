@@ -37,7 +37,7 @@ class FormFieldDcaListener
 
         // Load custom form config.
         $this->environment->enterContext(FormContext::forForm((int) CURRENT_ID));
-        $widgets = $this->environment->getConfig()->get('form.widgets', []);
+        $widgets = $this->environment->getConfig()->get(['form', 'widgets'], []);
 
         foreach ($widgets as $name => $config) {
             if (empty($config['input_group'])) {
