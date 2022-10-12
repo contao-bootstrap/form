@@ -38,7 +38,7 @@ final class FormContext extends AbstractContext
         return $this->match($context);
     }
 
-    public function __toString(): string
+    public function toString(): string
     {
         return 'form:' . $this->formId;
     }
