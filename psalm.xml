@@ -8,6 +8,9 @@
 >
     <projectFiles>
         <directory name="src"/>
+        <ignoreFiles>
+            <file name="src/ContaoBootstrapFormComponent.php"/>
+        </ignoreFiles>
     </projectFiles>
 
     <issueHandlers>
