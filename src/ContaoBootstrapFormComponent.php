@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ContaoBootstrap\Form;
 
-use ContaoBootstrap\Core\ContaoBootstrapComponent as ContaoBootstrapComponentContract;
+use ContaoBootstrap\Core\ContaoBootstrapComponent;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
-final class ContaoBootstrapComponent implements ContaoBootstrapComponentContract
+final class ContaoBootstrapFormComponent implements ContaoBootstrapComponent
 {
     public function addBootstrapConfiguration(ArrayNodeDefinition $builder): void
     {
@@ -15,6 +15,11 @@ final class ContaoBootstrapComponent implements ContaoBootstrapComponentContract
         $widgets = $form->children()->arrayNode('widgets');
         $layouts = $form->children()->arrayNode('layouts');
         $buttons = $form->children()->arrayNode('buttons');
+
+        $form->children()
+            ->scalarNode('margin')
+                ->info('Margin class between form widgets')
+            ->end();
 
         $this->describeWidgetConfiguration($widgets);
         $this->describeDefaultLayout($layouts);
@@ -39,7 +44,6 @@ final class ContaoBootstrapComponent implements ContaoBootstrapComponentContract
                     ->end()
                     ->booleanNode('form_control')
                         ->info('Widget has the form-control class')
-                        ->defaultTrue()
                     ->end()
                         ->scalarNode('control_class')
                         ->info('Customize the control class')

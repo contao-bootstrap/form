@@ -1,6 +1,7 @@
 contao_bootstrap:
   config:
     form:
+      margin: mb-3
       widgets:
         checkbox:
           templates:
@@ -30,6 +31,8 @@ contao_bootstrap:
             layout: 'fd_layout_row_field'
 
         select:
+          form_control: false
+          control_class: 'form-select'
           templates:
             control: 'fd_control_select_bs'
 
@@ -48,6 +51,10 @@ contao_bootstrap:
         number:
           input_group: true
 
+        range:
+          form_control: false
+          control_class: 'form-range'
+
         tel:
           input_group: true
 
@@ -57,7 +64,6 @@ contao_bootstrap:
             - textareacustom
 
         upload:
-          form_control: false
           templates:
             control: 'fd_control_upload_bs'
 
@@ -75,10 +81,10 @@ contao_bootstrap:
 
         horizontal:
           classes:
-            row: form-row
+            row: row
             label: col-sm-3
             control: col-sm-9
-            offset: ml-auto
+            offset: offset-sm-3
 
           widgets:
             captcha:

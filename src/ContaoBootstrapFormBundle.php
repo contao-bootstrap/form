@@ -16,6 +16,6 @@ class ContaoBootstrapFormBundle extends Bundle
     {
         $extension = $container->getExtension('contao_bootstrap');
         assert($extension instanceof ContaoBootstrapCoreExtension);
-        $extension->addComponent(new ContaoBootstrapComponent());
+        $extension->addComponent(new ContaoBootstrapFormComponent());
     }
 }
