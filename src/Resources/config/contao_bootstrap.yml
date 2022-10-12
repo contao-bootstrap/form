@@ -1,8 +1,9 @@
 form:
+  margin: mb-3
   widgets:
     checkbox:
       templates:
-        control: 'fd_control_checkbox_bs_custom'
+        control: 'fd_control_checkbox_bs'
         layout:  'fd_layout_bs_default'
 
     explanation:
@@ -18,7 +19,7 @@ form:
 
     radio:
       templates:
-        control: 'fd_control_radio_bs_custom'
+        control: 'fd_control_radio_bs'
         layout:  'fd_layout_bs_default'
 
     submit:
@@ -28,8 +29,10 @@ form:
         layout: 'fd_layout_row_field'
 
     select:
+      form_control: false
+      control_class: 'form-select'
       templates:
-        control: 'fd_control_select_bs_custom'
+        control: 'fd_control_select_bs'
 
     text:
       input_group: true
@@ -46,6 +49,10 @@ form:
     number:
       input_group: true
 
+    range:
+      form_control: false
+      control_class: 'form-range'
+
     tel:
       input_group: true
 
@@ -55,9 +62,8 @@ form:
         - textareacustom
 
     upload:
-      form_control: false
       templates:
-        control: 'fd_control_upload_bs_custom'
+        control: 'fd_control_upload_bs'
 
   layouts:
     default:
@@ -73,10 +79,10 @@ form:
 
     horizontal:
       classes:
-        row: form-row
+        row: row
         label: col-sm-3
         control: col-sm-9
-        offset: ml-auto
+        offset: offset-sm-3
 
       widgets:
         captcha:

@@ -73,13 +73,14 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
         switch ($type) {
             case 'bs_horizontal':
                 return new HorizontalFormLayout(
+                    $this->environment,
                     $widgetConfig,
                     $fallbackConfig,
                     $this->buildHorizontalConfig($config)
                 );
 
             default:
-                return new DefaultFormLayout($widgetConfig, $fallbackConfig);
+                return new DefaultFormLayout($this->environment, $widgetConfig, $fallbackConfig);
         }
     }
 

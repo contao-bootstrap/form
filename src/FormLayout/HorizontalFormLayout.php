@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Form\FormLayout;
 
 use Contao\Widget;
+use ContaoBootstrap\Core\Environment;
 use Netzmacht\Html\Attributes;
 
 class HorizontalFormLayout extends AbstractBootstrapFormLayout
@@ -21,9 +22,13 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
      * @param array<string,mixed>               $fallbackConfig   Control fallback config.
      * @param array<string,mixed>               $horizontalConfig Horizontal config.
      */
-    public function __construct(array $widgetConfig, array $fallbackConfig, array $horizontalConfig)
-    {
-        parent::__construct($widgetConfig, $fallbackConfig);
+    public function __construct(
+        Environment $environment,
+        array $widgetConfig,
+        array $fallbackConfig,
+        array $horizontalConfig
+    ) {
+        parent::__construct($environment, $widgetConfig, $fallbackConfig);
 
         $this->horizontalConfig = $horizontalConfig;
     }
