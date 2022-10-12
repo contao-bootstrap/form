@@ -14,27 +14,8 @@ use function array_merge;
 use function substr;
 use function ucfirst;
 
-class BootstrapFormLayoutFactory implements FormLayoutFactory
+final class BootstrapFormLayoutFactory implements FormLayoutFactory
 {
-    /**
-     * Bootstrap environment.
-     */
-    private Environment $environment;
-
-    /**
-     * Widget config.
-     *
-     * @var array<string,array<string,mixed>>
-     */
-    private array $widgetConfig;
-
-    /**
-     * Fallback config.
-     *
-     * @var array<string,mixed>
-     */
-    private array $fallbackConfig;
-
     /**
      * Sections of the form.
      *
@@ -46,11 +27,11 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
      * @param array<string,array<string,mixed>> $widgetConfig
      * @param array<string,mixed>               $fallbackConfig
      */
-    public function __construct(Environment $environment, array $widgetConfig, array $fallbackConfig)
-    {
-        $this->environment    = $environment;
-        $this->widgetConfig   = $widgetConfig;
-        $this->fallbackConfig = $fallbackConfig;
+    public function __construct(
+        private readonly Environment $environment,
+        private readonly array $widgetConfig,
+        private readonly array $fallbackConfig,
+    ) {
     }
 
     /**
@@ -76,7 +57,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
                     $this->environment,
                     $widgetConfig,
                     $fallbackConfig,
-                    $this->buildHorizontalConfig($config)
+                    $this->buildHorizontalConfig($config),
                 );
 
             default:

@@ -10,6 +10,14 @@
         <directory name="src"/>
     </projectFiles>
 
+    <issueHandlers>
+        <UndefinedMagicPropertyFetch>
+            <errorLevel type="suppress">
+                <referencedProperty name="Contao\DataContainer::$currentPid"/>
+            </errorLevel>
+        </UndefinedMagicPropertyFetch>
+    </issueHandlers>
+
     <universalObjectCrates>
         <class name="Contao\Widget"/>
     </universalObjectCrates>

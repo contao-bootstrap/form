@@ -11,13 +11,6 @@ use Netzmacht\Html\Attributes;
 class HorizontalFormLayout extends AbstractBootstrapFormLayout
 {
     /**
-     * Horizontal config.
-     *
-     * @var array<string,mixed>
-     */
-    private array $horizontalConfig;
-
-    /**
      * @param array<string,array<string,mixed>> $widgetConfig     Widget config map.
      * @param array<string,mixed>               $fallbackConfig   Control fallback config.
      * @param array<string,mixed>               $horizontalConfig Horizontal config.
@@ -26,11 +19,9 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
         Environment $environment,
         array $widgetConfig,
         array $fallbackConfig,
-        array $horizontalConfig
+        private readonly array $horizontalConfig,
     ) {
         parent::__construct($environment, $widgetConfig, $fallbackConfig);
-
-        $this->horizontalConfig = $horizontalConfig;
     }
 
     public function getContainerAttributes(Widget $widget): Attributes

@@ -15,8 +15,6 @@ use function array_key_exists;
 
 abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
 {
-    private Environment $environment;
-
     /**
      * Fallback templates config.
      *
@@ -28,11 +26,10 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
      * @param array<string,array<string,mixed>> $widgetConfig
      * @param array<string,mixed>               $fallbackConfig
      */
-    public function __construct(Environment $environment, array $widgetConfig, array $fallbackConfig)
+    public function __construct(private readonly Environment $environment, array $widgetConfig, array $fallbackConfig)
     {
         parent::__construct($widgetConfig);
 
-        $this->environment    = $environment;
         $this->fallbackConfig = $fallbackConfig;
     }
 

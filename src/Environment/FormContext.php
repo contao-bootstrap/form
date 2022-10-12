@@ -9,16 +9,10 @@ use ContaoBootstrap\Core\Environment\ApplicationContext;
 use ContaoBootstrap\Core\Environment\Context;
 use ContaoBootstrap\Core\Environment\ThemeContext;
 
-class FormContext extends AbstractContext
+final class FormContext extends AbstractContext
 {
-    /**
-     * Form id.
-     */
-    private int $formId;
-
-    private function __construct(int $formId)
+    private function __construct(public readonly int $formId)
     {
-        $this->formId = $formId;
     }
 
     /**
@@ -29,14 +23,6 @@ class FormContext extends AbstractContext
     public static function forForm(int $formId): self
     {
         return new self($formId);
-    }
-
-    /**
-     * Get form id.
-     */
-    public function getFormId(): int
-    {
-        return $this->formId;
     }
 
     public function supports(Context $context): bool

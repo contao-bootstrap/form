@@ -28,7 +28,7 @@ final class Plugin implements BundlePluginInterface, ConfigPluginInterface
                         ContaoCoreBundle::class,
                         ContaoBootstrapCoreBundle::class,
                         NetzmachtContaoFormDesignerBundle::class,
-                    ]
+                    ],
                 ),
         ];
     }
