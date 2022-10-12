@@ -4,7 +4,7 @@ contao_bootstrap:
       widgets:
         checkbox:
           templates:
-            control: 'fd_control_checkbox_bs_custom'
+            control: 'fd_control_checkbox_bs'
             layout:  'fd_layout_bs_default'
 
         explanation:
@@ -20,7 +20,7 @@ contao_bootstrap:
 
         radio:
           templates:
-            control: 'fd_control_radio_bs_custom'
+            control: 'fd_control_radio_bs'
             layout:  'fd_layout_bs_default'
 
         submit:
@@ -31,7 +31,7 @@ contao_bootstrap:
 
         select:
           templates:
-            control: 'fd_control_select_bs_custom'
+            control: 'fd_control_select_bs'
 
         text:
           input_group: true
@@ -59,7 +59,7 @@ contao_bootstrap:
         upload:
           form_control: false
           templates:
-            control: 'fd_control_upload_bs_custom'
+            control: 'fd_control_upload_bs'
 
       layouts:
         default:
