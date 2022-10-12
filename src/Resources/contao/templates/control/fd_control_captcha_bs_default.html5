@@ -10,9 +10,9 @@ $attributes->setAttribute('aria-describedby', 'captcha_text_' . $this->widget->i
 <input type="hidden" name="<?= $this->widget->name ?>_hash" value="<?= \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getHash($this->widget) ?>">
 
 <?php if (!$this->widget->hasErrors()): ?>
-    <div style="display:none">
-        <label for="ctrl_<?= $this->widget->id ?>_hp">Do not fill in this field</label>
-        <input type="text" name="<?= $this->widget->name ?>_name" id="ctrl_<?= $this->widget->id ?>_hp" value="">
+    <div style="display:none" class="mt-3">
+        <input type="text" name="<?= $this->widget->name ?>_name" id="ctrl_<?= $this->widget->id ?>_hp" value="" class="form-control">
+        <label for="ctrl_<?= $this->widget->id ?>_hp" class="form-text">Do not fill in this field</label>
     </div>
     <?php $this->block('script') ?>
     <script>

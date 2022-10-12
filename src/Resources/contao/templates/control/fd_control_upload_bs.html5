@@ -1,1 +1,1 @@
-<input <?= $this->layout->getControlAttributes($this->widget)->addClass('form-control-file') ?>>
+<input <?= $this->layout->getControlAttributes($this->widget) ?>>
