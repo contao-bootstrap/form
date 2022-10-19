@@ -1,0 +1,25 @@
+<?php $inputGroup = $this->layout->getInputGroup($this->widget) ?>
+<?php if ($inputGroup): ?>
+<div class="input-group">
+    <?php foreach ($inputGroup->before() as $entry): ?>
+        <?php if ($entry['text']): ?>
+            <span class="input-group-text"><?= $entry['content'] ?></span>
+        <?php else: ?>
+            <?= $entry['content'] ?>
+        <?php endif ?>
+    <?php endforeach; ?>
+    <?php endif; ?>
+    <div class="form-floating">
+      <?= $this->layout->renderControl($this->widget) ?>
+      <?= $this->layout->renderLabel($this->widget) ?>
+    </div>
+    <?php if ($inputGroup): ?>
+    <?php foreach ($inputGroup->after() as $entry): ?>
+        <?php if ($entry['text']): ?>
+            <span class="input-group-text"><?= $entry['content'] ?></span>
+        <?php else: ?>
+            <?= $entry['content'] ?>
+        <?php endif ?>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>

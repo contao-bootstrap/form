@@ -16,6 +16,10 @@ use function ucfirst;
 
 final class BootstrapFormLayoutFactory implements FormLayoutFactory
 {
+    private const LAYOUT_DEFAULT    = 'bs_default';
+    private const LAYOUT_FLOATING   = 'bs_floating';
+    private const LAYOUT_HORIZONTAL = 'bs_horizontal';
+
     /**
      * Sections of the form.
      *
@@ -39,7 +43,7 @@ final class BootstrapFormLayoutFactory implements FormLayoutFactory
      */
     public function supportedTypes(): array
     {
-        return ['bs_default', 'bs_horizontal'];
+        return [self::LAYOUT_DEFAULT, self::LAYOUT_HORIZONTAL, self::LAYOUT_FLOATING];
     }
 
     /**
@@ -51,18 +55,26 @@ final class BootstrapFormLayoutFactory implements FormLayoutFactory
         $widgetConfig   = $this->buildWidgetConfig($type, $config);
         $fallbackConfig = $this->buildFallbackConfig($type, $config);
 
-        switch ($type) {
-            case 'bs_horizontal':
-                return new HorizontalFormLayout(
-                    $this->environment,
-                    $widgetConfig,
-                    $fallbackConfig,
-                    $this->buildHorizontalConfig($config),
-                );
+        return match ($type) {
+            self::LAYOUT_HORIZONTAL => new HorizontalFormLayout(
+                $this->environment,
+                $widgetConfig,
+                $fallbackConfig,
+                $this->buildHorizontalConfig($config),
+            ),
 
-            default:
-                return new DefaultFormLayout($this->environment, $widgetConfig, $fallbackConfig);
-        }
+            self::LAYOUT_FLOATING => new FloatingFormLayout(
+                $this->environment,
+                $widgetConfig,
+                $fallbackConfig,
+            ),
+
+            default => new DefaultFormLayout(
+                $this->environment,
+                $widgetConfig,
+                $fallbackConfig,
+            ),
+        };
     }
 
     /**

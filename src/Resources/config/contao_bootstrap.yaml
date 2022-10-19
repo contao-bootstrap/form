@@ -116,5 +116,24 @@ contao_bootstrap:
             help: 'fd_help_bs_default'
             error: 'fd_error_latest_bs'
 
+        floating:
+          widgets:
+            password:
+              floating: true
+              templates:
+                layout: 'fd_layout_bs_floating'
+            select:
+              floating: true
+              templates:
+                layout: 'fd_layout_bs_floating'
+            text:
+              floating: true
+              templates:
+                layout: 'fd_layout_bs_floating'
+            textarea:
+              floating: true
+              templates:
+                layout: 'fd_layout_bs_floating'
+
       buttons:
         submit: 'btn-primary'

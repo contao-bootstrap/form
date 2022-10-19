@@ -24,6 +24,7 @@ final class ContaoBootstrapFormComponent implements ContaoBootstrapComponent
         $this->describeWidgetConfiguration($widgets);
         $this->describeDefaultLayout($layouts);
         $this->describeHorizontalLayout($layouts);
+        $this->describeFloatingLayout($layouts);
         $this->describeButtons($buttons);
     }
 
@@ -37,6 +38,9 @@ final class ContaoBootstrapFormComponent implements ContaoBootstrapComponent
                     ->end()
                     ->booleanNode('input_group')
                         ->info('Set to true if widget supports input groups')
+                    ->end()
+                    ->booleanNode('floating')
+                        ->info('Set to true if widget supports floating labels')
                     ->end()
                     ->arrayNode('palettes')
                         ->info('Palettes also containing to the widget')
@@ -81,6 +85,15 @@ final class ContaoBootstrapFormComponent implements ContaoBootstrapComponent
                     ->end()
                 ->end()
             ->end();
+
+        $this->describeLayoutTemplatesSection($layout);
+        $this->describeWidgetConfiguration($widgets);
+    }
+
+    public function describeFloatingLayout(ArrayNodeDefinition $layouts): void
+    {
+        $layout  = $layouts->children()->arrayNode('floating');
+        $widgets = $layout->children()->arrayNode('widgets');
 
         $this->describeLayoutTemplatesSection($layout);
         $this->describeWidgetConfiguration($widgets);
