@@ -1,7 +1,7 @@
 contao_bootstrap:
   config:
     form:
-      margin: mb-3
+      margin: 'mb-3'
       widgets:
         checkbox:
           templates:
@@ -17,7 +17,7 @@ contao_bootstrap:
           templates:
             layout: 'fd_layout_bs_default'
           palettes:
-            - passwordcustom
+            - 'passwordcustom'
 
         radio:
           templates:
@@ -39,8 +39,8 @@ contao_bootstrap:
         text:
           input_group: true
           palettes:
-            - textcustom
-            - textdigit
+            - 'textcustom'
+            - 'textdigit'
 
         email:
           input_group: true
@@ -61,7 +61,7 @@ contao_bootstrap:
         textarea:
           input_group: true
           palettes:
-            - textareacustom
+            - 'textareacustom'
 
         upload:
           templates:
@@ -73,7 +73,6 @@ contao_bootstrap:
             layout: 'fd_layout_bs_default'
             help: 'fd_help_bs_default'
             error: 'fd_error_latest_bs'
-
           widgets:
             captcha:
               templates:
@@ -81,42 +80,39 @@ contao_bootstrap:
 
         horizontal:
           classes:
-            row: row
-            label: col-sm-3
-            control: col-sm-9
-            offset: offset-sm-3
-
+            row: 'row'
+            label: 'col-sm-3'
+            control: 'col-sm-9'
+            offset: 'offset-sm-3'
           widgets:
             captcha:
               templates:
                 control: 'fd_control_captcha_bs_horizontal'
-
             checkbox:
               templates:
                 layout: 'fd_layout_bs_horizontal'
-
             explanation:
               templates:
                 layout: 'fd_layout_bs_horizontal_field'
-
             password:
               templates:
                 layout: 'fd_layout_bs_horizontal'
-
             radio:
               templates:
                 layout: 'fd_layout_bs_horizontal'
-
             submit:
               templates:
                 layout: 'fd_layout_bs_horizontal_field'
-
           templates:
             layout: 'fd_layout_bs_horizontal'
             help: 'fd_help_bs_default'
             error: 'fd_error_latest_bs'
 
         floating:
+          templates:
+            layout: 'fd_layout_bs_default'
+            help: 'fd_help_bs_default'
+            error: 'fd_error_latest_bs'
           widgets:
             password:
               floating: true
