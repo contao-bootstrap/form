@@ -2,6 +2,15 @@
 Changelog
 =========
 
+2.2.2
+-----
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.1...2.2.2)
+
+### Fixed
+
+ - Fix another PHP 8 warning
+
 2.2.1
 -----
 
