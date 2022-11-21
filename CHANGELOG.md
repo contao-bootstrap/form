@@ -2,6 +2,15 @@
 Changelog
 =========
 
+2.2.3
+-----
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.2...2.2.3)
+
+### Fixed
+
+ - Fix broken form layout customization
+
 2.2.2
 -----
 
