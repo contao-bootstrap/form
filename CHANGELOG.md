@@ -2,6 +2,15 @@
 Changelog
 =========
 
+2.2.4
+------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.2...2.2.3)
+
+### Improved
+
+ - Prevent error if a horizontal form layout templates is used with a wrong form layout ([#56](https://github.com/contao-bootstrap/form/issues/56))
+
 2.2.3
 -----
 
