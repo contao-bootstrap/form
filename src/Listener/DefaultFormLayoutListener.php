@@ -8,7 +8,7 @@ use Contao\LayoutModel;
 use Contao\PageModel;
 use Netzmacht\Contao\FormDesigner\Listener\AbstractListener;
 
-class DefaultFormLayoutListener extends AbstractListener
+final class DefaultFormLayoutListener extends AbstractListener
 {
     /**
      * Create default bootstrap form layout.

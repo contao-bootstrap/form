@@ -9,7 +9,7 @@ use Contao\Widget;
 
 use function strlen;
 
-class InputGroupHelper
+final class InputGroupHelper
 {
     /**
      * After entries.
