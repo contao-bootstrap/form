@@ -28,6 +28,7 @@ final class FormContextListener
             return $isVisible;
         }
 
+        /** @psalm-suppress RedundantCastGivenDocblockType */
         $this->environment->enterContext(FormContext::forForm((int) $element->form));
 
         return true;
@@ -40,6 +41,7 @@ final class FormContextListener
             return $buffer;
         }
 
+        /** @psalm-suppress RedundantCastGivenDocblockType */
         $this->environment->leaveContext(FormContext::forForm((int) $contentModel->form));
 
         return $buffer;
@@ -52,6 +54,7 @@ final class FormContextListener
             return $buffer;
         }
 
+        /** @psalm-suppress RedundantCastGivenDocblockType */
         $this->environment->leaveContext(FormContext::forForm((int) $moduleModel->form));
 
         return $buffer;

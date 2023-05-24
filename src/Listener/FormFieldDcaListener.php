@@ -22,6 +22,7 @@ final class FormFieldDcaListener
     public function adjustPalettes(DataContainer $dataContainer): void
     {
         // Load custom form config.
+        /** @psalm-suppress RedundantCastGivenDocblockType */
         $this->environment->enterContext(FormContext::forForm((int) $dataContainer->currentPid));
         $widgets = $this->environment->getConfig()->get(['form', 'widgets'], []);
 
