@@ -4,7 +4,7 @@ Contao-Bootstrap Form Component
 [![Version](http://img.shields.io/packagist/v/contao-bootstrap/form.svg?style=for-the-badge&label=Latest)](http://packagist.org/packages/contao-bootstrap/form)
 [![GitHub issues](https://img.shields.io/github/issues/contao-bootstrap/form.svg?style=for-the-badge&logo=github)](https://github.com/contao-bootstrap/form/issues)
 [![License](http://img.shields.io/packagist/l/contao-bootstrap/form.svg?style=for-the-badge&label=License)](http://packagist.org/packages/contao-bootstrap/form)
-[![Build Status](https://img.shields.io/github/workflow/status/contao-bootstrap/form/Code%20Quality%20Diagnostics/master?style=for-the-badge)](https://github.com/contao-bootstrap/form/actions/workflows/diagnostics.yml)
+[![Build Status](https://img.shields.io/github/workflow/status/contao-bootstrap/form/contao-bootstrap-form/master?style=for-the-badge)](https://github.com/contao-bootstrap/form/actions/workflows/diagnostics.yml)
 [![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/form.svg?style=for-the-badge&label=Downloads)](http://packagist.org/packages/contao-bootstrap/form)
 
 
@@ -15,6 +15,7 @@ Features
 
  - Horizontal forms
  - Vertical forms
+ - Floating labels forms
  - Choose different form layouts for each form
  - Choose form layout in content element or module
  - Uses custom styles by default
@@ -28,9 +29,8 @@ See [changelog](CHANGELOG.md)
 Requirements
 ------------
 
- - PHP 7.1
- - Contao ~4.4
-
+ - PHP ^8.1
+ - Contao ^4.13 || ^5.0
 
 Install
 -------
@@ -42,8 +42,8 @@ Contao Manager and install it. Alternatively you can use the CLI.
 
 ```bash
 # Using the contao manager
-$ php contao-manager.phar.php composer require contao-bootstrap/form~2.0@beta
+$ php contao-manager.phar.php composer require contao-bootstrap/form ^3.0
 
 # Using composer directly
-$ php composer.phar require contao-bootstrap/form~2.0@beta
+$ php composer.phar require contao-bootstrap/form ^3.0
 ```
