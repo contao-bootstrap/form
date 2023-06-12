@@ -78,14 +78,6 @@
       "dev-develop": "2.3.x-dev",
       "dev-master": "2.2.x-dev"
     },
-    "contao": {
-      "transifex": {
-        "languages_cto": "src/Resources/contao/languages",
-        "languages_tx": ".tx",
-        "prefix": "form-",
-        "project": "contao-bootstrap"
-      }
-    },
     "contao-manager-plugin": "ContaoBootstrap\\Form\\ContaoManager\\Plugin"
   }
 }
