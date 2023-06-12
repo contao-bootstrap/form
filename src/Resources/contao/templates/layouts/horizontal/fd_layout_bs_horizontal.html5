@@ -4,7 +4,7 @@
     <?= $this->layout->renderLabel($this->widget) ?>
     <?php $this->endblock(); ?>
 
-    <div class="<?= $this->layout->getColumnClass((bool) !$this->widget->label) ?>">
+    <div<?php if ($this->layout instanceof \ContaoBootstrap\Form\FormLayout\HorizontalFormLayout): ?> class="<?= $this->layout->getColumnClass((bool) !$this->widget->label) ?>"<?php endif ?>>
         <?php $this->block('field'); ?>
         <?php $this->insert('fd_control_bs_input_group', $this->getData()) ?>
         <?php $this->endblock(); ?>

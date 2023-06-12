@@ -102,7 +102,7 @@ final class BootstrapFormLayoutFactory implements FormLayoutFactory
             }
 
             foreach ($this->sections as $section) {
-                if (! $widget[$section]) {
+                if (empty($widget[$section])) {
                     continue;
                 }
 

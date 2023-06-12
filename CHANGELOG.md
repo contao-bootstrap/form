@@ -2,6 +2,33 @@
 Changelog
 =========
 
+2.2.4
+------
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.2...2.2.3)
+
+### Improved
+
+ - Prevent error if a horizontal form layout templates is used with a wrong form layout ([#56](https://github.com/contao-bootstrap/form/issues/56))
+
+2.2.3
+-----
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.2...2.2.3)
+
+### Fixed
+
+ - Fix broken form layout customization
+
+2.2.2
+-----
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.1...2.2.2)
+
+### Fixed
+
+ - Fix another PHP 8 warning
+
 2.2.1
 -----
 
