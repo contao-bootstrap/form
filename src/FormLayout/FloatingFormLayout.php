@@ -14,7 +14,7 @@ final class FloatingFormLayout extends AbstractBootstrapFormLayout
     {
         $attributes = parent::getControlAttributes($widget);
         $type       = WidgetUtil::getType($widget);
-        $floating   = $this->widgetConfig[$type]['floating'] ?? false;
+        $floating   = (bool) ($this->widgetConfig[$type]['floating'] ?? false);
 
         if ($floating && ! $attributes->hasAttribute('placeholder')) {
             $attributes->setAttribute('placeholder', $widget->label);

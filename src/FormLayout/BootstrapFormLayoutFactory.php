@@ -38,17 +38,13 @@ final class BootstrapFormLayoutFactory implements FormLayoutFactory
     ) {
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public function supportedTypes(): array
     {
         return [self::LAYOUT_DEFAULT, self::LAYOUT_HORIZONTAL, self::LAYOUT_FLOATING];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    /** {@inheritDoc} */
     public function create(string $type, array $config): FormLayout
     {
         $config         = array_merge(['widgets' => []], $config);
