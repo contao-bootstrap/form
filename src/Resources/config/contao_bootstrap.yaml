@@ -85,9 +85,6 @@ contao_bootstrap:
             control: 'col-sm-9'
             offset: 'offset-sm-3'
           widgets:
-            captcha:
-              templates:
-                control: 'fd_control_captcha_bs_horizontal'
             checkbox:
               templates:
                 layout: 'fd_layout_bs_horizontal'

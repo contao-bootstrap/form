@@ -1,1 +1,0 @@
-<?php $this->extend('fd_control_captcha_bs_default') ?>
