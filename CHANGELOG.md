@@ -7,11 +7,24 @@ Changelog
 
 ### Changed
 
- - Change markup and classes for Bootstrap 5 support
+- Change markup and classes for Bootstrap 5 support
 
 ### Added
 
- - Floating form layout
+- Floating form layout
+
+2.2.5
+-----
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.4...2.2.5)
+
+### Fixed
+
+ - Fix compatibility with improved captcha
+
+### Deprecated
+
+ - Template fd_control_captcha_bs_horizontal is deprecated and not required anymore
 
 2.2.4
 ------

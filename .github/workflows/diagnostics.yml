@@ -1,4 +1,4 @@
-name: contao-bootrap-form
+name: Code Quality Diagnostics
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       matrix:
         include:
           - php: '8.1'
-            phpcq_install: 'install'
+            phpcq_install: 'update'
             phpcq_flags: ''
             composer_install: 'update --prefer-lowest'
           - php: '8.1'
