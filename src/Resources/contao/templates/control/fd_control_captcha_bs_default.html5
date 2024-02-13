@@ -7,7 +7,7 @@ $attributes->setAttribute('aria-describedby', 'captcha_text_' . $this->widget->i
 
 <input <?= $attributes ?>>
 <small id="captcha_text_<?= $this->widget->id ?>" class="captcha_text form-help-message form-text"><?= $this->widget->question ?></small>
-<input type="hidden" name="<?= $this->widget->name ?>_hash" value="<?= \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getHash($this->widget) ?>">
+<input type="hidden" name="<?= $this->widget->name ?>_hash<?= $this->widget->hasErrors() ? 1 + $this->widget->sum ** 2 : '' ?>" value="<?= $this->widget->hasErrors() ? \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getHash($this->widget) : '' ?>">
 
 <?php if (!$this->widget->hasErrors()): ?>
     <div style="display:none">
@@ -15,9 +15,6 @@ $attributes->setAttribute('aria-describedby', 'captcha_text_' . $this->widget->i
         <input type="text" name="<?= $this->widget->name ?>_name" id="ctrl_<?= $this->widget->id ?>_hp" value="">
     </div>
     <?php $this->block('script') ?>
-    <script>
-        document.getElementById('ctrl_<?= $this->widget->id ?>').parentNode.style.display = 'none';
-        document.getElementById('ctrl_<?= $this->widget->id ?>').value = '<?= \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getSum($this->widget) ?>';
-    </script>
+    <script src="<?= \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getAjaxUrl($this->widget) ?>" data-id="<?= $this->widget->id ?>" data-name="<?= $this->widget->name ?>" async></script>
     <?php $this->endblock() ?>
 <?php endif ?>

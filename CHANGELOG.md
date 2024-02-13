@@ -2,10 +2,23 @@
 Changelog
 =========
 
+2.2.5
+-----
+
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.4...2.2.5)
+
+### Fixed
+
+ - Fix compatibility with improved captcha
+
+### Deprecated
+
+ - Template fd_control_captcha_bs_horizontal is deprecated and not required anymore
+
 2.2.4
 ------
 
-[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.2...2.2.3)
+[Full Changelog](https://github.com/contao-bootstrap/form/compare/2.2.3...2.2.4)
 
 ### Improved
 

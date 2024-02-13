@@ -1,8 +1,1 @@
 <?php $this->extend('fd_control_captcha_bs_default') ?>
-
-<?php $this->block('script') ?>
-<script>
-    document.getElementById('ctrl_<?= $this->widget->id ?>').parentNode.parentNode.style.display = 'none';
-    document.getElementById('ctrl_<?= $this->widget->id ?>').value = '<?= \Netzmacht\Contao\FormDesigner\Util\WidgetUtil::getSum($this->widget) ?>';
-</script>
-<?php $this->endblock() ?>
