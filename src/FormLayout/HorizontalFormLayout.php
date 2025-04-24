@@ -7,7 +7,9 @@ namespace ContaoBootstrap\Form\FormLayout;
 use Contao\Widget;
 use ContaoBootstrap\Core\Environment;
 use Netzmacht\Html\Attributes;
+use Override;
 
+/** @psalm-suppress ClassMustBeFinal */
 class HorizontalFormLayout extends AbstractBootstrapFormLayout
 {
     /**
@@ -24,6 +26,7 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
         parent::__construct($environment, $widgetConfig, $fallbackConfig);
     }
 
+    #[Override]
     public function getContainerAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getContainerAttributes($widget);
@@ -32,6 +35,7 @@ class HorizontalFormLayout extends AbstractBootstrapFormLayout
         return $attributes;
     }
 
+    #[Override]
     public function getLabelAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getLabelAttributes($widget);

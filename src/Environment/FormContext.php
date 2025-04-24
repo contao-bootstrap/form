@@ -8,6 +8,7 @@ use ContaoBootstrap\Core\Environment\AbstractContext;
 use ContaoBootstrap\Core\Environment\ApplicationContext;
 use ContaoBootstrap\Core\Environment\Context;
 use ContaoBootstrap\Core\Environment\ThemeContext;
+use Override;
 
 final class FormContext extends AbstractContext
 {
@@ -25,6 +26,7 @@ final class FormContext extends AbstractContext
         return new self($formId);
     }
 
+    #[Override]
     public function supports(Context $context): bool
     {
         if ($context instanceof ApplicationContext) {
@@ -38,6 +40,7 @@ final class FormContext extends AbstractContext
         return $this->match($context);
     }
 
+    #[Override]
     public function toString(): string
     {
         return 'form:' . $this->formId;

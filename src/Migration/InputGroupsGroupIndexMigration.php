@@ -8,6 +8,7 @@ use Contao\CoreBundle\Migration\AbstractMigration;
 use Contao\CoreBundle\Migration\MigrationResult;
 use Contao\StringUtil;
 use Doctrine\DBAL\Connection;
+use Override;
 
 use function is_numeric;
 use function serialize;
@@ -18,6 +19,7 @@ final class InputGroupsGroupIndexMigration extends AbstractMigration
     {
     }
 
+    #[Override]
     public function shouldRun(): bool
     {
         $schemaManager = $this->connection->createSchemaManager();
@@ -37,6 +39,7 @@ final class InputGroupsGroupIndexMigration extends AbstractMigration
         return $affected > 0;
     }
 
+    #[Override]
     public function run(): MigrationResult
     {
         $result = $this->connection->fetchAllAssociative(
@@ -48,6 +51,7 @@ final class InputGroupsGroupIndexMigration extends AbstractMigration
 
             foreach (StringUtil::deserialize($row['bs_inputGroup'], true) as $key => $template) {
                 if (is_numeric($key)) {
+                    $key  = (int) $key;
                     $key += 1;
                 }
 

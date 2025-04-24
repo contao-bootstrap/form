@@ -2,6 +2,7 @@
 <psalm
         errorLevel="8"
         hideExternalErrors="true"
+        findUnusedCode="false"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="https://getpsalm.org/schema/config"
         xsi:schemaLocation="https://getpsalm.org/schema/config https://getpsalm.org/schema/config"
@@ -12,14 +13,6 @@
             <file name="src/ContaoBootstrapFormComponent.php"/>
         </ignoreFiles>
     </projectFiles>
-
-    <issueHandlers>
-        <UndefinedMagicPropertyFetch>
-            <errorLevel type="suppress">
-                <referencedProperty name="Contao\DataContainer::$currentPid"/>
-            </errorLevel>
-        </UndefinedMagicPropertyFetch>
-    </issueHandlers>
 
     <universalObjectCrates>
         <class name="Contao\Widget"/>

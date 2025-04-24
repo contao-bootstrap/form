@@ -9,6 +9,7 @@ use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Core\Util\ArrayUtil;
 use Netzmacht\Contao\FormDesigner\Factory\FormLayoutFactory;
 use Netzmacht\Contao\FormDesigner\Layout\FormLayout;
+use Override;
 
 use function array_merge;
 use function substr;
@@ -39,12 +40,14 @@ final class BootstrapFormLayoutFactory implements FormLayoutFactory
     }
 
     /** {@inheritDoc} */
+    #[Override]
     public function supportedTypes(): array
     {
         return [self::LAYOUT_DEFAULT, self::LAYOUT_HORIZONTAL, self::LAYOUT_FLOATING];
     }
 
     /** {@inheritDoc} */
+    #[Override]
     public function create(string $type, array $config): FormLayout
     {
         $config         = array_merge(['widgets' => []], $config);

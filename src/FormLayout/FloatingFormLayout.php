@@ -7,9 +7,11 @@ namespace ContaoBootstrap\Form\FormLayout;
 use Contao\Widget;
 use Netzmacht\Contao\FormDesigner\Util\WidgetUtil;
 use Netzmacht\Html\Attributes;
+use Override;
 
 final class FloatingFormLayout extends AbstractBootstrapFormLayout
 {
+    #[Override]
     public function getControlAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getControlAttributes($widget);

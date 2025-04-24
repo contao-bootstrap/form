@@ -10,6 +10,7 @@ use ContaoBootstrap\Form\Helper\InputGroupHelper;
 use Netzmacht\Contao\FormDesigner\Layout\AbstractFormLayout;
 use Netzmacht\Contao\FormDesigner\Util\WidgetUtil;
 use Netzmacht\Html\Attributes;
+use Override;
 
 use function array_key_exists;
 
@@ -33,6 +34,7 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
         $this->fallbackConfig = $fallbackConfig;
     }
 
+    #[Override]
     public function getContainerAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getContainerAttributes($widget);
@@ -46,6 +48,7 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
         return (string) $this->environment->getConfig()->get(['form', 'margin'], 'mb-3');
     }
 
+    #[Override]
     public function getControlAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getControlAttributes($widget);
@@ -95,10 +98,12 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
      * @param Widget $widget  Widget.
      * @param string $section Section.
      */
+    #[Override]
     protected function getTemplate(Widget $widget, string $section): string
     {
         $type = WidgetUtil::getType($widget);
 
+        /** @psalm-suppress RiskyTruthyFalsyComparison */
         if ($section === 'help' && empty($this->widgetConfig[$type]['help'])) {
             return '';
         }

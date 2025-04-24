@@ -8,7 +8,7 @@ Contao-Bootstrap Form Component
 [![Downloads](http://img.shields.io/packagist/dt/contao-bootstrap/form.svg?style=for-the-badge&label=Downloads)](http://packagist.org/packages/contao-bootstrap/form)
 
 
-This extension provides Bootstrap 4 form support for Contao CMS.
+This extension provides Bootstrap 5 form support for Contao CMS.
 
 Features
 --------
@@ -30,7 +30,7 @@ Requirements
 ------------
 
  - PHP ^8.1
- - Contao ^4.13 || ^5.0
+ - Contao ^4.13 || ^5.3
 
 Install
 -------
