@@ -5,27 +5,23 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Form\FormLayout;
 
 use Contao\Widget;
+use ContaoBootstrap\Core\Environment;
 use Netzmacht\Html\Attributes;
 
 class HorizontalFormLayout extends AbstractBootstrapFormLayout
 {
     /**
-     * Horizontal config.
-     *
-     * @var array<string,mixed>
-     */
-    private array $horizontalConfig;
-
-    /**
      * @param array<string,array<string,mixed>> $widgetConfig     Widget config map.
      * @param array<string,mixed>               $fallbackConfig   Control fallback config.
      * @param array<string,mixed>               $horizontalConfig Horizontal config.
      */
-    public function __construct(array $widgetConfig, array $fallbackConfig, array $horizontalConfig)
-    {
-        parent::__construct($widgetConfig, $fallbackConfig);
-
-        $this->horizontalConfig = $horizontalConfig;
+    public function __construct(
+        Environment $environment,
+        array $widgetConfig,
+        array $fallbackConfig,
+        private readonly array $horizontalConfig,
+    ) {
+        parent::__construct($environment, $widgetConfig, $fallbackConfig);
     }
 
     public function getContainerAttributes(Widget $widget): Attributes

@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class ContaoBootstrapFormExtension extends Extension
+final class ContaoBootstrapFormExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -18,7 +18,7 @@ class ContaoBootstrapFormExtension extends Extension
     {
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
+            new FileLocator(__DIR__ . '/../Resources/config'),
         );
 
         $loader->load('services.yml');

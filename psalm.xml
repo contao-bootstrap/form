@@ -8,7 +8,18 @@
 >
     <projectFiles>
         <directory name="src"/>
+        <ignoreFiles>
+            <file name="src/ContaoBootstrapFormComponent.php"/>
+        </ignoreFiles>
     </projectFiles>
+
+    <issueHandlers>
+        <UndefinedMagicPropertyFetch>
+            <errorLevel type="suppress">
+                <referencedProperty name="Contao\DataContainer::$currentPid"/>
+            </errorLevel>
+        </UndefinedMagicPropertyFetch>
+    </issueHandlers>
 
     <universalObjectCrates>
         <class name="Contao\Widget"/>

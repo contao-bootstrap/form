@@ -2,6 +2,18 @@
 Changelog
 =========
 
+=======
+3.0.0
+-----
+
+### Changed
+
+- Change markup and classes for Bootstrap 5 support
+
+### Added
+
+- Floating form layout
+
 2.2.5
 -----
 

@@ -7,3 +7,10 @@ services:
       - '%netzmacht.contao_form_designer.defaults%'
     tags:
       - { name: 'netzmacht.contao_form_designer.factory' }
+
+  contao.bootstrap.form.input_groups_migration:
+    class: ContaoBootstrap\Form\Migration\InputGroupsGroupIndexMigration
+    arguments:
+      - '@database_connection'
+    tags:
+      - {name: 'contao.migration'}

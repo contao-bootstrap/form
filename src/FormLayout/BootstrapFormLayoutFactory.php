@@ -14,26 +14,11 @@ use function array_merge;
 use function substr;
 use function ucfirst;
 
-class BootstrapFormLayoutFactory implements FormLayoutFactory
+final class BootstrapFormLayoutFactory implements FormLayoutFactory
 {
-    /**
-     * Bootstrap environment.
-     */
-    private Environment $environment;
-
-    /**
-     * Widget config.
-     *
-     * @var array<string,array<string,mixed>>
-     */
-    private array $widgetConfig;
-
-    /**
-     * Fallback config.
-     *
-     * @var array<string,mixed>
-     */
-    private array $fallbackConfig;
+    private const LAYOUT_DEFAULT    = 'bs_default';
+    private const LAYOUT_FLOATING   = 'bs_floating';
+    private const LAYOUT_HORIZONTAL = 'bs_horizontal';
 
     /**
      * Sections of the form.
@@ -46,41 +31,46 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
      * @param array<string,array<string,mixed>> $widgetConfig
      * @param array<string,mixed>               $fallbackConfig
      */
-    public function __construct(Environment $environment, array $widgetConfig, array $fallbackConfig)
-    {
-        $this->environment    = $environment;
-        $this->widgetConfig   = $widgetConfig;
-        $this->fallbackConfig = $fallbackConfig;
+    public function __construct(
+        private readonly Environment $environment,
+        private readonly array $widgetConfig,
+        private readonly array $fallbackConfig,
+    ) {
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public function supportedTypes(): array
     {
-        return ['bs_default', 'bs_horizontal'];
+        return [self::LAYOUT_DEFAULT, self::LAYOUT_HORIZONTAL, self::LAYOUT_FLOATING];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    /** {@inheritDoc} */
     public function create(string $type, array $config): FormLayout
     {
         $config         = array_merge(['widgets' => []], $config);
         $widgetConfig   = $this->buildWidgetConfig($type, $config);
         $fallbackConfig = $this->buildFallbackConfig($type, $config);
 
-        switch ($type) {
-            case 'bs_horizontal':
-                return new HorizontalFormLayout(
-                    $widgetConfig,
-                    $fallbackConfig,
-                    $this->buildHorizontalConfig($config)
-                );
+        return match ($type) {
+            self::LAYOUT_HORIZONTAL => new HorizontalFormLayout(
+                $this->environment,
+                $widgetConfig,
+                $fallbackConfig,
+                $this->buildHorizontalConfig($config),
+            ),
 
-            default:
-                return new DefaultFormLayout($widgetConfig, $fallbackConfig);
-        }
+            self::LAYOUT_FLOATING => new FloatingFormLayout(
+                $this->environment,
+                $widgetConfig,
+                $fallbackConfig,
+            ),
+
+            default => new DefaultFormLayout(
+                $this->environment,
+                $widgetConfig,
+                $fallbackConfig,
+            ),
+        };
     }
 
     /**
@@ -94,9 +84,9 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
     private function buildWidgetConfig(string $type, array $config): array
     {
         $type            = substr($type, 3);
-        $configKey       = 'form.layouts.' . $type . '.widgets';
+        $configKey       = ['form', 'layouts', $type, 'widgets'];
         $bootstrapConfig = $this->environment->getConfig();
-        $widgetConfig    = ArrayUtil::merge($this->widgetConfig, $bootstrapConfig->get('form.widgets'));
+        $widgetConfig    = ArrayUtil::merge($this->widgetConfig, $bootstrapConfig->get(['form', 'widgets']));
 
         if ($bootstrapConfig->has($configKey)) {
             $widgetConfig = ArrayUtil::merge($widgetConfig, $bootstrapConfig->get($configKey));
@@ -130,7 +120,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
     private function buildFallbackConfig(string $type, array $config): array
     {
         $type           = substr($type, 3);
-        $fallbackConfig = $this->environment->getConfig()->get('form.layouts.' . $type, []);
+        $fallbackConfig = $this->environment->getConfig()->get(['form', 'layouts', $type], []);
         $fallbackConfig = ArrayUtil::merge($this->fallbackConfig, $fallbackConfig);
 
         foreach ($this->sections as $section) {
@@ -155,7 +145,7 @@ class BootstrapFormLayoutFactory implements FormLayoutFactory
      */
     private function buildHorizontalConfig(array $config): array
     {
-        $horizontalConfig = $this->environment->getConfig()->get('form.layouts.horizontal.classes', []);
+        $horizontalConfig = $this->environment->getConfig()->get(['form', 'layouts', 'horizontal', 'classes'], []);
 
         foreach (['row', 'label', 'control', 'offset'] as $key) {
             if (empty($config['bs_' . $key])) {

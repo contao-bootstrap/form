@@ -9,11 +9,8 @@ use Contao\Widget;
 
 use function strlen;
 
-class InputGroupHelper
+final class InputGroupHelper
 {
-    public const TYPE_BUTTON = 'btn';
-    public const TYPE_ADDON  = 'addon';
-
     /**
      * After entries.
      *
@@ -56,7 +53,7 @@ class InputGroupHelper
     /**
      * Add after entry.
      *
-     * @param string $content Content of the add on.
+     * @param string $content Content of the addon.
      * @param bool   $text    If true, no input-group-text wrapper is added.
      *
      * @return $this
@@ -74,7 +71,7 @@ class InputGroupHelper
     /**
      * Add before entry.
      *
-     * @param string $content Content of the addo n.
+     * @param string $content Content of the addon.
      * @param bool   $text    If true, no input-group-text wrapper is added.
      *
      * @return $this

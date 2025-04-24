@@ -1,0 +1,14 @@
+{
+  "transifex": {
+    "project": "contao-bootstrap/contao-bootstrap",
+    "prefix": "form-",
+    "languages_cto": "src/Resources/contao/languages",
+    "languages_tx": ".tx",
+    "php-file-header": [
+      "Translations are managed automatically using Transifex. To create a new translation",
+      "or to help to maintain an existing one, please register at transifex.com.",
+      "",
+      "Last-updated: $$lastchanged$$"
+    ]
+  }
+}

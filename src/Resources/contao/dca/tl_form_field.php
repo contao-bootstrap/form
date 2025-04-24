@@ -8,7 +8,6 @@ $GLOBALS['TL_DCA']['tl_form_field']['config']['onload_callback'][] = [
     'adjustPalettes',
 ];
 
-
 // Subpalettes
 $GLOBALS['TL_DCA']['tl_form_field']['metasubpalettes']['bs_addInputGroup'] = ['bs_inputGroup'];
 
@@ -27,21 +26,20 @@ $GLOBALS['TL_DCA']['tl_form_field']['fields']['bs_addInputGroup'] = [
 $GLOBALS['TL_DCA']['tl_form_field']['fields']['bs_inputGroup'] = [
     'label'     => &$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup'],
     'exclude'   => true,
-    'inputType' => 'multiColumnWizard',
-    'eval'      => [
-        'tl_class'     => 'clr',
-        'columnFields' => [
-            'position' => [
-                'label'     => &$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_position'],
-                'inputType' => 'select',
-                'options'   => ['before', 'after'],
-                'eval'      => ['style' => 'width: 150px;'],
-            ],
-            'addon'    => [
-                'label'     => &$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_addon'],
-                'inputType' => 'text',
-                'eval'      => ['style' => 'width: 400px;'],
-            ],
+    'inputType' => 'group',
+    'palette'   => ['position', 'addon'],
+    'eval'      => ['tl_class' => 'clr'],
+    'fields'    => [
+        'position' => [
+            'label'     => &$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_position'],
+            'inputType' => 'select',
+            'options'   => ['before', 'after'],
+            'eval'      => ['tl_class' => 'w50'],
+        ],
+        'addon'    => [
+            'label'     => &$GLOBALS['TL_LANG']['tl_form_field']['bs_inputGroup_addon'],
+            'inputType' => 'text',
+            'eval'      => ['tl_class' => 'w50'],
         ],
     ],
     'sql'       => 'mediumblob NULL',

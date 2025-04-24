@@ -22,4 +22,4 @@ $GLOBALS['TL_LANG']['tl_form_layout']['bs_row']['0']            = 'Row-Klasse';
 $GLOBALS['TL_LANG']['tl_form_layout']['bs_row']['1']            = 'Legen Sie fest, welche Grid-Klasse für die Formularzeile (Row) benutzt werden soll. Der Standardwert ist <em>form-row</em>.';
 $GLOBALS['TL_LANG']['tl_form_layout']['types']['bs_default']    = 'Bootstrap Standard (vertikal)';
 $GLOBALS['TL_LANG']['tl_form_layout']['types']['bs_horizontal'] = 'Bootstrap Horizontal';
-
+$GLOBALS['TL_LANG']['tl_form_layout']['types']['bs_floating']   = 'Bootstrap Floating Labels';

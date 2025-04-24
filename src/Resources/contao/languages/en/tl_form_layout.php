@@ -12,6 +12,7 @@
 
 $GLOBALS['TL_LANG']['tl_form_layout']['types']['bs_default']    = 'Bootstrap default';
 $GLOBALS['TL_LANG']['tl_form_layout']['types']['bs_horizontal'] = 'Bootstrap horizontal';
+$GLOBALS['TL_LANG']['tl_form_layout']['types']['bs_floating']   = 'Bootstrap floating labels';
 
 $GLOBALS['TL_LANG']['tl_form_layout']['bs_grid_legend'] = 'Grid classes';
 

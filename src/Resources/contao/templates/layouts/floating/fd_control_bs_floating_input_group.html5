@@ -9,7 +9,10 @@
         <?php endif ?>
     <?php endforeach; ?>
     <?php endif; ?>
-    <?= $this->layout->renderControl($this->widget) ?>
+    <div class="form-floating">
+      <?= $this->layout->renderControl($this->widget) ?>
+      <?= $this->layout->renderLabel($this->widget) ?>
+    </div>
     <?php if ($inputGroup): ?>
     <?php foreach ($inputGroup->after() as $entry): ?>
         <?php if ($entry['text']): ?>

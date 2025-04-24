@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Form\FormLayout;
 
 use Contao\Widget;
+use ContaoBootstrap\Core\Environment;
 use ContaoBootstrap\Form\Helper\InputGroupHelper;
 use Netzmacht\Contao\FormDesigner\Layout\AbstractFormLayout;
 use Netzmacht\Contao\FormDesigner\Util\WidgetUtil;
@@ -25,7 +26,7 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
      * @param array<string,array<string,mixed>> $widgetConfig
      * @param array<string,mixed>               $fallbackConfig
      */
-    public function __construct(array $widgetConfig, array $fallbackConfig)
+    public function __construct(private readonly Environment $environment, array $widgetConfig, array $fallbackConfig)
     {
         parent::__construct($widgetConfig);
 
@@ -35,9 +36,14 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
     public function getContainerAttributes(Widget $widget): Attributes
     {
         $attributes = parent::getContainerAttributes($widget);
-        $attributes->addClass('form-group');
+        $attributes->addClass($this->getMargin());
 
         return $attributes;
+    }
+
+    public function getMargin(): string
+    {
+        return (string) $this->environment->getConfig()->get(['form', 'margin'], 'mb-3');
     }
 
     public function getControlAttributes(Widget $widget): Attributes
