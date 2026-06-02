@@ -11,6 +11,7 @@ use Netzmacht\Contao\FormDesigner\Listener\AbstractListener;
 
 final class DefaultFormLayoutListener extends AbstractListener
 {
+    /** @SuppressWarnings(PHPMD.UnusedFormalParameter) */
     #[AsHook('getPageLayout')]
     public function onGetPageLayout(PageModel $pageModel, LayoutModel $layoutModel): void
     {

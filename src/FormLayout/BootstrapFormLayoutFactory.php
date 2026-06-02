@@ -17,9 +17,9 @@ use function ucfirst;
 
 final class BootstrapFormLayoutFactory implements FormLayoutFactory
 {
-    private const string LAYOUT_DEFAULT    = 'bs_default';
-    private const string LAYOUT_FLOATING   = 'bs_floating';
-    private const string LAYOUT_HORIZONTAL = 'bs_horizontal';
+    private const LAYOUT_DEFAULT    = 'bs_default';
+    private const LAYOUT_FLOATING   = 'bs_floating';
+    private const LAYOUT_HORIZONTAL = 'bs_horizontal';
 
     /**
      * Sections of the form.
