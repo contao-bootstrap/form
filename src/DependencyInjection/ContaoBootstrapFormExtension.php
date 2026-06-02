@@ -23,7 +23,7 @@ final class ContaoBootstrapFormExtension extends Extension
             new FileLocator(__DIR__ . '/../Resources/config'),
         );
 
-        $loader->load('services.yml');
-        $loader->load('listeners.yml');
+        $loader->load('services.yaml');
+        $loader->load('listeners.yaml');
     }
 }
