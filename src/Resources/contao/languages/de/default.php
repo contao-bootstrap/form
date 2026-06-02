@@ -1,11 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Contao Bootstrap form.
  *
- * @package    contao-bootstrap
- * @author     David Molineus <david.molineus@netzmacht.de>
- * @copyright  2017-2019 netzmacht David Molineus. All rights reserved.
  * @filesource
  */
 

@@ -55,14 +55,15 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
         $type       = WidgetUtil::getType($widget);
 
         if (
-            ! isset($this->widgetConfig[$type])
+            $type === null
+            || ! isset($this->widgetConfig[$type])
             || ! array_key_exists('form_control', $this->widgetConfig[$type])
             || $this->widgetConfig[$type]['form_control']
         ) {
             $attributes->addClass('form-control');
         }
 
-        if (! $widget->controlClass && isset($this->widgetConfig[$type]['control_class'])) {
+        if ($type !== null && ! $widget->controlClass && isset($this->widgetConfig[$type]['control_class'])) {
             $attributes->addClass($this->widgetConfig[$type]['control_class']);
         }
 
@@ -85,7 +86,7 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
     {
         $type = WidgetUtil::getType($widget);
 
-        if (isset($this->widgetConfig[$type]['input_group']) && $widget->bs_addInputGroup) {
+        if ($type !== null && isset($this->widgetConfig[$type]['input_group']) && $widget->bs_addInputGroup) {
             return InputGroupHelper::forWidget($widget);
         }
 
@@ -102,14 +103,15 @@ abstract class AbstractBootstrapFormLayout extends AbstractFormLayout
     protected function getTemplate(Widget $widget, string $section): string
     {
         $type = WidgetUtil::getType($widget);
+        if ($type !== null) {
+            /** @psalm-suppress RiskyTruthyFalsyComparison */
+            if ($section === 'help' && empty($this->widgetConfig[$type]['help'])) {
+                return '';
+            }
 
-        /** @psalm-suppress RiskyTruthyFalsyComparison */
-        if ($section === 'help' && empty($this->widgetConfig[$type]['help'])) {
-            return '';
-        }
-
-        if (isset($this->widgetConfig[$type]['templates'][$section])) {
-            return $this->widgetConfig[$type]['templates'][$section];
+            if (isset($this->widgetConfig[$type]['templates'][$section])) {
+                return $this->widgetConfig[$type]['templates'][$section];
+            }
         }
 
         if (isset($this->fallbackConfig['templates'][$section])) {

@@ -1,14 +1,13 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Translations are managed using Transifex. To create a new translation
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
  * @link https://www.transifex.com/projects/p/contao-bootstrap/language/de/
- *
- * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
- *
- * last-updated: 2018-01-05T13:58:34+00:00
  */
 
 $GLOBALS['TL_LANG']['FFL']['button']['0']                             = 'Schaltfläche';
@@ -43,4 +42,3 @@ $GLOBALS['TL_LANG']['tl_form_field']['icon_legend']                   = 'Icon';
 $GLOBALS['TL_LANG']['tl_form_field']['left']                          = 'links';
 $GLOBALS['TL_LANG']['tl_form_field']['right']                         = 'rechts';
 $GLOBALS['TL_LANG']['tl_form_field']['unit_legend']                   = 'Einheit';
-
