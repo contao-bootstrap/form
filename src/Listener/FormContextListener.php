@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ContaoBootstrap\Form\Listener;
 
 use Contao\ContentModel;
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\Model;
 use Contao\ModuleModel;
 use ContaoBootstrap\Core\Environment;
@@ -17,7 +17,7 @@ final class FormContextListener
     {
     }
 
-    /** @Hook("isVisibleElement") */
+    #[AsHook('isVisibleElement')]
     public function onIsVisibleElement(Model $element, bool $isVisible): bool
     {
         if (! $element instanceof ModuleModel && ! $element instanceof ContentModel) {
@@ -34,7 +34,7 @@ final class FormContextListener
         return true;
     }
 
-    /** @Hook("getContentElement") */
+    #[AsHook('getContentElement')]
     public function onGetContentElement(ContentModel $contentModel, string $buffer): string
     {
         if ($contentModel->type !== 'form') {
@@ -47,7 +47,7 @@ final class FormContextListener
         return $buffer;
     }
 
-    /** @Hook("getFrontendModule") */
+    #[AsHook('getFrontendModule')]
     public function onGetFrontendModule(ModuleModel $moduleModel, string $buffer): string
     {
         if ($moduleModel->type !== 'form') {

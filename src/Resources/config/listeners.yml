@@ -1,6 +1,7 @@
 services:
   _defaults:
     public: true
+    autoconfigure: true
 
   contao_bootstrap.form.listener.form_field_dca:
     class: ContaoBootstrap\Form\Listener\FormFieldDcaListener
