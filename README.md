@@ -29,8 +29,8 @@ See [changelog](CHANGELOG.md)
 Requirements
 ------------
 
- - PHP ^8.1
- - Contao ^4.13 || ^5.3
+ - PHP ^8.2
+ - Contao ^5.3
 
 Install
 -------
